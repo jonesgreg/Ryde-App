@@ -1,0 +1,6 @@
+framework module Pods_riderappUITests {
+  umbrella header "Pods-riderappUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

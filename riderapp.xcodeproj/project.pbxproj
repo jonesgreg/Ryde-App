@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D65F2D022C1636F0044D89C /* Loading_Animation.json */; };
+		0DCB80F622C1A82800D14133 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCB80F522C1A82800D14133 /* Lottie.framework */; };
 		0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5922B83646008A5D6A /* AppDelegate.swift */; };
 		0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5B22B83646008A5D6A /* ViewController.swift */; };
 		0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF16F5D22B83646008A5D6A /* Main.storyboard */; };
@@ -16,7 +17,9 @@
 		0DF16F6722B83647008A5D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF16F6522B83647008A5D6A /* LaunchScreen.storyboard */; };
 		0DF16F7222B83647008A5D6A /* riderappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F7122B83647008A5D6A /* riderappTests.swift */; };
 		0DF16F7D22B83647008A5D6A /* riderappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F7C22B83647008A5D6A /* riderappUITests.swift */; };
+		3A822D957A1BE1DFAED18435 /* Pods_riderappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49181D86E771BE63FB79AF30 /* Pods_riderappTests.framework */; };
 		DF3ECDC8CBB448CA60F9BEAE /* Pods_riderapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACAC4C022385338BA539B /* Pods_riderapp.framework */; };
+		EEF357A71A2E0C36336FC1A2 /* Pods_riderappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D999E5B4A8EFD4B01C334FEC /* Pods_riderappUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		0D65F2D022C1636F0044D89C /* Loading_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading_Animation.json; sourceTree = "<group>"; };
+		0DCB80F522C1A82800D14133 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = "Pods/lottie-ios/Lottie.framework"; sourceTree = "<group>"; };
 		0DF16F5622B83646008A5D6A /* riderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F5922B83646008A5D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DF16F5B22B83646008A5D6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,9 +56,15 @@
 		0DF16F7822B83647008A5D6A /* riderappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = riderappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F7C22B83647008A5D6A /* riderappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riderappUITests.swift; sourceTree = "<group>"; };
 		0DF16F7E22B83647008A5D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2002852A72C3025D3B5A84FD /* Pods-riderappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riderappUITests.release.xcconfig"; path = "Target Support Files/Pods-riderappUITests/Pods-riderappUITests.release.xcconfig"; sourceTree = "<group>"; };
 		314ACAC4C022385338BA539B /* Pods_riderapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riderapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49181D86E771BE63FB79AF30 /* Pods_riderappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riderappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83150609853A030E36C9EE0F /* Pods-riderapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riderapp.debug.xcconfig"; path = "Target Support Files/Pods-riderapp/Pods-riderapp.debug.xcconfig"; sourceTree = "<group>"; };
+		84CC4C276AE1F3B48C3D0F8D /* Pods-riderappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riderappUITests.debug.xcconfig"; path = "Target Support Files/Pods-riderappUITests/Pods-riderappUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		905104A160EEFAA8B4F588C4 /* Pods-riderappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riderappTests.release.xcconfig"; path = "Target Support Files/Pods-riderappTests/Pods-riderappTests.release.xcconfig"; sourceTree = "<group>"; };
 		9669571AF0DF845C3A676CF4 /* Pods-riderapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riderapp.release.xcconfig"; path = "Target Support Files/Pods-riderapp/Pods-riderapp.release.xcconfig"; sourceTree = "<group>"; };
+		B0CA12E85496384533CEA8C3 /* Pods-riderappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riderappTests.debug.xcconfig"; path = "Target Support Files/Pods-riderappTests/Pods-riderappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D999E5B4A8EFD4B01C334FEC /* Pods_riderappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riderappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF3ECDC8CBB448CA60F9BEAE /* Pods_riderapp.framework in Frameworks */,
+				0DCB80F622C1A82800D14133 /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A822D957A1BE1DFAED18435 /* Pods_riderappTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEF357A71A2E0C36336FC1A2 /* Pods_riderappUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +178,10 @@
 		388D4DB8CD439F4B767C1195 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DCB80F522C1A82800D14133 /* Lottie.framework */,
 				314ACAC4C022385338BA539B /* Pods_riderapp.framework */,
+				49181D86E771BE63FB79AF30 /* Pods_riderappTests.framework */,
+				D999E5B4A8EFD4B01C334FEC /* Pods_riderappUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,6 +191,10 @@
 			children = (
 				83150609853A030E36C9EE0F /* Pods-riderapp.debug.xcconfig */,
 				9669571AF0DF845C3A676CF4 /* Pods-riderapp.release.xcconfig */,
+				B0CA12E85496384533CEA8C3 /* Pods-riderappTests.debug.xcconfig */,
+				905104A160EEFAA8B4F588C4 /* Pods-riderappTests.release.xcconfig */,
+				84CC4C276AE1F3B48C3D0F8D /* Pods-riderappUITests.debug.xcconfig */,
+				2002852A72C3025D3B5A84FD /* Pods-riderappUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -205,6 +225,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DF16F8422B83647008A5D6A /* Build configuration list for PBXNativeTarget "riderappTests" */;
 			buildPhases = (
+				D01D0B1B997BB793F192A274 /* [CP] Check Pods Manifest.lock */,
 				0DF16F6922B83647008A5D6A /* Sources */,
 				0DF16F6A22B83647008A5D6A /* Frameworks */,
 				0DF16F6B22B83647008A5D6A /* Resources */,
@@ -223,6 +244,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DF16F8722B83647008A5D6A /* Build configuration list for PBXNativeTarget "riderappUITests" */;
 			buildPhases = (
+				76154E0CAC2612E6B435AA30 /* [CP] Check Pods Manifest.lock */,
 				0DF16F7422B83647008A5D6A /* Sources */,
 				0DF16F7522B83647008A5D6A /* Frameworks */,
 				0DF16F7622B83647008A5D6A /* Resources */,
@@ -309,6 +331,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		76154E0CAC2612E6B435AA30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-riderappUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8F3E2540A10C66FEAC40739E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,6 +391,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-riderapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D01D0B1B997BB793F192A274 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-riderappTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -540,6 +606,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PLVE3LACR9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/lottie-ios",
+				);
 				INFOPLIST_FILE = riderapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -559,6 +629,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PLVE3LACR9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/lottie-ios",
+				);
 				INFOPLIST_FILE = riderapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -573,6 +647,7 @@
 		};
 		0DF16F8522B83647008A5D6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0CA12E85496384533CEA8C3 /* Pods-riderappTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -594,6 +669,7 @@
 		};
 		0DF16F8622B83647008A5D6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 905104A160EEFAA8B4F588C4 /* Pods-riderappTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -615,6 +691,7 @@
 		};
 		0DF16F8822B83647008A5D6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84CC4C276AE1F3B48C3D0F8D /* Pods-riderappUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -635,6 +712,7 @@
 		};
 		0DF16F8922B83647008A5D6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2002852A72C3025D3B5A84FD /* Pods-riderappUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
