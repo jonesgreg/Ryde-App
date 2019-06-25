@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D65F2D022C1636F0044D89C /* Loading_Animation.json */; };
+		0DB60C9D22C27A210066BA14 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB60C9C22C27A210066BA14 /* WelcomeScreenViewController.swift */; };
+		0DB60C9F22C27A6D0066BA14 /* car_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DB60C9E22C27A6D0066BA14 /* car_animation.json */; };
 		0DCB80F622C1A82800D14133 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCB80F522C1A82800D14133 /* Lottie.framework */; };
 		0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5922B83646008A5D6A /* AppDelegate.swift */; };
 		0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5B22B83646008A5D6A /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		0D65F2D022C1636F0044D89C /* Loading_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading_Animation.json; sourceTree = "<group>"; };
+		0DB60C9C22C27A210066BA14 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
+		0DB60C9E22C27A6D0066BA14 /* car_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = car_animation.json; path = ../../../../../../Downloads/car_animation.json; sourceTree = "<group>"; };
 		0DCB80F522C1A82800D14133 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = "Pods/lottie-ios/Lottie.framework"; sourceTree = "<group>"; };
 		0DF16F5622B83646008A5D6A /* riderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F5922B83646008A5D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF16F5B22B83646008A5D6A /* ViewController.swift */,
+				0DB60C9C22C27A210066BA14 /* WelcomeScreenViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 		0D65F2CF22C163650044D89C /* Json Files */ = {
 			isa = PBXGroup;
 			children = (
+				0DB60C9E22C27A6D0066BA14 /* car_animation.json */,
 				0D65F2D022C1636F0044D89C /* Loading_Animation.json */,
 			);
 			path = "Json Files";
@@ -310,6 +316,7 @@
 				0DF16F6722B83647008A5D6A /* LaunchScreen.storyboard in Resources */,
 				0DF16F6422B83647008A5D6A /* Assets.xcassets in Resources */,
 				0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */,
+				0DB60C9F22C27A6D0066BA14 /* car_animation.json in Resources */,
 				0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */,
+				0DB60C9D22C27A210066BA14 /* WelcomeScreenViewController.swift in Sources */,
 				0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */,
 				0DF16F6222B83646008A5D6A /* riderapp.xcdatamodeld in Sources */,
 			);
