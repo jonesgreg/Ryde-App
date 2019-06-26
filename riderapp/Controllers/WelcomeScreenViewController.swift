@@ -7,29 +7,116 @@
 //
 
 import UIKit
-import Lottie
+
 class WelcomeScreenViewController: UIViewController {
+    
+    
+    /* Profile Image */
+    
+   private let profileImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Profile"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    /* Text Description */
+    
+   private let descriptionTextView: UITextView =  {
+        let textView = UITextView()
+        
+        let attributedText = NSMutableAttributedString(string: "Create an account", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:24) as Any, NSAttributedString.Key.foregroundColor:UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha:1)])
+    
+        attributedText.append(NSAttributedString(string: "\n\n\nAll you need is a valid school email address and a valid phone number. You can request a ride by downloading the app, go to the App store.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+        
+        textView.attributedText = attributedText
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.textAlignment = .center
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        
+        return textView
+    }()
+    
+    /* Ride Now Button */
+   private let rideNowButton: UIButton = {
+        let button = UIButton()
+        button.layer.borderWidth = 1
+        button.layer.borderColor = Colors.darkOrange.cgColor
+        button.backgroundColor = Colors.darkOrange
+        button.setTitle("Ryde Now", for: .normal)
+        button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 15
+        button.translatesAutoresizingMaskIntoConstraints = false
+       
+        return button
+        
+    }()
+    
+    
+    /* Page Control */
+    private let pageControl: UIPageControl = {
+        let pc = UIPageControl()
+        pc.currentPage = 0
+        pc.numberOfPages = 6
+        pc.currentPageIndicatorTintColor = Colors.darkOrange
+        pc.pageIndicatorTintColor = UIColor.lightGray
+        return pc
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(animationView)
-        //setupLayout()
+        //here's our entry point into our app
+        view.addSubview(profileImageView)
+        view.addSubview(descriptionTextView)
+        view.addSubview(rideNowButton)
+        setupBottomControls()
+        //Change background color of the view controller
+        view.backgroundColor = .init(red: 248/250, green: 248/250, blue: 248/250, alpha:1)
+        setupLayout()
+        
+        
+       
     }
     
-    let animationView: AnimationView = {
-        let animation = AnimationView(name: "car_animation")
-        animation.loopMode = .loop
-        animation.play()
-        animation.translatesAutoresizingMaskIntoConstraints = false
-        return animation
-    }()
-    
-    func setupLayout() {
-        animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
-        animationView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        animationView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+    fileprivate func setupBottomControls() {
+       let bottomControlsStackView = UIStackView(arrangedSubviews: [pageControl])
+        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomControlsStackView.distribution = .fillEqually
+        view.addSubview(bottomControlsStackView)
+        
+        bottomControlsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        bottomControlsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+        bottomControlsStackView.bottomAnchor.constraint(equalTo: rideNowButton.topAnchor, constant: -55).isActive = true
+        
+   
+        
         
     }
+    
+     fileprivate func setupLayout() {
+       /* Profile Image Layout */
+        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant:150).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    
+        /* Description Text View Layout */
+        descriptionTextView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 30).isActive = true
+        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+    
+       /* Button Layout  */
+        rideNowButton.leadingAnchor.constraint(equalTo: descriptionTextView.leadingAnchor, constant: 8.0).isActive = true
+        rideNowButton.trailingAnchor.constraint(equalTo: descriptionTextView.trailingAnchor, constant: -8.0).isActive = true
+        rideNowButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: -100).isActive = true
+        rideNowButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+    
+      }
+    
+    
     
 }
