@@ -24,9 +24,9 @@ class WelcomeScreenViewController: UIViewController {
    private let descriptionTextView: UITextView =  {
         let textView = UITextView()
         
-        let attributedText = NSMutableAttributedString(string: "Create an account", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:24) as Any, NSAttributedString.Key.foregroundColor:UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha:1)])
+        let attributedText = NSMutableAttributedString(string: "Create an account", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:22) as Any, NSAttributedString.Key.foregroundColor:UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha:1)])
     
-        attributedText.append(NSAttributedString(string: "\n\n\nAll you need is a valid school email address and a valid phone number. You can request a ride by downloading the app, go to the App store.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+        attributedText.append(NSAttributedString(string: "\n\nAll you need is a valid school email address and a valid phone number. You can request a ride by downloading the app, go to the App store.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 14) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
         
         textView.attributedText = attributedText
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +61,7 @@ class WelcomeScreenViewController: UIViewController {
         pc.numberOfPages = 6
         pc.currentPageIndicatorTintColor = Colors.darkOrange
         pc.pageIndicatorTintColor = UIColor.lightGray
+       
         return pc
     }()
     
@@ -85,10 +86,9 @@ class WelcomeScreenViewController: UIViewController {
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
         view.addSubview(bottomControlsStackView)
-        
         bottomControlsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         bottomControlsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-        bottomControlsStackView.bottomAnchor.constraint(equalTo: rideNowButton.topAnchor, constant: -55).isActive = true
+        bottomControlsStackView.bottomAnchor.constraint(equalTo: rideNowButton.topAnchor, constant: -20).isActive = true
         
    
         
@@ -98,22 +98,26 @@ class WelcomeScreenViewController: UIViewController {
      fileprivate func setupLayout() {
        /* Profile Image Layout */
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant:150).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant:120).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
     
-        /* Description Text View Layout */
-        descriptionTextView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 30).isActive = true
-        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
-        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-    
-       /* Button Layout  */
-        rideNowButton.leadingAnchor.constraint(equalTo: descriptionTextView.leadingAnchor, constant: 8.0).isActive = true
-        rideNowButton.trailingAnchor.constraint(equalTo: descriptionTextView.trailingAnchor, constant: -8.0).isActive = true
-        rideNowButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: -100).isActive = true
-        rideNowButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        
+        /* Description Text View Layout */
+        descriptionTextView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 5).isActive = true
+        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+       
+    
+        /* Button Layout  */
+        // rideNowButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: -80).isActive = true
+        rideNowButton.bottomAnchor.constraint(equalTo:descriptionTextView.bottomAnchor, constant: -35).isActive = true
+        rideNowButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        rideNowButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        rideNowButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+ 
     
       }
     
