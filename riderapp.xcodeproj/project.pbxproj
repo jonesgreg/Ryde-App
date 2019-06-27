@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D65F2D022C1636F0044D89C /* Loading_Animation.json */; };
-		0DB60C9D22C27A210066BA14 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB60C9C22C27A210066BA14 /* WelcomeScreenViewController.swift */; };
 		0DB60C9F22C27A6D0066BA14 /* car_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DB60C9E22C27A6D0066BA14 /* car_animation.json */; };
 		0DC7086822C3D1F200E0E710 /* ColorAndFontConstrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7086722C3D1F200E0E710 /* ColorAndFontConstrants.swift */; };
 		0DC708B722C3DED700E0E710 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DC708A722C3DED600E0E710 /* Montserrat-Regular.ttf */; };
@@ -38,6 +37,8 @@
 		0DF16F6722B83647008A5D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF16F6522B83647008A5D6A /* LaunchScreen.storyboard */; };
 		0DF16F7222B83647008A5D6A /* riderappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F7122B83647008A5D6A /* riderappTests.swift */; };
 		0DF16F7D22B83647008A5D6A /* riderappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F7C22B83647008A5D6A /* riderappUITests.swift */; };
+		0DFCEA4B22C512F800691D0A /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCEA4A22C512F800691D0A /* Page.swift */; };
+		0DFCEA5022C54E8500691D0A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCEA4F22C54E8500691D0A /* SignInViewController.swift */; };
 		3A822D957A1BE1DFAED18435 /* Pods_riderappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49181D86E771BE63FB79AF30 /* Pods_riderappTests.framework */; };
 		DF3ECDC8CBB448CA60F9BEAE /* Pods_riderapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACAC4C022385338BA539B /* Pods_riderapp.framework */; };
 		EEF357A71A2E0C36336FC1A2 /* Pods_riderappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D999E5B4A8EFD4B01C334FEC /* Pods_riderappUITests.framework */; };
@@ -62,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		0D65F2D022C1636F0044D89C /* Loading_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading_Animation.json; sourceTree = "<group>"; };
-		0DB60C9C22C27A210066BA14 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		0DB60C9E22C27A6D0066BA14 /* car_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = car_animation.json; path = ../../../../../../Downloads/car_animation.json; sourceTree = "<group>"; };
 		0DC7086722C3D1F200E0E710 /* ColorAndFontConstrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAndFontConstrants.swift; sourceTree = "<group>"; };
 		0DC7089422C3DE4700E0E710 /* MontserratAlternates-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Black.ttf"; sourceTree = "<group>"; };
@@ -116,6 +116,8 @@
 		0DF16F7822B83647008A5D6A /* riderappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = riderappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F7C22B83647008A5D6A /* riderappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riderappUITests.swift; sourceTree = "<group>"; };
 		0DF16F7E22B83647008A5D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DFCEA4A22C512F800691D0A /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		0DFCEA4F22C54E8500691D0A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2002852A72C3025D3B5A84FD /* Pods-riderappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riderappUITests.release.xcconfig"; path = "Target Support Files/Pods-riderappUITests/Pods-riderappUITests.release.xcconfig"; sourceTree = "<group>"; };
 		314ACAC4C022385338BA539B /* Pods_riderapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riderapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49181D86E771BE63FB79AF30 /* Pods_riderappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riderappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,9 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				0DF16F5B22B83646008A5D6A /* ViewController.swift */,
-				0DB60C9C22C27A210066BA14 /* WelcomeScreenViewController.swift */,
-				0DC708CD22C4510400E0E710 /* PageCell.swift */,
 				0DC708CF22C4514000E0E710 /* SwipingController.swift */,
+				0DFCEA4F22C54E8500691D0A /* SignInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,6 +280,7 @@
 				0D65F2CF22C163650044D89C /* Json Files */,
 				0D65F2CE22C161430044D89C /* UI Storyboards */,
 				0DC7086922C3D23E00E0E710 /* Custom Fonts */,
+				0DFCEA4C22C54DBD00691D0A /* Classes */,
 				0D65F2CD22C1612C0044D89C /* Controllers */,
 				0DF16F6322B83647008A5D6A /* Assets.xcassets */,
 				0DF16F5922B83646008A5D6A /* AppDelegate.swift */,
@@ -304,6 +306,15 @@
 				0DF16F7E22B83647008A5D6A /* Info.plist */,
 			);
 			path = riderappUITests;
+			sourceTree = "<group>";
+		};
+		0DFCEA4C22C54DBD00691D0A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0DFCEA4A22C512F800691D0A /* Page.swift */,
+				0DC708CD22C4510400E0E710 /* PageCell.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		388D4DB8CD439F4B767C1195 /* Frameworks */ = {
@@ -575,9 +586,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */,
-				0DB60C9D22C27A210066BA14 /* WelcomeScreenViewController.swift in Sources */,
+				0DFCEA4B22C512F800691D0A /* Page.swift in Sources */,
 				0DC708D022C4514000E0E710 /* SwipingController.swift in Sources */,
 				0DC708CE22C4510400E0E710 /* PageCell.swift in Sources */,
+				0DFCEA5022C54E8500691D0A /* SignInViewController.swift in Sources */,
 				0DC7086822C3D1F200E0E710 /* ColorAndFontConstrants.swift in Sources */,
 				0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */,
 				0DF16F6222B83646008A5D6A /* riderapp.xcdatamodeld in Sources */,

@@ -41,54 +41,54 @@
             </objects>
             <point key="canvasLocation" x="1949.2753623188407" y="20.758928571428569"/>
         </scene>
-        <!--Welcome Screen View Controller-->
-        <scene sceneID="4fG-4U-1ZQ">
-            <objects>
-                <viewController storyboardIdentifier="WelcomeScreen" id="7XD-HA-PNs" customClass="WelcomeScreenViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RrS-Hg-Isp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="uTQ-D6-BL3"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PH6-1M-7yG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2718.840579710145" y="20.758928571428569"/>
-        </scene>
         <!--Swiping Controller-->
-        <scene sceneID="cxc-7i-Pd4">
+        <scene sceneID="gqD-lf-lyH">
             <objects>
-                <collectionViewController storyboardIdentifier="SwipingScreens" id="Dwf-R7-71R" customClass="SwipingController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sYg-QC-kkk">
+                <collectionViewController storyboardIdentifier="SwipingScreens" id="iRj-b6-Gbu" customClass="SwipingController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" id="sB0-5e-EC7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IUf-69-Lcy">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ls7-n2-aD2">
+                            <size key="itemSize" width="411" height="754"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="tbD-KC-fQK" customClass="PageCell" customModule="riderapp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellId" id="rc2-Tz-PQ4" customClass="PageCell" customModule="riderapp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="71" width="411" height="754"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="411" height="754"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="Dwf-R7-71R" id="orM-O9-f5P"/>
-                            <outlet property="delegate" destination="Dwf-R7-71R" id="MBs-mO-Gjc"/>
+                            <outlet property="dataSource" destination="iRj-b6-Gbu" id="CXZ-jL-l5G"/>
+                            <outlet property="delegate" destination="iRj-b6-Gbu" id="Qeg-6l-o3y"/>
                         </connections>
                     </collectionView>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rmh-16-K9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6m-8L-GsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3543" y="21"/>
+            <point key="canvasLocation" x="2762" y="21"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="BzE-Xl-k97">
+            <objects>
+                <viewController storyboardIdentifier="SignIn" id="W12-JN-wRq" customClass="SignInViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jCT-UH-Snc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iy3-cJ-IeR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CM9-3y-2Y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3587" y="21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QNm-vv-oMZ">
