@@ -43,7 +43,7 @@ class ViewController: UIViewController {
    
     func switchScreen() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { // Delay the time to push to the next view controller by 7 seconds
-            let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeScreen")
+            let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "SwipingScreens")
             self.show(nextViewController!, sender: nil)
         }
     }

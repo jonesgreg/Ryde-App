@@ -27,6 +27,8 @@
 		0DC708C422C3DED700E0E710 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DC708B422C3DED700E0E710 /* Montserrat-ExtraBoldItalic.ttf */; };
 		0DC708C522C3DED700E0E710 /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DC708B522C3DED700E0E710 /* Montserrat-BlackItalic.ttf */; };
 		0DC708C622C3DED700E0E710 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DC708B622C3DED700E0E710 /* Montserrat-ExtraBold.ttf */; };
+		0DC708CE22C4510400E0E710 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC708CD22C4510400E0E710 /* PageCell.swift */; };
+		0DC708D022C4514000E0E710 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC708CF22C4514000E0E710 /* SwipingController.swift */; };
 		0DCB80F622C1A82800D14133 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCB80F522C1A82800D14133 /* Lottie.framework */; };
 		0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5922B83646008A5D6A /* AppDelegate.swift */; };
 		0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5B22B83646008A5D6A /* ViewController.swift */; };
@@ -97,6 +99,8 @@
 		0DC708B422C3DED700E0E710 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-ExtraBoldItalic.ttf"; path = "../../../../../../../Downloads/Montserrat/Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		0DC708B522C3DED700E0E710 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-BlackItalic.ttf"; path = "../../../../../../../Downloads/Montserrat/Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		0DC708B622C3DED700E0E710 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-ExtraBold.ttf"; path = "../../../../../../../Downloads/Montserrat/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		0DC708CD22C4510400E0E710 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		0DC708CF22C4514000E0E710 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		0DCB80F522C1A82800D14133 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = "Pods/lottie-ios/Lottie.framework"; sourceTree = "<group>"; };
 		0DF16F5622B83646008A5D6A /* riderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F5922B83646008A5D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 			children = (
 				0DF16F5B22B83646008A5D6A /* ViewController.swift */,
 				0DB60C9C22C27A210066BA14 /* WelcomeScreenViewController.swift */,
+				0DC708CD22C4510400E0E710 /* PageCell.swift */,
+				0DC708CF22C4514000E0E710 /* SwipingController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -570,6 +576,8 @@
 			files = (
 				0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */,
 				0DB60C9D22C27A210066BA14 /* WelcomeScreenViewController.swift in Sources */,
+				0DC708D022C4514000E0E710 /* SwipingController.swift in Sources */,
+				0DC708CE22C4510400E0E710 /* PageCell.swift in Sources */,
 				0DC7086822C3D1F200E0E710 /* ColorAndFontConstrants.swift in Sources */,
 				0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */,
 				0DF16F6222B83646008A5D6A /* riderapp.xcdatamodeld in Sources */,

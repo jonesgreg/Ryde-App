@@ -61,7 +61,6 @@ class WelcomeScreenViewController: UIViewController {
         pc.numberOfPages = 6
         pc.currentPageIndicatorTintColor = Colors.darkOrange
         pc.pageIndicatorTintColor = UIColor.lightGray
-       
         return pc
     }()
     
@@ -81,7 +80,7 @@ class WelcomeScreenViewController: UIViewController {
        
     }
     
-    fileprivate func setupBottomControls() {
+       private func setupBottomControls() {
        let bottomControlsStackView = UIStackView(arrangedSubviews: [pageControl])
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
@@ -90,20 +89,16 @@ class WelcomeScreenViewController: UIViewController {
         bottomControlsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         bottomControlsStackView.bottomAnchor.constraint(equalTo: rideNowButton.topAnchor, constant: -20).isActive = true
         
-   
-        
-        
-    }
+   }
     
-     fileprivate func setupLayout() {
-       /* Profile Image Layout */
+     private func setupLayout() {
+       
+        /* Profile Image Layout */
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant:120).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
     
-        
-        
         /* Description Text View Layout */
         descriptionTextView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 5).isActive = true
         descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
