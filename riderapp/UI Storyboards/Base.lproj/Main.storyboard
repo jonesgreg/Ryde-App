@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIText.ttf">
+            <string>.SFUIText</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -63,6 +68,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="411" height="754"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -76,19 +82,32 @@
             <point key="canvasLocation" x="2762" y="21"/>
         </scene>
         <!--Sign In View Controller-->
-        <scene sceneID="BzE-Xl-k97">
+        <scene sceneID="sXP-PU-k4B">
             <objects>
-                <viewController storyboardIdentifier="SignIn" id="W12-JN-wRq" customClass="SignInViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jCT-UH-Snc">
+                <viewController storyboardIdentifier="SignIn" id="ZbF-kk-Rw8" customClass="SignInViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cxu-D7-bsx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="iy3-cJ-IeR"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your phone number?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYF-Ix-9KI">
+                                <rect key="frame" x="52" y="114" width="311" height="25.5"/>
+                                <fontDescription key="fontDescription" name=".SFUIText" family=".SF UI Text" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xGv-3B-Jlv" firstAttribute="trailing" secondItem="iYF-Ix-9KI" secondAttribute="trailing" constant="51" id="1IR-SM-7SM"/>
+                            <constraint firstItem="iYF-Ix-9KI" firstAttribute="leading" secondItem="xGv-3B-Jlv" secondAttribute="leading" constant="52" id="R2s-9p-GFS"/>
+                            <constraint firstItem="iYF-Ix-9KI" firstAttribute="top" secondItem="xGv-3B-Jlv" secondAttribute="top" constant="70" id="lVq-X6-JXO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xGv-3B-Jlv"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CM9-3y-2Y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WND-aG-JHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3587" y="21"/>
+            <point key="canvasLocation" x="3504.347826086957" y="24.107142857142858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QNm-vv-oMZ">

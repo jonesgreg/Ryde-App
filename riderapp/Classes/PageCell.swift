@@ -19,7 +19,7 @@ class PageCell: UICollectionViewCell {
             
             let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:20) as Any, NSAttributedString.Key.foregroundColor:UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha:1)])
         
-            attributedText.append(NSAttributedString(string: "\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+            attributedText.append(NSAttributedString(string: "\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 14) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
             
                 descriptionTextView.attributedText = attributedText
                 descriptionTextView.textAlignment = .center
@@ -28,8 +28,9 @@ class PageCell: UICollectionViewCell {
     }
     
    private let profileImageView: UIImageView = {
-    let imageView = UIImageView(image:#imageLiteral(resourceName: "Profile"))
+    let imageView = UIImageView(image:#imageLiteral(resourceName: "profile"))
     imageView.translatesAutoresizingMaskIntoConstraints = false
+
     return imageView
     }()
     
@@ -59,10 +60,12 @@ class PageCell: UICollectionViewCell {
     private func setupLayout() {
        
         addSubview(profileImageView)
+        profileImageView.contentMode = .scaleAspectFill
+     
         profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant:130).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 130).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant:130).isActive = true
         
        
         addSubview(descriptionTextView)

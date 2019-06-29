@@ -13,12 +13,12 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     
         let pages = [
-            Page(imageName: "Profile", headerText: "Create an account", bodyText: "All you need is a valid school email address and a valid phone number. You can request a ride by downloading the app, go to the App Store."),
-            Page(imageName: "EnterDestination", headerText: "Enter Destination", bodyText: "Open the app and enter where you are going in the where to search bar. Tap to confirm your pickup location and tap request ride to match with a driver.Passengers are restricted to pick up and drop off locations."),
-            Page(imageName: "trackdriver", headerText: "Meet your driver", bodyText: "You can track their arrival on the map. When they're a few minutes away, wait for them at your pickup location."),
+            Page(imageName: "profile", headerText: "Create an account", bodyText: "All you need is a valid school email address and a valid phone number. You can request a ride by downloading the app, go to the App Store."),
+            Page(imageName: "enterdestination", headerText: "Enter Destination", bodyText: "Open the app and enter where you are going in the where to search bar. Tap to confirm your pickup location and tap request ride to match with a driver.Passengers are restricted to pick up and drop off locations."),
+            Page(imageName: "meetdriver", headerText: "Meet your driver", bodyText: "You can track their arrival on the map. When they're a few minutes away, wait for them at your pickup location."),
             Page(imageName: "checkride", headerText: "Check ride", bodyText: "Every time you take a trip with Ryde, please make sure you're getting in the right vehicle with the proper driver by checking to see if the car is registered at your University with a school logo, a tag number, and driver photo with what's provided in your app."),
-            Page(imageName: "Payment", headerText: "Enjoy your trip", bodyText: "Your trip is free. There is no cash or credit card required for your trip."),
-            Page(imageName: "Rate", headerText: "Rate your trip", bodyText: "Let us know how your trip went. We take feedback critical, and we want you to enjoy using this service. ")
+            Page(imageName: "payment", headerText: "Enjoy your trip", bodyText: "Your trip is free. There is no cash or credit card required for your trip."),
+            Page(imageName: "rate", headerText: "Rate your trip", bodyText: "Let us know how your trip went. We take feedback critical, and we want you to enjoy using this service. ")
     
     ]
     
