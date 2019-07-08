@@ -1,16 +1,20 @@
 PODS:
-  - lottie-ios (3.1.0)
+  - lottie-ios (3.1.1)
+  - NKVPhonePicker (2.1.0)
 
 DEPENDENCIES:
   - lottie-ios
+  - NKVPhonePicker
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - lottie-ios
+    - NKVPhonePicker
 
 SPEC CHECKSUMS:
-  lottie-ios: 9467723922dfff46f6d4e3019c32594a62440b7c
+  lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
+  NKVPhonePicker: 28ea127fb6a9c380e34dc1c56d38afc6fa09f143
 
-PODFILE CHECKSUM: a8f30cb0efba0db0be6e6ef2559c7a7f0c0c8b33
+PODFILE CHECKSUM: dec6e5b66e899677ae93d64036246bba6bafbd6e
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.6.0

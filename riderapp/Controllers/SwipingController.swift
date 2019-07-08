@@ -85,6 +85,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView?.backgroundColor = .white
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
         collectionView?.isPagingEnabled = true
+        customNavigationBar()
         
     }
     /* This allows you to scroll your views
@@ -125,6 +126,18 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
+    
+    func customNavigationBar() {
+        /* Customizing the navigation bar */
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.navigationItem.backBarButtonItem?.title = ""
+     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
+
     
 }
 

@@ -19,8 +19,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(animationView)
         setupLayout()
-        hideNavigationBar()
         switchScreen()
+        customNavigationBar()
        
     }
    
@@ -48,11 +48,16 @@ class ViewController: UIViewController {
         }
     }
     
- 
-   func hideNavigationBar() {
-      self.navigationController?.setNavigationBarHidden(true, animated: true)
-  }
-
+    func customNavigationBar() {
+        /* Customizing the navigation bar */
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+  
     
 
 

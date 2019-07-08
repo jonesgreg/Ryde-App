@@ -5,8 +5,9 @@ target 'riderapp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'lottie-ios'
-
-
+  pod 'NKVPhonePicker'
+    
+ 
   # Pods for riderapp
 
   target 'riderappTests' do
