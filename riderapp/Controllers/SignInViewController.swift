@@ -122,12 +122,14 @@ class SignInViewController: UIViewController {
    
     }
   
-    func customNavigationBar() {
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+   func customNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
     }
+    
+  
     
      @objc func keyboardWillShow(notification: NSNotification) {
         let userInfo: NSDictionary = notification.userInfo! as NSDictionary

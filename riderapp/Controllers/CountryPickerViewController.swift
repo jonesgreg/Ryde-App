@@ -17,6 +17,8 @@ class CountryPickerViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         downloadJsonLocalFile()
         setupTableView()
+       // configureNavigationBar()
+       
         
     }
     
@@ -41,7 +43,23 @@ class CountryPickerViewController: UIViewController, UISearchBarDelegate {
         tableView.dataSource = self
         tableView.delegate = self
     }
-}
+    
+    func configureNavigationBar() {
+        navigationController?.navigationBar.barTintColor = .darkGray
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.title = "Select a country"
+        navigationController?.navigationBar.barStyle = .black
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "clear").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleDismiss))
+        
+    }
+    
+    @objc func handleDismiss() {
+        dismiss(animated: true, completion: nil)
+            
+        }
+    }
+   
+
 
 extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegate {
     
