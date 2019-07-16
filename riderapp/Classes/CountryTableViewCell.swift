@@ -9,13 +9,10 @@
 import UIKit
 
 class CountryTableViewCell: UITableViewCell {
-   
-   
-    @IBOutlet var flagImage: UIImageView!
     
     @IBOutlet var countryName: UILabel!
-    
     @IBOutlet var dialLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

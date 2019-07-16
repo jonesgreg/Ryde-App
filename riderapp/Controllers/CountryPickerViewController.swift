@@ -7,38 +7,55 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CountryPickerViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet var tableView: UITableView!
-    var listOfCountries = [Country]()
    
-   
+    var listOfCountries = [String:Country]()
+    
+    
+    
+
+    
+    
+    
     override func viewDidLoad() {
         downloadJsonLocalFile()
         setupTableView()
        // configureNavigationBar()
-       
+        
         
     }
     
     private func downloadJsonLocalFile() {
         do {
-        guard let url = Bundle.main.url(forResource:"countries", withExtension: "json") else { return }
-        
+            guard let url = Bundle.main.url(forResource:"Countries_data", withExtension: "json") else { return }
+       
             let data = try Data(contentsOf: url)
-            let country = try JSONDecoder().decode([Country].self, from: data)
-            self.listOfCountries = country
-            DispatchQueue.main.async {
+            let country = try JSONDecoder().decode(Initial.self, from: data)
+           self.listOfCountries = country.countries
+            print(country)
+          
+            
+        DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-      }
+            
+        }
         catch let jsonError {
             print("Error serializing json:", jsonError)
+            
         }
         
     }
     
+        
+    
+
+    
+   
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -68,26 +85,32 @@ extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegat
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listOfCountries.count;
+      return listOfCountries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CountryTableViewCell else { return UITableViewCell() }
-            let country: Country
-                country = listOfCountries[indexPath.row]
         
-                cell.countryName.text = country.name
-                cell.dialLabel.text = country.dial_code
+        var sortedKeys = Array(listOfCountries.keys).sorted()
         
-                let imageString = country.code
-                let imagePath = "CountryPicker.bundle/\(imageString).png"
-                cell.flagImage.image = UIImage(named: imagePath)
-                return cell
+        let currentkey = sortedKeys[indexPath.row]
+        let currentIndexKey: Country = listOfCountries[currentkey] as! Country
         
+        
+        cell.countryName.text = currentIndexKey.name
+        cell.dialLabel.text = currentIndexKey.phone
+    
+    
+        
+        
+         return cell
+        }
     }
+        
+
     
    
     
     
     
-}
+

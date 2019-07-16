@@ -1,20 +1,22 @@
 PODS:
   - lottie-ios (3.1.1)
-  - NKVPhonePicker (2.1.0)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
 
 DEPENDENCIES:
   - lottie-ios
-  - NKVPhonePicker
+  - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - lottie-ios
-    - NKVPhonePicker
+    - SDWebImage
 
 SPEC CHECKSUMS:
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
-  NKVPhonePicker: 28ea127fb6a9c380e34dc1c56d38afc6fa09f143
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: dec6e5b66e899677ae93d64036246bba6bafbd6e
+PODFILE CHECKSUM: 8f9549edc98ca95d5fd317184d2718e01c4dd91b
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.7.4

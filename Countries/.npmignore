@@ -1,0 +1,13 @@
+coverage/
+data/
+.idea
+.editorconfig
+.eslintrc.json
+.gitignore
+.travis.yml
+bower.json
+composer.*
+gulpfile.js
+index.tpl.d.ts
+package-lock.json
+yarn.lock

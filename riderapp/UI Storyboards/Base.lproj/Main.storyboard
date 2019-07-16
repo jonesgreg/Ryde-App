@@ -126,17 +126,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6EC-tH-Xhm">
-                                                    <rect key="frame" x="57" y="12" width="104.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="14"/>
+                                                    <rect key="frame" x="57" y="12" width="89.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="12"/>
                                                     <color key="textColor" red="0.1647058824" green="0.18039215689999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-PD-3F1">
-                                                    <rect key="frame" x="15" y="7" width="26" height="26"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfe-qe-rN0">
-                                                    <rect key="frame" x="304" y="11" width="39" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="14"/>
+                                                    <rect key="frame" x="188" y="13" width="33.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="12"/>
                                                     <color key="textColor" red="0.1647058824" green="0.18039215689999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -144,22 +141,17 @@
                                             <constraints>
                                                 <constraint firstItem="6EC-tH-Xhm" firstAttribute="top" secondItem="DDJ-nq-Bpd" secondAttribute="top" constant="12" id="18d-wC-hRv"/>
                                                 <constraint firstItem="6EC-tH-Xhm" firstAttribute="leading" secondItem="DDJ-nq-Bpd" secondAttribute="leading" constant="57" id="7sp-yu-ZZi"/>
-                                                <constraint firstAttribute="bottom" secondItem="bsb-PD-3F1" secondAttribute="bottom" constant="10.5" id="BUa-aa-3ya"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6EC-tH-Xhm" secondAttribute="trailing" constant="20" symbolic="YES" id="KOE-aZ-b6V"/>
-                                                <constraint firstItem="bsb-PD-3F1" firstAttribute="top" secondItem="DDJ-nq-Bpd" secondAttribute="top" constant="7" id="WL7-p9-3QH"/>
                                                 <constraint firstItem="jfe-qe-rN0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DDJ-nq-Bpd" secondAttribute="leading" constant="20" symbolic="YES" id="bkf-Bf-kDN"/>
-                                                <constraint firstItem="jfe-qe-rN0" firstAttribute="top" secondItem="DDJ-nq-Bpd" secondAttribute="top" constant="11" id="dQz-9c-BiW"/>
-                                                <constraint firstItem="bsb-PD-3F1" firstAttribute="leading" secondItem="DDJ-nq-Bpd" secondAttribute="leading" constant="15" id="n36-x3-9sN"/>
-                                                <constraint firstItem="6EC-tH-Xhm" firstAttribute="leading" secondItem="bsb-PD-3F1" secondAttribute="trailing" constant="16" id="r6c-99-CVK"/>
+                                                <constraint firstItem="jfe-qe-rN0" firstAttribute="top" secondItem="DDJ-nq-Bpd" secondAttribute="top" constant="13" id="dQz-9c-BiW"/>
                                                 <constraint firstAttribute="bottom" secondItem="6EC-tH-Xhm" secondAttribute="bottom" constant="12" id="rQO-3k-IDt"/>
-                                                <constraint firstAttribute="trailing" secondItem="jfe-qe-rN0" secondAttribute="trailing" constant="32" id="wbM-bt-pnJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="jfe-qe-rN0" secondAttribute="bottom" constant="14.5" id="xQE-8J-Mjt"/>
+                                                <constraint firstAttribute="trailing" secondItem="jfe-qe-rN0" secondAttribute="trailing" constant="153.5" id="wbM-bt-pnJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="jfe-qe-rN0" secondAttribute="bottom" constant="12.5" id="xQE-8J-Mjt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="countryName" destination="6EC-tH-Xhm" id="Nel-Mf-4Ot"/>
                                             <outlet property="dialLabel" destination="jfe-qe-rN0" id="pd7-Ly-tuI"/>
-                                            <outlet property="flagImage" destination="bsb-PD-3F1" id="Is8-FS-LYh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

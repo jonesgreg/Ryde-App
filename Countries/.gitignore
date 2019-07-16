@@ -1,0 +1,10 @@
+# IDE
+.idea
+*.lock
+
+coverage
+
+composer.phar
+
+# Dependency directory
+node_modules

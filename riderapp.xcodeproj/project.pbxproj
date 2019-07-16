@@ -3,17 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0D488A2522D39CAB001039F2 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D488A2422D39CAB001039F2 /* CountryPickerViewController.swift */; };
-		0D488A2722D39D73001039F2 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D488A2622D39D72001039F2 /* countries.json */; };
 		0D488A2922D3A0D0001039F2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D488A2822D3A0D0001039F2 /* Country.swift */; };
 		0D488A2B22D3AEE0001039F2 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D488A2A22D3AEE0001039F2 /* CountryTableViewCell.swift */; };
-		0D488A2D22D3B7AA001039F2 /* CountryPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D488A2C22D3B7AA001039F2 /* CountryPicker.bundle */; };
 		0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D65F2D022C1636F0044D89C /* Loading_Animation.json */; };
-		0D68362A22CAC1700004FF59 /* Car_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D68362922CAC1700004FF59 /* Car_Animation.json */; };
 		0D68364122CAC2210004FF59 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363022CAC2200004FF59 /* Montserrat-LightItalic.ttf */; };
 		0D68364222CAC2210004FF59 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */; };
 		0D68364322CAC2210004FF59 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363222CAC2200004FF59 /* Montserrat-Black.ttf */; };
@@ -32,10 +29,12 @@
 		0D68365022CAC2210004FF59 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363F22CAC2210004FF59 /* Montserrat-Bold.ttf */; };
 		0D68365122CAC2210004FF59 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68364022CAC2210004FF59 /* Montserrat-ThinItalic.ttf */; };
 		0D6A666722C993A1007AA976 /* VerifyNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A666622C993A1007AA976 /* VerifyNumberViewController.swift */; };
+		0DC313E822D90BAB0016847D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC313E722D90BAB0016847D /* placeholder.png */; };
 		0DC7086822C3D1F200E0E710 /* ColorAndFontConstrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7086722C3D1F200E0E710 /* ColorAndFontConstrants.swift */; };
 		0DC708CE22C4510400E0E710 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC708CD22C4510400E0E710 /* PageCell.swift */; };
 		0DC708D022C4514000E0E710 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC708CF22C4514000E0E710 /* SwipingController.swift */; };
 		0DCB80F622C1A82800D14133 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCB80F522C1A82800D14133 /* Lottie.framework */; };
+		0DF13B1B22DB8C42007ED9F8 /* Countries_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DF13B1A22DB8C41007ED9F8 /* Countries_data.json */; };
 		0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5922B83646008A5D6A /* AppDelegate.swift */; };
 		0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5B22B83646008A5D6A /* ViewController.swift */; };
 		0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF16F5D22B83646008A5D6A /* Main.storyboard */; };
@@ -70,12 +69,9 @@
 
 /* Begin PBXFileReference section */
 		0D488A2422D39CAB001039F2 /* CountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerViewController.swift; sourceTree = "<group>"; };
-		0D488A2622D39D72001039F2 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		0D488A2822D3A0D0001039F2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		0D488A2A22D3AEE0001039F2 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
-		0D488A2C22D3B7AA001039F2 /* CountryPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CountryPicker.bundle; sourceTree = "<group>"; };
 		0D65F2D022C1636F0044D89C /* Loading_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading_Animation.json; sourceTree = "<group>"; };
-		0D68362922CAC1700004FF59 /* Car_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Car_Animation.json; sourceTree = "<group>"; };
 		0D68363022CAC2200004FF59 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-LightItalic.ttf"; path = "riderapp/Custom Fonts/Montserrat-LightItalic.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "riderapp/Custom Fonts/Montserrat-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68363222CAC2200004FF59 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Black.ttf"; path = "riderapp/Custom Fonts/Montserrat-Black.ttf"; sourceTree = SOURCE_ROOT; };
@@ -94,10 +90,12 @@
 		0D68363F22CAC2210004FF59 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "riderapp/Custom Fonts/Montserrat-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68364022CAC2210004FF59 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-ThinItalic.ttf"; path = "riderapp/Custom Fonts/Montserrat-ThinItalic.ttf"; sourceTree = SOURCE_ROOT; };
 		0D6A666622C993A1007AA976 /* VerifyNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyNumberViewController.swift; sourceTree = "<group>"; };
+		0DC313E722D90BAB0016847D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Controllers/placeholder.png; sourceTree = "<group>"; };
 		0DC7086722C3D1F200E0E710 /* ColorAndFontConstrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAndFontConstrants.swift; sourceTree = "<group>"; };
 		0DC708CD22C4510400E0E710 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		0DC708CF22C4514000E0E710 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		0DCB80F522C1A82800D14133 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = "Pods/lottie-ios/Lottie.framework"; sourceTree = "<group>"; };
+		0DF13B1A22DB8C41007ED9F8 /* Countries_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Countries_data.json; path = Countries/dist/Countries_data.json; sourceTree = SOURCE_ROOT; };
 		0DF16F5622B83646008A5D6A /* riderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F5922B83646008A5D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DF16F5B22B83646008A5D6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,10 +176,8 @@
 		0D65F2CF22C163650044D89C /* Json Files */ = {
 			isa = PBXGroup;
 			children = (
-				0D68362922CAC1700004FF59 /* Car_Animation.json */,
-				0D488A2622D39D72001039F2 /* countries.json */,
+				0DF13B1A22DB8C41007ED9F8 /* Countries_data.json */,
 				0D65F2D022C1636F0044D89C /* Loading_Animation.json */,
-				0D488A2C22D3B7AA001039F2 /* CountryPicker.bundle */,
 			);
 			path = "Json Files";
 			sourceTree = "<group>";
@@ -251,6 +247,7 @@
 		0DF16F5822B83646008A5D6A /* riderapp */ = {
 			isa = PBXGroup;
 			children = (
+				0DC313E722D90BAB0016847D /* placeholder.png */,
 				0DC7086622C3D1D200E0E710 /* Design Constrants */,
 				0D65F2CF22C163650044D89C /* Json Files */,
 				0D65F2CE22C161430044D89C /* UI Storyboards */,
@@ -434,7 +431,9 @@
 				0D68364C22CAC2210004FF59 /* Montserrat-Medium.ttf in Resources */,
 				0D68364E22CAC2210004FF59 /* Montserrat-Italic.ttf in Resources */,
 				0D68364A22CAC2210004FF59 /* Montserrat-ExtraLight.ttf in Resources */,
+				0DC313E822D90BAB0016847D /* placeholder.png in Resources */,
 				0D68364B22CAC2210004FF59 /* Montserrat-BlackItalic.ttf in Resources */,
+				0DF13B1B22DB8C42007ED9F8 /* Countries_data.json in Resources */,
 				0D68364322CAC2210004FF59 /* Montserrat-Black.ttf in Resources */,
 				0D68364F22CAC2210004FF59 /* Montserrat-MediumItalic.ttf in Resources */,
 				0D68364922CAC2210004FF59 /* Montserrat-ExtraBold.ttf in Resources */,
@@ -445,11 +444,8 @@
 				0D68365122CAC2210004FF59 /* Montserrat-ThinItalic.ttf in Resources */,
 				0D68364122CAC2210004FF59 /* Montserrat-LightItalic.ttf in Resources */,
 				0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */,
-				0D68362A22CAC1700004FF59 /* Car_Animation.json in Resources */,
 				0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */,
 				0D68365022CAC2210004FF59 /* Montserrat-Bold.ttf in Resources */,
-				0D488A2D22D3B7AA001039F2 /* CountryPicker.bundle in Resources */,
-				0D488A2722D39D73001039F2 /* countries.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,18 +494,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-riderapp/Pods-riderapp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/NKVPhonePicker/NKVPhonePicker.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-riderapp/Pods-riderapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NKVPhonePicker.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-riderapp/Pods-riderapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

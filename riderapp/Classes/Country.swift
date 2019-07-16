@@ -8,14 +8,51 @@
 
 import Foundation
 
-struct Country: Decodable {
-    let name: String
-    let dial_code: String
-    let code: String
+struct Initial: Decodable {
+    var countries: [String: Country]
     
-    init(code: String, dial_code: String, name: String) {
-       self.code = code
-       self.dial_code = dial_code
-       self.name = name
+    init(countries:[String: Country]) {
+        self.countries = countries
     }
 }
+
+struct Country: Decodable {
+    var name: String?
+    var phone: String?
+    var emoji: String?
+    
+    init(name: String, phone: String, emoji: String) {
+        self.name = name
+        self.phone = phone
+        self.emoji = emoji
+    }
+    
+    
+}
+
+
+
+
+    
+    
+    
+
+
+
+
+   
+    
+
+    
+
+
+
+
+   
+
+
+
+
+
+
+
