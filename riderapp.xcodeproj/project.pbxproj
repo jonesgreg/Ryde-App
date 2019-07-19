@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D488A2522D39CAB001039F2 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D488A2422D39CAB001039F2 /* CountryPickerViewController.swift */; };
 		0D488A2922D3A0D0001039F2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D488A2822D3A0D0001039F2 /* Country.swift */; };
-		0D488A2B22D3AEE0001039F2 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D488A2A22D3AEE0001039F2 /* CountryTableViewCell.swift */; };
 		0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D65F2D022C1636F0044D89C /* Loading_Animation.json */; };
 		0D68364122CAC2210004FF59 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363022CAC2200004FF59 /* Montserrat-LightItalic.ttf */; };
 		0D68364222CAC2210004FF59 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */; };
@@ -29,12 +27,18 @@
 		0D68365022CAC2210004FF59 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363F22CAC2210004FF59 /* Montserrat-Bold.ttf */; };
 		0D68365122CAC2210004FF59 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68364022CAC2210004FF59 /* Montserrat-ThinItalic.ttf */; };
 		0D6A666722C993A1007AA976 /* VerifyNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A666622C993A1007AA976 /* VerifyNumberViewController.swift */; };
-		0DC313E822D90BAB0016847D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC313E722D90BAB0016847D /* placeholder.png */; };
+		0D9012C122DFB4FB007652E4 /* country-codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D9012C022DFB4FB007652E4 /* country-codes.json */; };
+		0D9012C322DFB5CF007652E4 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9012C222DFB5CF007652E4 /* Countries.swift */; };
+		0D9012C622DFB627007652E4 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9012C522DFB627007652E4 /* JSONReader.swift */; };
+		0D9012C822DFB6A1007652E4 /* View+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9012C722DFB6A1007652E4 /* View+Additions.swift */; };
+		0D9012CC22DFB789007652E4 /* CountryCodeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9012CB22DFB789007652E4 /* CountryCodeListCell.swift */; };
+		0D9012CE22DFBBCC007652E4 /* CountryCodeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9012CD22DFBBCC007652E4 /* CountryCodeListController.swift */; };
+		0D9012D022DFC06F007652E4 /* CountryCodeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9012CF22DFC06F007652E4 /* CountryCodeListCell.xib */; };
 		0DC7086822C3D1F200E0E710 /* ColorAndFontConstrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7086722C3D1F200E0E710 /* ColorAndFontConstrants.swift */; };
 		0DC708CE22C4510400E0E710 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC708CD22C4510400E0E710 /* PageCell.swift */; };
 		0DC708D022C4514000E0E710 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC708CF22C4514000E0E710 /* SwipingController.swift */; };
 		0DCB80F622C1A82800D14133 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCB80F522C1A82800D14133 /* Lottie.framework */; };
-		0DF13B1B22DB8C42007ED9F8 /* Countries_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DF13B1A22DB8C41007ED9F8 /* Countries_data.json */; };
+		0DEB100622E2206A004EFDF3 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEB100522E2206A004EFDF3 /* extensions.swift */; };
 		0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5922B83646008A5D6A /* AppDelegate.swift */; };
 		0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5B22B83646008A5D6A /* ViewController.swift */; };
 		0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF16F5D22B83646008A5D6A /* Main.storyboard */; };
@@ -68,9 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D488A2422D39CAB001039F2 /* CountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerViewController.swift; sourceTree = "<group>"; };
 		0D488A2822D3A0D0001039F2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		0D488A2A22D3AEE0001039F2 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		0D65F2D022C1636F0044D89C /* Loading_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading_Animation.json; sourceTree = "<group>"; };
 		0D68363022CAC2200004FF59 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-LightItalic.ttf"; path = "riderapp/Custom Fonts/Montserrat-LightItalic.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "riderapp/Custom Fonts/Montserrat-Light.ttf"; sourceTree = SOURCE_ROOT; };
@@ -90,12 +92,18 @@
 		0D68363F22CAC2210004FF59 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "riderapp/Custom Fonts/Montserrat-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68364022CAC2210004FF59 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-ThinItalic.ttf"; path = "riderapp/Custom Fonts/Montserrat-ThinItalic.ttf"; sourceTree = SOURCE_ROOT; };
 		0D6A666622C993A1007AA976 /* VerifyNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyNumberViewController.swift; sourceTree = "<group>"; };
-		0DC313E722D90BAB0016847D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Controllers/placeholder.png; sourceTree = "<group>"; };
+		0D9012C022DFB4FB007652E4 /* country-codes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "country-codes.json"; sourceTree = "<group>"; };
+		0D9012C222DFB5CF007652E4 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		0D9012C522DFB627007652E4 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
+		0D9012C722DFB6A1007652E4 /* View+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Additions.swift"; sourceTree = "<group>"; };
+		0D9012CB22DFB789007652E4 /* CountryCodeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeListCell.swift; sourceTree = "<group>"; };
+		0D9012CD22DFBBCC007652E4 /* CountryCodeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeListController.swift; sourceTree = "<group>"; };
+		0D9012CF22DFC06F007652E4 /* CountryCodeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CountryCodeListCell.xib; path = ../../../../../../Desktop/FirebasePhoneAuth/FirebasePhone/CountryList/CountryCodeListCell.xib; sourceTree = "<group>"; };
 		0DC7086722C3D1F200E0E710 /* ColorAndFontConstrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAndFontConstrants.swift; sourceTree = "<group>"; };
 		0DC708CD22C4510400E0E710 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		0DC708CF22C4514000E0E710 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		0DCB80F522C1A82800D14133 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = "Pods/lottie-ios/Lottie.framework"; sourceTree = "<group>"; };
-		0DF13B1A22DB8C41007ED9F8 /* Countries_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Countries_data.json; path = Countries/dist/Countries_data.json; sourceTree = SOURCE_ROOT; };
+		0DEB100522E2206A004EFDF3 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		0DF16F5622B83646008A5D6A /* riderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F5922B83646008A5D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DF16F5B22B83646008A5D6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,16 +160,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D65F2CD22C1612C0044D89C /* Controllers */ = {
+		0D65F2CD22C1612C0044D89C /* Welcome Screen */ = {
 			isa = PBXGroup;
 			children = (
 				0DF16F5B22B83646008A5D6A /* ViewController.swift */,
-				0D488A2422D39CAB001039F2 /* CountryPickerViewController.swift */,
 				0DC708CF22C4514000E0E710 /* SwipingController.swift */,
-				0DFCEA4F22C54E8500691D0A /* SignInViewController.swift */,
-				0D6A666622C993A1007AA976 /* VerifyNumberViewController.swift */,
 			);
-			path = Controllers;
+			path = "Welcome Screen";
 			sourceTree = "<group>";
 		};
 		0D65F2CE22C161430044D89C /* UI Storyboards */ = {
@@ -173,13 +178,13 @@
 			path = "UI Storyboards";
 			sourceTree = "<group>";
 		};
-		0D65F2CF22C163650044D89C /* Json Files */ = {
+		0D65F2CF22C163650044D89C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0DF13B1A22DB8C41007ED9F8 /* Countries_data.json */,
+				0D9012C022DFB4FB007652E4 /* country-codes.json */,
 				0D65F2D022C1636F0044D89C /* Loading_Animation.json */,
 			);
-			path = "Json Files";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		0D68362F22CAC1F60004FF59 /* Monsterrat-Fonts */ = {
@@ -206,10 +211,39 @@
 			path = "Monsterrat-Fonts";
 			sourceTree = "<group>";
 		};
+		0D9012C422DFB608007652E4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0D9012C522DFB627007652E4 /* JSONReader.swift */,
+				0D9012C722DFB6A1007652E4 /* View+Additions.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		0D9012C922DFB6DF007652E4 /* Sign In  */ = {
+			isa = PBXGroup;
+			children = (
+				0DFCEA4F22C54E8500691D0A /* SignInViewController.swift */,
+				0D6A666622C993A1007AA976 /* VerifyNumberViewController.swift */,
+			);
+			path = "Sign In ";
+			sourceTree = "<group>";
+		};
+		0D9012CA22DFB712007652E4 /* Country List */ = {
+			isa = PBXGroup;
+			children = (
+				0D9012CB22DFB789007652E4 /* CountryCodeListCell.swift */,
+				0D9012CD22DFBBCC007652E4 /* CountryCodeListController.swift */,
+				0D9012CF22DFC06F007652E4 /* CountryCodeListCell.xib */,
+			);
+			path = "Country List";
+			sourceTree = "<group>";
+		};
 		0DC7086622C3D1D200E0E710 /* Design Constrants */ = {
 			isa = PBXGroup;
 			children = (
 				0DC7086722C3D1F200E0E710 /* ColorAndFontConstrants.swift */,
+				0DEB100522E2206A004EFDF3 /* extensions.swift */,
 			);
 			path = "Design Constrants";
 			sourceTree = "<group>";
@@ -247,13 +281,15 @@
 		0DF16F5822B83646008A5D6A /* riderapp */ = {
 			isa = PBXGroup;
 			children = (
-				0DC313E722D90BAB0016847D /* placeholder.png */,
 				0DC7086622C3D1D200E0E710 /* Design Constrants */,
-				0D65F2CF22C163650044D89C /* Json Files */,
+				0D65F2CF22C163650044D89C /* Resources */,
 				0D65F2CE22C161430044D89C /* UI Storyboards */,
 				0DC7086922C3D23E00E0E710 /* Custom Fonts */,
-				0DFCEA4C22C54DBD00691D0A /* Classes */,
-				0D65F2CD22C1612C0044D89C /* Controllers */,
+				0DFCEA4C22C54DBD00691D0A /* Models */,
+				0D9012C422DFB608007652E4 /* Helper */,
+				0D65F2CD22C1612C0044D89C /* Welcome Screen */,
+				0D9012C922DFB6DF007652E4 /* Sign In  */,
+				0D9012CA22DFB712007652E4 /* Country List */,
 				0DF16F6322B83647008A5D6A /* Assets.xcassets */,
 				0DF16F5922B83646008A5D6A /* AppDelegate.swift */,
 				0DF16F6822B83647008A5D6A /* Info.plist */,
@@ -280,15 +316,15 @@
 			path = riderappUITests;
 			sourceTree = "<group>";
 		};
-		0DFCEA4C22C54DBD00691D0A /* Classes */ = {
+		0DFCEA4C22C54DBD00691D0A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				0DFCEA4A22C512F800691D0A /* Page.swift */,
 				0D488A2822D3A0D0001039F2 /* Country.swift */,
+				0D9012C222DFB5CF007652E4 /* Countries.swift */,
 				0DC708CD22C4510400E0E710 /* PageCell.swift */,
-				0D488A2A22D3AEE0001039F2 /* CountryTableViewCell.swift */,
 			);
-			path = Classes;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		388D4DB8CD439F4B767C1195 /* Frameworks */ = {
@@ -425,21 +461,21 @@
 			files = (
 				0D68364D22CAC2210004FF59 /* Montserrat-BoldItalic.ttf in Resources */,
 				0D68364422CAC2210004FF59 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				0D9012D022DFC06F007652E4 /* CountryCodeListCell.xib in Resources */,
 				0D68364622CAC2210004FF59 /* Montserrat-Regular.ttf in Resources */,
 				0D68364822CAC2210004FF59 /* Montserrat-ExtraLightItalic.ttf in Resources */,
 				0D68364222CAC2210004FF59 /* Montserrat-Light.ttf in Resources */,
 				0D68364C22CAC2210004FF59 /* Montserrat-Medium.ttf in Resources */,
 				0D68364E22CAC2210004FF59 /* Montserrat-Italic.ttf in Resources */,
 				0D68364A22CAC2210004FF59 /* Montserrat-ExtraLight.ttf in Resources */,
-				0DC313E822D90BAB0016847D /* placeholder.png in Resources */,
 				0D68364B22CAC2210004FF59 /* Montserrat-BlackItalic.ttf in Resources */,
-				0DF13B1B22DB8C42007ED9F8 /* Countries_data.json in Resources */,
 				0D68364322CAC2210004FF59 /* Montserrat-Black.ttf in Resources */,
 				0D68364F22CAC2210004FF59 /* Montserrat-MediumItalic.ttf in Resources */,
 				0D68364922CAC2210004FF59 /* Montserrat-ExtraBold.ttf in Resources */,
 				0DF16F6722B83647008A5D6A /* LaunchScreen.storyboard in Resources */,
 				0D68364522CAC2210004FF59 /* Montserrat-SemiBold.ttf in Resources */,
 				0D68364722CAC2210004FF59 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				0D9012C122DFB4FB007652E4 /* country-codes.json in Resources */,
 				0DF16F6422B83647008A5D6A /* Assets.xcassets in Resources */,
 				0D68365122CAC2210004FF59 /* Montserrat-ThinItalic.ttf in Resources */,
 				0D68364122CAC2210004FF59 /* Montserrat-LightItalic.ttf in Resources */,
@@ -556,17 +592,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D488A2B22D3AEE0001039F2 /* CountryTableViewCell.swift in Sources */,
 				0DF16F5C22B83646008A5D6A /* ViewController.swift in Sources */,
 				0DFCEA4B22C512F800691D0A /* Page.swift in Sources */,
+				0D9012CE22DFBBCC007652E4 /* CountryCodeListController.swift in Sources */,
 				0DC708D022C4514000E0E710 /* SwipingController.swift in Sources */,
+				0D9012CC22DFB789007652E4 /* CountryCodeListCell.swift in Sources */,
+				0D9012C622DFB627007652E4 /* JSONReader.swift in Sources */,
 				0DC708CE22C4510400E0E710 /* PageCell.swift in Sources */,
 				0DFCEA5022C54E8500691D0A /* SignInViewController.swift in Sources */,
+				0D9012C322DFB5CF007652E4 /* Countries.swift in Sources */,
 				0D6A666722C993A1007AA976 /* VerifyNumberViewController.swift in Sources */,
 				0DC7086822C3D1F200E0E710 /* ColorAndFontConstrants.swift in Sources */,
+				0DEB100622E2206A004EFDF3 /* extensions.swift in Sources */,
 				0D488A2922D3A0D0001039F2 /* Country.swift in Sources */,
-				0D488A2522D39CAB001039F2 /* CountryPickerViewController.swift in Sources */,
 				0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */,
+				0D9012C822DFB6A1007652E4 /* View+Additions.swift in Sources */,
 				0DF16F6222B83646008A5D6A /* riderapp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
