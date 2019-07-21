@@ -12,6 +12,7 @@ import UIKit
 protocol countryPickerProtocol: class {
     func didPickCountry(model: Country)
 }
+
 class CountryCodeListController: UIViewController {
     
     // MARK - table view
@@ -31,6 +32,7 @@ class CountryCodeListController: UIViewController {
     }()
     
     let countries: Countries
+    public weak var delegate: countryPickerProtocol?
     
     
     //Mark - Overriden function
@@ -83,10 +85,21 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
         return UITableView.automaticDimension
    
     }
-   
-   
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sectionKey = countries.sections[indexPath.section]
+        if let countries = countries.metaData[sectionKey] {
+            let country: Country = countries[indexPath.row]
+            self.delegate?.didPickCountry(model: country)
+
+        }
+        DispatchQueue.main.async {[weak self] in
+            self?.navigationController?.popViewController(animated: true)
+            
+        }
     }
+    
+}
 
     
     

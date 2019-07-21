@@ -17,7 +17,7 @@ class CountryCodeListCell: UITableViewCell {
         return "CountryCodeListCell"
     }
     public func feedCountry(info: Country) {
-        self.nameLabel.text = info.display_name_no_e164_cc
+        self.nameLabel.text = info.name
         self.codeLabel.text = info.e164_cc
         self.flagLabel.text = info.flag
     }
