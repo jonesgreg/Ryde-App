@@ -6,8 +6,7 @@ target 'riderapp' do
   use_frameworks!
   pod 'lottie-ios'
   pod 'CountryList'
-  pod 'Anchors'
-
+  
   # Pods for riderapp
 
   target 'riderappTests' do

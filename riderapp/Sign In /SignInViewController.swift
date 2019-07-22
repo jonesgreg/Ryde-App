@@ -13,34 +13,27 @@ class SignInViewController: UIViewController {
   
     var countries: Countries?
     var localeCountry: Country?
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        [titleText, rideNowButton, phoneNumberView, phoneNumberInput, countryCodeView, countryCodeInput, countryFlagInput, showCountryCode].forEach { view.addSubview($0) }
-        
+        [titleText,phoneNumberView,rideNowButton, phoneNumberInput, countryCodeView, countryCodeInput, countryFlagInput, showCountryCode].forEach { view.addSubview($0) }
+         
          setUpLayout()
          customNavigationBar()
          loadCountries()
-       
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillShow(notification:)),
-            name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillHide(notification:)),
-            name: UIResponder.keyboardDidShowNotification, object: nil)
-        
-        
-    }
+         phoneNumberInput.delegate = self
     
+    
+    }
+   
    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        phoneNumberInput.becomeFirstResponder()
-        
-    }
     
+   
+    }
+  
     // MARK: - Private functions
     
   private func loadCountries() {
@@ -83,8 +76,10 @@ class SignInViewController: UIViewController {
             textfield.borderStyle = .none
             textfield.attributedPlaceholder = NSAttributedString(string: "(310) 123-4567", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
             textfield.keyboardType = UIKeyboardType.numberPad
+            textfield.tintColor = UIColor.orange
         
         return textfield
+        
     }()
     
     
@@ -129,7 +124,7 @@ class SignInViewController: UIViewController {
 
     private let rideNowButton: UIButton = {
     let button = UIButton(type: .system)
-        button.layer.borderWidth = 1
+        button.layer.borderWidth = 2
         button.layer.borderColor = Colors.darkOrange.cgColor
         button.backgroundColor = Colors.darkOrange
         button.setTitle("Next", for: .normal)
@@ -164,9 +159,10 @@ class SignInViewController: UIViewController {
 
     private func setUpLayout() {
         titleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 0, bottom: 0, right: 0))
+       
         
-        rideNowButton.anchor(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: 30, right: 16))
-        
+        rideNowButton.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 230, left: 16, bottom: 0, right: 16), size: .init(width:0, height: 50))
+   
         showCountryCode.anchor(top: view.topAnchor, bottom:nil, leading:countryCodeView.leadingAnchor, trailing: countryCodeView.trailingAnchor, padding: .init(top: 178, left: 10, bottom: 0, right: 3))
         
        phoneNumberView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing: view.trailingAnchor, padding: .init(top: 202, left:0, bottom: 0, right: 45), size: .init(width: 230, height: 0.5))
@@ -188,32 +184,6 @@ class SignInViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
-    }
-}
-
-extension SignInViewController: UITextFieldDelegate {
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var fullString = textField.text ?? ""
-        fullString.append(string)
-        if range.length == 1 {
-            textField.text = format(phoneNumber: fullString, shouldRemoveLastDigit: true)
-        } else {
-            textField.text = format(phoneNumber: fullString)
-        }
-        return false
-    }
     func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
         guard !phoneNumber.isEmpty else { return "" }
         guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)]", options: .caseInsensitive) else { return "" }
@@ -242,6 +212,32 @@ extension SignInViewController: UITextFieldDelegate {
         }
         
         return number
+    }
+}
+
+extension SignInViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var fullString = textField.text ?? ""
+        fullString.append(string)
+        if range.length == 1 {
+            textField.text = format(phoneNumber: fullString, shouldRemoveLastDigit: true)
+        } else {
+            textField.text = format(phoneNumber: fullString)
+        }
+        return false
+    }
+   
+   
+    // Stop Editing on Return Key Tap
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        phoneNumberInput.resignFirstResponder()
+        return true
     }
 }
 
