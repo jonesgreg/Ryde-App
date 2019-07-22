@@ -55,6 +55,7 @@ class SignInViewController: UIViewController {
     }
     
    
+   
     private let titleText: UITextView = {
         let textView = UITextView()
         
@@ -96,7 +97,7 @@ class SignInViewController: UIViewController {
     
     private let phoneNumberView: UIView = {
         let phoneView = UIView()
-            phoneView.layer.borderWidth = 2.5
+            phoneView.layer.borderWidth = 1.5
             phoneView.layer.borderColor = UIColor.lightGray.cgColor
         
         return phoneView
@@ -104,7 +105,7 @@ class SignInViewController: UIViewController {
     
     private let countryCodeView: UIView = {
         let codeView = UIView()
-            codeView.layer.borderWidth = 2.5
+            codeView.layer.borderWidth = 1.5
             codeView.layer.borderColor = UIColor.lightGray.cgColor
         
         return codeView
@@ -155,7 +156,10 @@ class SignInViewController: UIViewController {
         }
         
     }
-   
+    
+    
+  
+ 
 
     private func setUpLayout() {
         titleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 0, bottom: 0, right: 0))
@@ -163,11 +167,11 @@ class SignInViewController: UIViewController {
         
         rideNowButton.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 230, left: 16, bottom: 0, right: 16), size: .init(width:0, height: 50))
    
-        showCountryCode.anchor(top: view.topAnchor, bottom:nil, leading:countryCodeView.leadingAnchor, trailing: countryCodeView.trailingAnchor, padding: .init(top: 178, left: 10, bottom: 0, right: 3))
+        showCountryCode.anchor(top: view.topAnchor, bottom:nil, leading:countryCodeView.leadingAnchor, trailing: countryCodeView.trailingAnchor, padding: .init(top: 178, left: 10, bottom: 0, right: 3)) 
         
-       phoneNumberView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing: view.trailingAnchor, padding: .init(top: 202, left:0, bottom: 0, right: 45), size: .init(width: 230, height: 0.5))
+       phoneNumberView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing: view.trailingAnchor, padding: .init(top: 202, left:0, bottom: 0, right: 45), size: .init(width: 230, height: 0.6))
         
-       countryCodeView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing:phoneNumberView.leadingAnchor, padding: .init(top: 202, left: 0, bottom: 0, right: 25), size:.init(width: 50, height: 0.5))
+       countryCodeView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing:phoneNumberView.leadingAnchor, padding: .init(top: 202, left: 0, bottom: 0, right: 25), size:.init(width: 50, height: 0.6))
         
        phoneNumberInput.anchor(top: view.topAnchor, bottom: nil, leading:countryCodeInput.trailingAnchor, trailing: phoneNumberView.trailingAnchor, padding: .init(top: 180, left: 0, bottom: 0, right: 55))
         
@@ -245,10 +249,11 @@ extension SignInViewController: countryPickerProtocol {
     
     func didPickCountry(model: Country) {
         localeCountry = model
-        countryFlagInput.text = model.iso2_cc
+        countryFlagInput.text = model.flag
         countryCodeInput.text = "+" + model.e164_cc + "" + ""
     }
 }
+
 
 
 

@@ -2,10 +2,9 @@
 //  Country.swift
 //  riderapp
 //
-//  Created by Gregory Jones on 7/8/19.
+//  Created by Gregory Jones on 7/22/19.
 //  Copyright © 2019 Gregory Jones. All rights reserved.
 //
-
 
 import Foundation
 
@@ -30,30 +29,5 @@ extension Country {
         return iso2_cc.unicodeScalars.compactMap { String(UnicodeScalar(baseScalar + $0.value)!) }.joined()
     }
 }
-
-
-
-
-    
-    
-    
-
-
-
-
-   
-    
-
-    
-
-
-
-
-   
-
-
-
-
-
 
 

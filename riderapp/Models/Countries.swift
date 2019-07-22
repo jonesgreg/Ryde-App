@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct Countries: Decodable {
     let countries: [Country]
 }
