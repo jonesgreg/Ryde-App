@@ -21,6 +21,7 @@ struct Colors {
     static let evernoteGrayColor = UIColor(red:102/255, green: 102/255, blue: 102/255, alpha: 1)
     static let darkGreyColor = UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha: 1)
     static let darkOrange = UIColor(red: 246/255, green: 78/255, blue: 0/255, alpha: 1)
+    static let darkPurple = UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)
 }
 
 

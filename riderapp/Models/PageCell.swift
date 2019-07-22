@@ -28,7 +28,7 @@ class PageCell: UICollectionViewCell {
     }
     
    private let profileImageView: UIImageView = {
-    let imageView = UIImageView(image:#imageLiteral(resourceName: "profile"))
+    let imageView = UIImageView(image:#imageLiteral(resourceName: "rydelogo"))
     imageView.translatesAutoresizingMaskIntoConstraints = false
 
     return imageView

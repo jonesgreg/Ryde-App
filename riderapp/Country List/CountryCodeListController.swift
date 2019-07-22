@@ -53,15 +53,15 @@ class CountryCodeListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       title = "Select a Country"
-      view.addSubview(countryListTableView)
-       
-        
+        customizingNavigationItem()
+        view.addSubview(countryListTableView)
     }
    
     
     private func customizingNavigationItem() {
-        // TO DO
+        title = "Select a country"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)]
+        
     }
 }
 
@@ -75,10 +75,8 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
         let key = countries.sections[section]
         return countries.metaData[key]?.count ?? 0
     }
-    
-  
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CountryCodeListCell = tableView.dequeueReusableCell(withIdentifier: CountryCodeListCell.reuseIdentifier, for: indexPath) as! CountryCodeListCell
         
         let sectionKey = countries.sections[indexPath.section]

@@ -48,9 +48,9 @@ class SignInViewController: UIViewController {
     private func addLocaleCountryCode() {
         if let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
             localeCountry = countries?.countries.filter {($0.iso2_cc == countryCode)}.first
-            countryFlagInput.text =  "+" + (localeCountry?.e164_cc)!
+            countryFlagInput.text =  (localeCountry?.flag)!
             countryCodeInput.text = ("+" + (localeCountry?.e164_cc)!)
-            
+           
         }
     }
     
@@ -97,7 +97,7 @@ class SignInViewController: UIViewController {
     
     private let phoneNumberView: UIView = {
         let phoneView = UIView()
-            phoneView.layer.borderWidth = 1.5
+            phoneView.layer.borderWidth = 3
             phoneView.layer.borderColor = UIColor.lightGray.cgColor
         
         return phoneView
@@ -105,7 +105,7 @@ class SignInViewController: UIViewController {
     
     private let countryCodeView: UIView = {
         let codeView = UIView()
-            codeView.layer.borderWidth = 1.5
+            codeView.layer.borderWidth = 3
             codeView.layer.borderColor = UIColor.lightGray.cgColor
         
         return codeView
@@ -113,8 +113,6 @@ class SignInViewController: UIViewController {
     
     private let countryFlagInput: UITextField = {
             let textfield = UITextField()
-                textfield.attributedPlaceholder = NSAttributedString(string: "Flag", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
-       
                 textfield.isUserInteractionEnabled = false
                 textfield.textAlignment = .left
                 textfield.borderStyle = .none
@@ -126,8 +124,8 @@ class SignInViewController: UIViewController {
     private let rideNowButton: UIButton = {
     let button = UIButton(type: .system)
         button.layer.borderWidth = 2
-        button.layer.borderColor = Colors.darkOrange.cgColor
-        button.backgroundColor = Colors.darkOrange
+        button.layer.borderColor = Colors.darkPurple.cgColor
+        button.backgroundColor = Colors.darkPurple
         button.setTitle("Next", for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
         button.setTitleColor(.white, for: .normal)
@@ -217,7 +215,10 @@ class SignInViewController: UIViewController {
         
         return number
     }
+    
+   
 }
+
 
 extension SignInViewController: UITextFieldDelegate {
     
@@ -253,6 +254,7 @@ extension SignInViewController: countryPickerProtocol {
         countryCodeInput.text = "+" + model.e164_cc + "" + ""
     }
 }
+
 
 
 
