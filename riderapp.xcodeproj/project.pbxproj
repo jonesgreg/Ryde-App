@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D389ABB22E7E58200318542 /* EmailSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D389ABA22E7E58200318542 /* EmailSignUpViewController.swift */; };
+		0D51E64822E8AFEC008A6BB1 /* PasswordSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51E64722E8AFEC008A6BB1 /* PasswordSignUpViewController.swift */; };
 		0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D65F2D022C1636F0044D89C /* Loading_Animation.json */; };
 		0D68364122CAC2210004FF59 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363022CAC2200004FF59 /* Montserrat-LightItalic.ttf */; };
 		0D68364222CAC2210004FF59 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */; };
@@ -48,7 +50,7 @@
 		0DF16F7222B83647008A5D6A /* riderappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F7122B83647008A5D6A /* riderappTests.swift */; };
 		0DF16F7D22B83647008A5D6A /* riderappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F7C22B83647008A5D6A /* riderappUITests.swift */; };
 		0DFCEA4B22C512F800691D0A /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCEA4A22C512F800691D0A /* Page.swift */; };
-		0DFCEA5022C54E8500691D0A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCEA4F22C54E8500691D0A /* SignInViewController.swift */; };
+		0DFCEA5022C54E8500691D0A /* PhoneEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCEA4F22C54E8500691D0A /* PhoneEntryViewController.swift */; };
 		3A822D957A1BE1DFAED18435 /* Pods_riderappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49181D86E771BE63FB79AF30 /* Pods_riderappTests.framework */; };
 		DF3ECDC8CBB448CA60F9BEAE /* Pods_riderapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACAC4C022385338BA539B /* Pods_riderapp.framework */; };
 		EEF357A71A2E0C36336FC1A2 /* Pods_riderappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D999E5B4A8EFD4B01C334FEC /* Pods_riderappUITests.framework */; };
@@ -72,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D389ABA22E7E58200318542 /* EmailSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpViewController.swift; sourceTree = "<group>"; };
+		0D51E64722E8AFEC008A6BB1 /* PasswordSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSignUpViewController.swift; sourceTree = "<group>"; };
 		0D65F2D022C1636F0044D89C /* Loading_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading_Animation.json; sourceTree = "<group>"; };
 		0D68363022CAC2200004FF59 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-LightItalic.ttf"; path = "riderapp/Custom Fonts/Montserrat-LightItalic.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "riderapp/Custom Fonts/Montserrat-Light.ttf"; sourceTree = SOURCE_ROOT; };
@@ -119,7 +123,7 @@
 		0DF16F7C22B83647008A5D6A /* riderappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riderappUITests.swift; sourceTree = "<group>"; };
 		0DF16F7E22B83647008A5D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DFCEA4A22C512F800691D0A /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
-		0DFCEA4F22C54E8500691D0A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		0DFCEA4F22C54E8500691D0A /* PhoneEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneEntryViewController.swift; sourceTree = "<group>"; };
 		2002852A72C3025D3B5A84FD /* Pods-riderappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riderappUITests.release.xcconfig"; path = "Target Support Files/Pods-riderappUITests/Pods-riderappUITests.release.xcconfig"; sourceTree = "<group>"; };
 		314ACAC4C022385338BA539B /* Pods_riderapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riderapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49181D86E771BE63FB79AF30 /* Pods_riderappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riderappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +164,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D389AB922E7E47000318542 /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				0D389ABA22E7E58200318542 /* EmailSignUpViewController.swift */,
+				0D51E64722E8AFEC008A6BB1 /* PasswordSignUpViewController.swift */,
+			);
+			path = "Sign Up";
+			sourceTree = "<group>";
+		};
 		0D65F2CD22C1612C0044D89C /* Welcome Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +236,7 @@
 		0D9012C922DFB6DF007652E4 /* Sign In  */ = {
 			isa = PBXGroup;
 			children = (
-				0DFCEA4F22C54E8500691D0A /* SignInViewController.swift */,
+				0DFCEA4F22C54E8500691D0A /* PhoneEntryViewController.swift */,
 				0D6A666622C993A1007AA976 /* VerifyNumberViewController.swift */,
 			);
 			path = "Sign In ";
@@ -289,6 +302,7 @@
 				0D9012C422DFB608007652E4 /* Helper */,
 				0D65F2CD22C1612C0044D89C /* Welcome Screen */,
 				0D9012C922DFB6DF007652E4 /* Sign In  */,
+				0D389AB922E7E47000318542 /* Sign Up */,
 				0D9012CA22DFB712007652E4 /* Country List */,
 				0DF16F6322B83647008A5D6A /* Assets.xcassets */,
 				0DF16F5922B83646008A5D6A /* AppDelegate.swift */,
@@ -599,15 +613,17 @@
 				0D9012CC22DFB789007652E4 /* CountryCodeListCell.swift in Sources */,
 				0D9012C622DFB627007652E4 /* JSONReader.swift in Sources */,
 				0DC708CE22C4510400E0E710 /* PageCell.swift in Sources */,
-				0DFCEA5022C54E8500691D0A /* SignInViewController.swift in Sources */,
+				0DFCEA5022C54E8500691D0A /* PhoneEntryViewController.swift in Sources */,
 				0D9012C322DFB5CF007652E4 /* Countries.swift in Sources */,
 				0D6A666722C993A1007AA976 /* VerifyNumberViewController.swift in Sources */,
 				0DC7086822C3D1F200E0E710 /* ColorAndFontConstrants.swift in Sources */,
+				0D51E64822E8AFEC008A6BB1 /* PasswordSignUpViewController.swift in Sources */,
 				0DEB100622E2206A004EFDF3 /* extensions.swift in Sources */,
 				0DA7C3AE22E60B6900E43B2E /* Country.swift in Sources */,
 				0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */,
 				0D9012C822DFB6A1007652E4 /* View+Additions.swift in Sources */,
 				0DF16F6222B83646008A5D6A /* riderapp.xcdatamodeld in Sources */,
+				0D389ABB22E7E58200318542 /* EmailSignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

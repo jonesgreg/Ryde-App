@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SignInViewController: UIViewController {
+class PhoneEntryViewController: UIViewController {
   
     var countries: Countries?
     var localeCountry: Country?
@@ -17,7 +17,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        [titleText,phoneNumberView,rideNowButton, phoneNumberInput, countryCodeView, countryCodeInput, countryFlagInput, showCountryCode].forEach { view.addSubview($0) }
+        [titleText,phoneNumberView,nextButton, phoneNumberInput, countryCodeView, countryCodeInput, countryFlagInput, showCountryCode].forEach { view.addSubview($0) }
          
          setUpLayout()
          customNavigationBar()
@@ -59,7 +59,7 @@ class SignInViewController: UIViewController {
     private let titleText: UITextView = {
         let textView = UITextView()
         
-        let attributedText = NSMutableAttributedString(string: "What's your number?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 22) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+        let attributedText = NSMutableAttributedString(string: "What's your number?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         
         attributedText.append(NSAttributedString(string: "\n\nWe'll text a code to verify your number.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 14) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
         
@@ -77,7 +77,7 @@ class SignInViewController: UIViewController {
             textfield.borderStyle = .none
             textfield.attributedPlaceholder = NSAttributedString(string: "(310) 123-4567", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
             textfield.keyboardType = UIKeyboardType.numberPad
-            textfield.tintColor = UIColor.orange
+            textfield.tintColor = UIColor.init(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)
         
         return textfield
         
@@ -97,17 +97,19 @@ class SignInViewController: UIViewController {
     
     private let phoneNumberView: UIView = {
         let phoneView = UIView()
-            phoneView.layer.borderWidth = 3
-            phoneView.layer.borderColor = UIColor.lightGray.cgColor
+            phoneView.layer.borderWidth = 1
+            phoneView.layer.borderColor = Colors.lightGreyColor.cgColor
         
         return phoneView
     }()
     
     private let countryCodeView: UIView = {
         let codeView = UIView()
-            codeView.layer.borderWidth = 3
-            codeView.layer.borderColor = UIColor.lightGray.cgColor
+            codeView.layer.borderWidth = 1
+            codeView.layer.borderColor = Colors.lightGreyColor.cgColor
         
+        
+      
         return codeView
     }()
     
@@ -121,7 +123,7 @@ class SignInViewController: UIViewController {
     }()
    
 
-    private let rideNowButton: UIButton = {
+    private let nextButton: UIButton = {
     let button = UIButton(type: .system)
         button.layer.borderWidth = 2
         button.layer.borderColor = Colors.darkPurple.cgColor
@@ -130,11 +132,18 @@ class SignInViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
        
     return button
         
     }()
+    @objc private func handleNextPage() {
+        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "Verify")
+        self.show(nextViewController!, sender: nil)
+        
+    }
     
+  
     private let showCountryCode: UIButton = {
         let button = UIButton(type: .system)
         button.addTarget(self, action: #selector(handleCountryPage), for: .touchUpInside)
@@ -163,19 +172,21 @@ class SignInViewController: UIViewController {
         titleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 0, bottom: 0, right: 0))
        
         
-        rideNowButton.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 230, left: 16, bottom: 0, right: 16), size: .init(width:0, height: 50))
+        nextButton.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 230, left: 16, bottom: 0, right: 16), size: .init(width:0, height: 50))
    
         showCountryCode.anchor(top: view.topAnchor, bottom:nil, leading:countryCodeView.leadingAnchor, trailing: countryCodeView.trailingAnchor, padding: .init(top: 178, left: 10, bottom: 0, right: 3)) 
         
-       phoneNumberView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing: view.trailingAnchor, padding: .init(top: 202, left:0, bottom: 0, right: 45), size: .init(width: 230, height: 0.6))
+       phoneNumberView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing: view.trailingAnchor, padding: .init(top: 202, left:0, bottom: 0, right: 45), size: .init(width: 230, height: 1.2))
         
-       countryCodeView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing:phoneNumberView.leadingAnchor, padding: .init(top: 202, left: 0, bottom: 0, right: 25), size:.init(width: 50, height: 0.6))
+       countryCodeView.anchor(top: view.topAnchor, bottom: nil, leading: nil, trailing:phoneNumberView.leadingAnchor, padding: .init(top: 202, left: 0, bottom: 0, right: 25), size:.init(width: 50, height: 1.2))
         
        phoneNumberInput.anchor(top: view.topAnchor, bottom: nil, leading:countryCodeInput.trailingAnchor, trailing: phoneNumberView.trailingAnchor, padding: .init(top: 180, left: 0, bottom: 0, right: 55))
         
        countryCodeInput.anchor(top: view.topAnchor, bottom: nil, leading: phoneNumberView.leadingAnchor, trailing: countryFlagInput.trailingAnchor, padding: .init(top: 180, left: 0, bottom: 0, right: 0))
         
        countryFlagInput.anchor(top: view.topAnchor, bottom: nil, leading: countryCodeView.leadingAnchor, trailing: countryCodeInput.trailingAnchor, padding: .init(top: 180, left: 15, bottom: 0, right: 0))
+        
+     
     }
 
  
@@ -220,7 +231,7 @@ class SignInViewController: UIViewController {
 }
 
 
-extension SignInViewController: UITextFieldDelegate {
+extension PhoneEntryViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var fullString = textField.text ?? ""
@@ -246,7 +257,7 @@ extension SignInViewController: UITextFieldDelegate {
     }
 }
 
-extension SignInViewController: countryPickerProtocol {
+extension PhoneEntryViewController: countryPickerProtocol {
     
     func didPickCountry(model: Country) {
         localeCountry = model

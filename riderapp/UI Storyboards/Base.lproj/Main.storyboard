@@ -82,20 +82,74 @@
             </objects>
             <point key="canvasLocation" x="2443" y="21"/>
         </scene>
-        <!--Sign In View Controller-->
+        <!--Phone Entry View Controller-->
         <scene sceneID="3w3-3b-V4I">
             <objects>
-                <viewController storyboardIdentifier="SignIn" id="1dx-aH-AJd" customClass="SignInViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignIn" id="1dx-aH-AJd" customClass="PhoneEntryViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lvl-cA-sf1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="l5X-aK-X4N"/>
                     </view>
+                    <connections>
+                        <segue destination="DCf-PJ-WGE" kind="show" identifier="segue" id="Xyd-0P-wyc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQE-7v-IFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3321.739130434783" y="17.934782608695652"/>
+        </scene>
+        <!--Verify Number View Controller-->
+        <scene sceneID="sQp-97-T5Z">
+            <objects>
+                <viewController storyboardIdentifier="Verify" id="DCf-PJ-WGE" customClass="VerifyNumberViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qic-ze-cSP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XsD-Os-cQW"/>
+                    </view>
+                    <connections>
+                        <segue destination="8nB-Pf-KRh" kind="show" identifier="segue" id="AEi-73-l6B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfO-dY-9B1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4104" y="15"/>
+        </scene>
+        <!--Email Sign Up View Controller-->
+        <scene sceneID="3Yi-XW-4rh">
+            <objects>
+                <viewController storyboardIdentifier="email" id="8nB-Pf-KRh" customClass="EmailSignUpViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TBA-T0-FjW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="WTG-Js-4u4"/>
+                    </view>
+                    <connections>
+                        <segue destination="F7q-BF-zJ8" kind="show" identifier="segue" id="zNe-8b-ITg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5oP-wb-m0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4836" y="15"/>
+        </scene>
+        <!--Password Sign Up View Controller-->
+        <scene sceneID="gWS-rg-vgP">
+            <objects>
+                <viewController storyboardIdentifier="password" id="F7q-BF-zJ8" customClass="PasswordSignUpViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uaa-HK-lPC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="G7d-9N-H1G"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mVt-LA-Rph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5584" y="15"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yZd-qW-lix">

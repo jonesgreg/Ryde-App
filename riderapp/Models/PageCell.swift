@@ -51,6 +51,8 @@ class PageCell: UICollectionViewCell {
         return textView
     }()
     
+ 
+    
   
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +63,7 @@ class PageCell: UICollectionViewCell {
        
         addSubview(profileImageView)
         profileImageView.contentMode = .scaleAspectFill
-     
+      
         profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant:130).isActive = true

@@ -45,6 +45,16 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         
     }
     
+    private let GoogleLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Login with Google", for: .normal)
+        button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 16)
+        button.setTitleColor(.darkGray, for: .normal)
+        
+        
+        return button
+    }()
+    
    
     
     /* Page Control */
@@ -65,16 +75,25 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         view.addSubview(bottomControlsStackView)
         bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -75).isActive = true
+        bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -115).isActive = true
         
         
-        let buttonControlStackView = UIStackView(arrangedSubviews: [rideNowButton])
-        buttonControlStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(buttonControlStackView)
-        buttonControlStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
-        buttonControlStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        buttonControlStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12).isActive = true
-        buttonControlStackView.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        let rideNowButtonStackView = UIStackView(arrangedSubviews: [rideNowButton])
+        rideNowButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(rideNowButtonStackView)
+        rideNowButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        rideNowButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        rideNowButtonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50).isActive = true
+        rideNowButtonStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
+        let googleButtonStackView = UIStackView(arrangedSubviews: [GoogleLoginButton])
+            googleButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview( googleButtonStackView)
+         googleButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+         googleButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+         googleButtonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -6.5).isActive = true
+       
         
         
     }
