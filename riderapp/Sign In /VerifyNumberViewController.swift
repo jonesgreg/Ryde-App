@@ -8,42 +8,104 @@
 
 import UIKit
 
-class VerifyNumberViewController:UIViewController {
+class VerifyNumberViewController: UIViewController {
     
-   
     
+    
+    let codeOne = VerifyView()
+    let codeTwo = VerifyView()
+    let codeThree = VerifyView()
+    let codeFour = VerifyView()
+    
+   // MARK: - Overriden function
     override func viewDidLoad() {
         super.viewDidLoad()
-        [titleText, nextButton, fourDigitCodeViewOne, fourDigitCodeViewTwo, fourDigitCodeViewThree, fourDigitCodeViewFour, resendCodeButton].forEach { view.addSubview($0) }
+        [titleText, nextButton, VerifyNumberStackView, txtOTPStackView].forEach { view.addSubview($0) }
+       
         setUpLayout()
         customNavigationBar()
-        
-
     }
     
+  // MARK: - Private function
+   
     private let titleText: UITextView = {
         let textView = UITextView()
-        
-        let attributedText = NSMutableAttributedString(string: "Enter the 4-digit code sent to you at (310) 123-4567", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.init(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)])
-        
-        textView.attributedText = attributedText
-        textView.textAlignment = .center
-        textView.isEditable = false
-        
-        return textView
+        let attributedText = NSMutableAttributedString(string: "Enter the 4-digit code sent to you at (310) 123-4567", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+            textView.attributedText = attributedText
+            textView.textAlignment = .center
+            textView.isEditable = false
+            return textView
     }()
     
-  
-    private let resendCodeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Resend code", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.montserratMedium, size: 16)
-        button.setTitleColor(UIColor.init(red: 144/255, green: 19/255, blue: 254/255, alpha: 1), for: .normal)
-        
-        
-        return button
+    lazy var VerifyNumberStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [codeOne, codeTwo, codeThree, codeFour])
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .horizontal
+            stackView.spacing = 10
+            stackView.distribution = .fillEqually
+            return stackView
     }()
     
+    lazy var txtOTPStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [txtOPT1, txtOPT2, txtOPT3, txtOPT4])
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .horizontal
+            stackView.spacing = 10
+            stackView.distribution = .fillEqually
+            return stackView
+    }()
+    
+  private let txtOPT1: UITextField = {
+        let textField = codeTextField()
+            textField.attributedPlaceholder = NSAttributedString(string: "1", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+            return textField
+        
+    }()
+   
+    private let txtOPT2: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .none
+        textField.textColor = UIColor.darkGray
+        textField.attributedPlaceholder = NSAttributedString(string: "2", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+       
+        textField.keyboardType = UIKeyboardType.numberPad
+        textField.autocorrectionType = .no
+        textField.textAlignment = .center
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+   
+    private let txtOPT3: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .none
+        textField.textColor = UIColor.darkGray
+        textField.attributedPlaceholder = NSAttributedString(string: "3", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+     
+        textField.keyboardType = UIKeyboardType.numberPad
+        textField.autocorrectionType = .no
+        textField.textAlignment = .center
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    private let txtOPT4: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .none
+        textField.textColor = UIColor.darkGray
+        textField.attributedPlaceholder = NSAttributedString(string: "4", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+        
+        textField.keyboardType = UIKeyboardType.numberPad
+        textField.autocorrectionType = .no
+        textField.textAlignment = .center
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     
     private let nextButton: UIButton = {
         let button = UIButton(type: .system)
@@ -56,6 +118,7 @@ class VerifyNumberViewController:UIViewController {
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
         return button
+        
     }()
     
     @objc private func handleNextPage() {
@@ -63,62 +126,20 @@ class VerifyNumberViewController:UIViewController {
         self.show(nextViewController!, sender: nil)
         
     }
+    
+    
+    
+    
    
-   
+   private func setUpLayout() {
+          titleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 16, bottom: 0, right: 16))
+        
+        
+        nextButton.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 270, left: 16, bottom: 0, right: 16), size: .init(width:0, height: 50))
+        
+        VerifyNumberStackView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 210, left: 32, bottom: 0, right: 32), size: .init(width: 0, height: 1.2))
     
-    private let fourDigitCodeViewOne: UIView = {
-        let codeView = UIView()
-        codeView.layer.borderWidth = 2
-        codeView.layer.borderColor = Colors.lightGreyColor.cgColor
-        
-        return codeView
-     }()
-    
-    private let fourDigitCodeViewTwo: UIView = {
-        let codeView = UIView()
-        codeView.layer.borderWidth = 2
-        codeView.layer.borderColor = Colors.lightGreyColor.cgColor
-        
-        return codeView
-    }()
-    
-    private let fourDigitCodeViewThree: UIView = {
-        let codeView = UIView()
-        codeView.layer.borderWidth = 2
-        codeView.layer.borderColor = Colors.lightGreyColor.cgColor
-        
-        return codeView
-    }()
-    
-    private let fourDigitCodeViewFour: UIView = {
-        let codeView = UIView()
-        codeView.layer.borderWidth = 2
-        codeView.layer.borderColor = Colors.lightGreyColor.cgColor
-        
-        return codeView
-    }()
-    
-     private func setUpLayout() {
-        titleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 16, bottom: 0, right: 16))
-        
-        
-        nextButton.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 250, left: 16, bottom: 0, right: 16), size: .init(width:0, height: 50))
-        
-         fourDigitCodeViewOne.anchor(top: view.topAnchor, bottom: nil, leading: titleText.leadingAnchor, trailing: nil, padding: .init(top: 202, left: 75, bottom: 0, right: 0), size:.init(width: 40, height: 1.2))
-        
-         fourDigitCodeViewTwo.anchor(top: view.topAnchor, bottom: nil, leading: fourDigitCodeViewOne.trailingAnchor, trailing: nil, padding: .init(top: 202, left: 20, bottom: 0, right: 0), size:.init(width: 40, height: 1.2))
-        
-        fourDigitCodeViewThree.anchor(top: view.topAnchor, bottom: nil, leading: fourDigitCodeViewTwo.trailingAnchor, trailing: nil, padding: .init(top: 202, left: 20, bottom: 0, right: 0), size:.init(width: 40, height: 1.2))
-        
-         fourDigitCodeViewFour.anchor(top: view.topAnchor, bottom: nil, leading: fourDigitCodeViewThree
-            .trailingAnchor, trailing: nil, padding: .init(top: 202, left: 20, bottom: 0, right: 0), size:.init(width: 40, height: 1.2))
-        
-    
-        resendCodeButton.anchor(top: nextButton.bottomAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 15, left: 16, bottom: 0, right: 16))
-       
-        
-       
-     
+       txtOTPStackView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 185, left: 32, bottom: 0, right: 32))
     }
     
     private func customNavigationBar() {
@@ -126,6 +147,7 @@ class VerifyNumberViewController:UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
 }

@@ -19,7 +19,7 @@ class CountryCodeListCell: UITableViewCell {
     }
     public func feedCountry(info: Country) {
         self.nameLabel.text = info.name
-      //  self.codeLabel.text = info.e164_cc
+      //self.codeLabel.text = info.e164_cc
         self.flagLabel.text = info.flag
     }
         

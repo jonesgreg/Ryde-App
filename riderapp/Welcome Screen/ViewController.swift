@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     private var revealingLoaded = false
   
+    // MARK: - Overriden function
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(animationView)
@@ -27,10 +28,10 @@ class ViewController: UIViewController {
     
     let animationView: AnimationView = {
         let animation = AnimationView(name: "Loading_Animation")
-        animation.loopMode = .loop
-        animation.play()
-        animation.translatesAutoresizingMaskIntoConstraints = false
-        return animation
+            animation.loopMode = .loop
+            animation.play()
+            animation.translatesAutoresizingMaskIntoConstraints = false
+            return animation
     }()
     
     func setupLayout() {
@@ -38,7 +39,6 @@ class ViewController: UIViewController {
         animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
         animationView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         animationView.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        
     }
    
     func switchScreen() {
@@ -49,13 +49,13 @@ class ViewController: UIViewController {
     }
     
     func customNavigationBar() {
-        /* Customizing the navigation bar */
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.backBarButtonItem = UIBarButtonItem()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
   
     

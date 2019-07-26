@@ -51,4 +51,41 @@ extension UIView {
    
 }
 
+class VerifyView: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = Colors.lightGreyColor
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+class codeTextField: UITextField {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.borderStyle = .none
+        self.textColor = UIColor.darkGray
+        self.keyboardType = UIKeyboardType.numberPad
+        self.autocorrectionType = .no
+        self.textAlignment = .center
+        self.returnKeyType = UIReturnKeyType.done
+        self.clearButtonMode = UITextField.ViewMode.whileEditing
+        
+      
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+}
+
 

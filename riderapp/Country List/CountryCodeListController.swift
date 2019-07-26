@@ -17,7 +17,7 @@ class CountryCodeListController: UIViewController {
     
    
    
-    // MARK - table view
+    // MARK: - table view
     
  lazy var countryListTableView: UITableView = {
         let tableView = UITableView(frame: view.frame)
@@ -29,9 +29,7 @@ class CountryCodeListController: UIViewController {
             tableView.rowHeight = UITableView.automaticDimension
             tableView.keyboardDismissMode = .onDrag
             tableView.separatorStyle = .none
-        
-
-        return tableView
+           return tableView
     }()
     
    
@@ -39,7 +37,7 @@ class CountryCodeListController: UIViewController {
     public weak var delegate: countryPickerProtocol?
     
     
-    //Mark - Overriden function
+    //MARK: - Overriden function
     
     init(countries: Countries) {
         self.countries = countries
@@ -78,21 +76,17 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
    
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CountryCodeListCell = tableView.dequeueReusableCell(withIdentifier: CountryCodeListCell.reuseIdentifier, for: indexPath) as! CountryCodeListCell
-        
         let sectionKey = countries.sections[indexPath.section]
         if let countries = countries.metaData[sectionKey] {
             let country: Country = countries[indexPath.row]
             cell.feedCountry(info: country)
         }
         return cell
-     
-    }
+     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    
-        return UITableView.automaticDimension
-   
-    }
+     return UITableView.automaticDimension
+}
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionKey = countries.sections[indexPath.section]
@@ -103,32 +97,13 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
         
         DispatchQueue.main.async {[weak self] in
             self?.navigationController?.popViewController(animated: true)
-
-            
         }
-        
-  
-  
+    }
     
- }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
-        
-    }
-    
-
-}
-
-extension UITableViewCell {
-    
-    func hideSeparator() {
-        self.separatorInset = UIEdgeInsets(top: 0, left: self.bounds.size.width, bottom: 0, right: 0)
-    }
-    
-    func showSeparator() {
-        self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-}
+     }
+  }
 
 
     
