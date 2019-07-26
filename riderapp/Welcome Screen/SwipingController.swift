@@ -33,18 +33,11 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
       // MARK: - Private functions
     
     private let rideNowButton: UIButton = {
-        let button = UIButton(type: .system)
-            button.layer.borderWidth = 1
-            button.layer.borderColor = Colors.darkPurple.cgColor
-            button.backgroundColor = Colors.darkPurple
+        let button = purpleButton(type: .system)
             button.setTitle("Ryde Now", for: .normal)
             button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
-            button.setTitleColor(.white, for: .normal)
-            button.layer.cornerRadius = 15
-            button.translatesAutoresizingMaskIntoConstraints = false
             button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
             return button
-        
     }()
     
     @objc private func handleNextPage() {

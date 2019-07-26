@@ -63,59 +63,28 @@ class VerifyNumberViewController: UIViewController {
     }()
    
     private let txtOPT2: UITextField = {
-        let textField = UITextField()
-        textField.borderStyle = .none
-        textField.textColor = UIColor.darkGray
-        textField.attributedPlaceholder = NSAttributedString(string: "2", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
-       
-        textField.keyboardType = UIKeyboardType.numberPad
-        textField.autocorrectionType = .no
-        textField.textAlignment = .center
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
+        let textField = codeTextField()
+            textField.attributedPlaceholder = NSAttributedString(string: "2", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+            return textField
     }()
    
     private let txtOPT3: UITextField = {
-        let textField = UITextField()
-        textField.borderStyle = .none
-        textField.textColor = UIColor.darkGray
+        let textField = codeTextField()
         textField.attributedPlaceholder = NSAttributedString(string: "3", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
-     
-        textField.keyboardType = UIKeyboardType.numberPad
-        textField.autocorrectionType = .no
-        textField.textAlignment = .center
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     private let txtOPT4: UITextField = {
-        let textField = UITextField()
-        textField.borderStyle = .none
-        textField.textColor = UIColor.darkGray
+        let textField = codeTextField()
         textField.attributedPlaceholder = NSAttributedString(string: "4", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
-        
-        textField.keyboardType = UIKeyboardType.numberPad
-        textField.autocorrectionType = .no
-        textField.textAlignment = .center
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
+      
     }()
     
     private let nextButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.layer.borderWidth = 2
-        button.layer.borderColor = Colors.darkPurple.cgColor
-        button.backgroundColor = Colors.darkPurple
+        let button = purpleButton(type: .system)
         button.setTitle("Next", for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
         return button
         

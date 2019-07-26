@@ -57,7 +57,6 @@ class VerifyView: UIView {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = Colors.lightGreyColor
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -76,16 +75,78 @@ class codeTextField: UITextField {
         self.autocorrectionType = .no
         self.textAlignment = .center
         self.returnKeyType = UIReturnKeyType.done
-        self.clearButtonMode = UITextField.ViewMode.whileEditing
-        
-      
+        self.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
+       
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+class phoneNumberTextField: UITextField {
+     override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.textAlignment = .left
+        self.borderStyle = .none
+        self.keyboardType = UIKeyboardType.numberPad
+        self.tintColor = Colors.darkPurple
+        self.returnKeyType = UIReturnKeyType.done
+    }
+     required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class countryField: UITextField {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.textAlignment = .left
+        self.borderStyle = .none
+        self.isUserInteractionEnabled = false
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class purpleButton: UIButton {
+    override init(frame: CGRect) {
+    super.init(frame: frame)
+    self.translatesAutoresizingMaskIntoConstraints = false
+    self.layer.borderWidth = 1
+    self.layer.borderColor = Colors.darkPurple.cgColor
+    self.backgroundColor = Colors.darkPurple
     
+    self.setTitleColor(.white, for: .normal)
+    self.layer.cornerRadius = 15
+  }
+   required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+   }
+}
+
+class userInputField: UITextField  {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.borderStyle = .none
+        self.textColor = UIColor.darkGray
+        self.textAlignment = .center
+        self.tintColor = Colors.darkPurple
+        self.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
+        self.autocapitalizationType = UITextAutocapitalizationType.none
+        self.autocorrectionType = .no
+        self.returnKeyType = UIReturnKeyType.done
+        self.clearButtonMode = UITextField.ViewMode.whileEditing
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }
+
 
 

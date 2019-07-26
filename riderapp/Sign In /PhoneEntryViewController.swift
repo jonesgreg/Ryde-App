@@ -67,15 +67,9 @@ class PhoneEntryViewController: UIViewController {
     }()
     
     private let phoneNumberInput: UITextField = {
-        let textField = UITextField()
-            textField.textAlignment = .left
-            textField.borderStyle = .none
+        let textField = phoneNumberTextField()
             textField.attributedPlaceholder = NSAttributedString(string: "(310) 123-4567", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
-            textField.keyboardType = UIKeyboardType.numberPad
-            textField.tintColor = UIColor.init(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)
-            textField.returnKeyType = UIReturnKeyType.done
-            textField.clearButtonMode = UITextField.ViewMode.whileEditing
-            return textField
+        return textField
         
     }()
     
@@ -89,30 +83,19 @@ class PhoneEntryViewController: UIViewController {
     
     
     private let countryCodeInput: UITextField = {
-          let textField = UITextField()
-              textField.textAlignment = .left
-              textField.borderStyle = .none
-              textField.isUserInteractionEnabled = false
-              return textField
+        let textField = countryField()
+            return textField
     }()
     
     private let countryFlagInput: UITextField = {
-            let textField = UITextField()
-                textField.isUserInteractionEnabled = false
-                textField.textAlignment = .left
-                textField.borderStyle = .none
-                 return textField
+        let textField = countryField()
+            return textField
     }()
    
    private let nextButton: UIButton = {
-    let button = UIButton(type: .system)
-        button.layer.borderWidth = 2
-        button.layer.borderColor = Colors.darkPurple.cgColor
-        button.backgroundColor = Colors.darkPurple
+    let button = purpleButton(type: .system)
         button.setTitle("Next", for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
         return button
         

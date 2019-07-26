@@ -37,17 +37,8 @@ class PasswordSignUpViewController: UIViewController {
     }()
     
     private let passwordInput: UITextField = {
-        let textField = UITextField()
-            textField.borderStyle = .none
-            textField.textColor = UIColor.darkGray
-            textField.textAlignment = .center
-            textField.tintColor = UIColor.init(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)
-            textField.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
-            textField.autocapitalizationType = UITextAutocapitalizationType.none
-            textField.autocorrectionType = .no
+        let textField = userInputField()
             textField.isSecureTextEntry = true
-            textField.returnKeyType = UIReturnKeyType.done
-            textField.clearButtonMode = UITextField.ViewMode.whileEditing
             return textField
     }()
     
@@ -76,14 +67,9 @@ class PasswordSignUpViewController: UIViewController {
     }()
     
     private let nextButton: UIButton = {
-        let button = UIButton(type: .system)
-            button.layer.borderWidth = 2
-            button.layer.borderColor = Colors.darkPurple.cgColor
-            button.backgroundColor = Colors.darkPurple
+            let button = purpleButton(type: .system)
             button.setTitle("Next", for: .normal)
             button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
-            button.setTitleColor(.white, for: .normal)
-            button.layer.cornerRadius = 15
             button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
             return button
     }()
