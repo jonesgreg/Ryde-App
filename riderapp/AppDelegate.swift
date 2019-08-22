@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-         Thread.sleep(forTimeInterval: 0.3)
+       // Thread.sleep(forTimeInterval: 0.0)
        
-     
+        // this is how we build out our app in code
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        IQKeyboardManager.shared.enable = true
+        
+      //   let layout = UICollectionViewFlowLayout()
+       //  layout.scrollDirection = .horizontal
+        
+       // window?.rootViewController = UINavigationController(rootViewController: GuideViewController(collectionViewLayout: layout))
+       
+       window?.rootViewController = UINavigationController(rootViewController: LoadingViewController())
+        let BarButtonItemAppearance = UIBarButtonItem.appearance()
+        BarButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.clear], for: .normal)
+        
+       
+        // window?.rootViewController = guideController
+       
         return true
     }
 

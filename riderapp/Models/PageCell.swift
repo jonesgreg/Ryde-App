@@ -10,6 +10,7 @@ import UIKit
 
 class PageCell: UICollectionViewCell {
     
+    static var identifer: String = "cellId"
     
     // MARK: - Overriden function
     override init(frame: CGRect) {
@@ -27,14 +28,14 @@ class PageCell: UICollectionViewCell {
         guard let unwrappedPage = page else {return} // I want to unwrapped the properties from the page struct and avoids the ! mark
             
             profileImageView.image = UIImage(named: unwrappedPage.imageName)
-            let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:20) as Any, NSAttributedString.Key.foregroundColor:UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha:1)])
-                attributedText.append(NSAttributedString(string: "\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 14) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+            let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+                attributedText.append(NSAttributedString(string: "\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
                 descriptionTextView.attributedText = attributedText
                 descriptionTextView.textAlignment = .center
-    }
-}
+            }
+        }
     
-     // MARK: - Private functions
+     // MARK: - Private functions 
    
     private let profileImageView: UIImageView = {
     let imageView = UIImageView(image:#imageLiteral(resourceName: "profile"))
@@ -55,17 +56,20 @@ class PageCell: UICollectionViewCell {
     }()
     
     private func setupLayout() {
-       addSubview(profileImageView)
+       
+        addSubview(profileImageView)
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -150).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant:130).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant:130).isActive = true
-       
+        
         addSubview(descriptionTextView)
-        descriptionTextView.anchor(top: profileImageView.bottomAnchor, bottom: bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding:.init(top: 5, left: 10, bottom: 0, right: 10))
+         descriptionTextView.anchor(top: profileImageView.bottomAnchor, bottom: bottomAnchor, leading: safeAreaLayoutGuide.leadingAnchor, trailing: safeAreaLayoutGuide.trailingAnchor, padding:.init(top: 15, left: 32, bottom: 0, right: 32))
+        
+       
     
     }
-    
+   
    
 }

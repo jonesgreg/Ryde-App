@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VXU-AL-xZu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iHH-q7-PGS">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,185 +11,19 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="VdQ-2b-2r1">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rydelogo" translatesAutoresizingMaskIntoConstraints="NO" id="wvI-bj-lMP">
-                                <rect key="frame" x="120" y="321.66666666666669" width="174" height="93"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="174" id="BQu-Uy-1YT"/>
-                                    <constraint firstAttribute="height" constant="93" id="IfV-Mb-BA5"/>
-                                    <constraint firstAttribute="width" constant="174" id="YvQ-H0-UWd"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="93" id="sPG-pM-SJw"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.56470588239999997" green="0.074509803920000006" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="wvI-bj-lMP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EmY-K8-yGm"/>
-                            <constraint firstItem="wvI-bj-lMP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RSw-mk-smx"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Q5p-oS-Dam"/>
-                    <connections>
-                        <segue destination="iRj-b6-Gbu" kind="show" identifier=" segue" id="DgQ-fO-eor"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1474" y="21"/>
-        </scene>
-        <!--Swiping Controller-->
-        <scene sceneID="gqD-lf-lyH">
-            <objects>
-                <collectionViewController storyboardIdentifier="SwipingScreens" id="iRj-b6-Gbu" customClass="SwipingController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" id="sB0-5e-EC7">
+                <viewController id="iHH-q7-PGS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RJ6-4O-lD4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ls7-n2-aD2">
-                            <size key="itemSize" width="411" height="754"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellId" id="rc2-Tz-PQ4" customClass="PageCell" customModule="riderapp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="-9" width="411" height="754"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="411" height="754"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="iRj-b6-Gbu" id="CXZ-jL-l5G"/>
-                            <outlet property="delegate" destination="iRj-b6-Gbu" id="Qeg-6l-o3y"/>
-                        </connections>
-                    </collectionView>
-                    <connections>
-                        <segue destination="1dx-aH-AJd" kind="show" identifier="segue" id="gNb-nr-3rH"/>
-                    </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i6m-8L-GsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2443" y="21"/>
-        </scene>
-        <!--Phone Entry View Controller-->
-        <scene sceneID="3w3-3b-V4I">
-            <objects>
-                <viewController storyboardIdentifier="SignIn" id="1dx-aH-AJd" customClass="PhoneEntryViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lvl-cA-sf1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="l5X-aK-X4N"/>
-                    </view>
-                    <connections>
-                        <segue destination="DCf-PJ-WGE" kind="show" identifier="segue" id="Xyd-0P-wyc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cQE-7v-IFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3274" y="20"/>
-        </scene>
-        <!--Verify Number View Controller-->
-        <scene sceneID="sQp-97-T5Z">
-            <objects>
-                <viewController storyboardIdentifier="Verify" id="DCf-PJ-WGE" customClass="VerifyNumberViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Qic-ze-cSP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="XsD-Os-cQW"/>
-                    </view>
-                    <connections>
-                        <segue destination="8nB-Pf-KRh" kind="show" identifier="segue" id="AEi-73-l6B"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qfO-dY-9B1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4104" y="15"/>
-        </scene>
-        <!--Email Sign Up View Controller-->
-        <scene sceneID="3Yi-XW-4rh">
-            <objects>
-                <viewController storyboardIdentifier="email" id="8nB-Pf-KRh" customClass="EmailSignUpViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TBA-T0-FjW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="WTG-Js-4u4"/>
-                    </view>
-                    <connections>
-                        <segue destination="F7q-BF-zJ8" kind="show" identifier="segue" id="zNe-8b-ITg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5oP-wb-m0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4935" y="15"/>
-        </scene>
-        <!--Password Sign Up View Controller-->
-        <scene sceneID="gWS-rg-vgP">
-            <objects>
-                <viewController storyboardIdentifier="password" id="F7q-BF-zJ8" customClass="PasswordSignUpViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Uaa-HK-lPC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="G7d-9N-H1G"/>
-                    </view>
-                    <connections>
-                        <segue destination="PJt-cO-OYK" kind="show" identifier="segue" id="BlL-ZR-pmp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mVt-LA-Rph" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5672" y="15"/>
-        </scene>
-        <!--Home Page View Controller-->
-        <scene sceneID="CH4-C2-6pJ">
-            <objects>
-                <viewController storyboardIdentifier="homepage" id="PJt-cO-OYK" customClass="HomePageViewController" customModule="riderapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cvH-Q5-ETR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="IwY-un-amM"/>
+                        <viewLayoutGuide key="safeArea" id="6Fn-Od-dvI"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jlo-cM-Zwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgR-UI-X9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6522" y="15"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yZd-qW-lix">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VXU-AL-xZu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cmn-ce-riv">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="N77-bS-7Km"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SWO-qT-euG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="631.8840579710145" y="20.758928571428569"/>
+            <point key="canvasLocation" x="1881" y="259"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="rydelogo" width="1552" height="568"/>
-    </resources>
-    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

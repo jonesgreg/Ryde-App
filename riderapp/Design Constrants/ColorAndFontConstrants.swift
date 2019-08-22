@@ -20,8 +20,10 @@ struct Colors {
     static let evernoteGreenColor = UIColor(red:46/255, green: 190/255, blue: 96/255, alpha: 1)
     static let evernoteGrayColor = UIColor(red:102/255, green: 102/255, blue: 102/255, alpha: 1)
     static let darkGreyColor = UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha: 1)
-    static let darkOrange = UIColor(red: 246/255, green: 78/255, blue: 0/255, alpha: 1)
     static let darkPurple = UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)
+    static let lightPurple = UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 0.1)
+    static let primaryRed = UIColor(red: 244/255, green: 24/255, blue: 35/255, alpha: 1)
+    static let primaryLightRed = UIColor(red: 244/255, green: 24/255, blue: 35/255, alpha: 0.1)
 }
 
 
@@ -33,8 +35,8 @@ struct Fonts {
     static let montserratBold="Montserrat-Bold"
     static let montserratSemiBold="Montserrat-SemiBold"
     static let montserratMedium="Montserrat-Medium"
-    
-    
-    
+    static let carterOneRegular = "CarterOne"
     
 }
+
+

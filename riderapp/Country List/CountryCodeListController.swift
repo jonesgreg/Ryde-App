@@ -51,15 +51,29 @@ class CountryCodeListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizingNavigationItem()
+        configureNavigationController()
         view.addSubview(countryListTableView)
     }
-   
     
-    private func customizingNavigationItem() {
-        title = "Select a country"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)]
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    private func configureNavigationController() {
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.tintColor = .white
+        navigationItem.title = "Select a country"
+        navigationController?.navigationBar.isTranslucent = false
+       let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handlePreviousPage))
+    }
+    
+    // MARK: - Selectors
+    @objc private func handlePreviousPage() {
+        self.navigationController?.popViewController(animated: false)
     }
 }
 
