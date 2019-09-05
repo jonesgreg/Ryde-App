@@ -16,6 +16,7 @@ class TermsViewController: UIViewController, WKNavigationDelegate {
     private var activityIndicator: UIActivityIndicatorView!
     var webView: WKWebView!
     var toolBar = UIToolbar()
+  
     
     //MARK: Override functions
     override func loadView() {
@@ -26,33 +27,34 @@ class TermsViewController: UIViewController, WKNavigationDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://urydeapp.wixsite.com/website/terms-of-use")!
+        let url = URL(string: "https://www.lyft.com/terms")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
-        configureNavigationController()
-       // configureTabBar()
-  }
+    }
 
-    override func viewWillLayoutSubviews() {
-            super.viewWillLayoutSubviews()
-       
+    
+    override func viewWillAppear(_ animated: Bool) {
+       configureNavigationController()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
             willMove(toParent: AgreementViewController())
     }
-
-
+   
 private func configureNavigationController() {
-    navigationController?.navigationBar.barTintColor = .black
-    navigationController?.navigationBar.tintColor = .white
-    navigationItem.title = "Terms | Ryde "
-    navigationController?.navigationBar.isTranslucent = false
-    let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
-    navigationController?.navigationBar.titleTextAttributes = textAttributes
-    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handlePreviousViewController))
-}
+        navigationController?.navigationBar.barTintColor = .black // background color
+        navigationController?.navigationBar.barStyle = .black // Handle
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Terms & Conditions"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.sizeToFit()
+        navigationController?.navigationBar.isTranslucent = false
+        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handlePreviousViewController))
+    }
 
 private func setActivityIndicator() {
     //configure the background containerview for the indicator original width: 80 and height 80
@@ -87,7 +89,7 @@ private func setActivityIndicator() {
     self.navigationController?.popViewController(animated: false)
     
 }
-    override func willMove(toParent parent: UIViewController?) {
+override func willMove(toParent parent: UIViewController?) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = .black
@@ -130,4 +132,6 @@ extension TermsViewController: UINavigationBarDelegate {
         return .topAttached
     }
 }
+
+
 

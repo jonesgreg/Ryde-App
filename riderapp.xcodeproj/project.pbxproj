@@ -12,6 +12,12 @@
 		0D0C60BA22FA6944008164F9 /* ConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C60B922FA6944008164F9 /* ConfirmationVC.swift */; };
 		0D0C60BC22FA6F3D008164F9 /* AgreementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C60BB22FA6F3D008164F9 /* AgreementVC.swift */; };
 		0D1DB4C722E928A900B35993 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1DB4C622E928A900B35993 /* HomeVC.swift */; };
+		0D3E656D231A058D00B7D34C /* darkblue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D3E656B231A058D00B7D34C /* darkblue.json */; };
+		0D3E656E231A058D00B7D34C /* lightblue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D3E656C231A058D00B7D34C /* lightblue.json */; };
+		0D3F99CB2318712800A83621 /* launch_multiple_simulators.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0D3F99C92318712800A83621 /* launch_multiple_simulators.sh */; };
+		0D3F99CD2318714200A83621 /* MultiSimConfig.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0D3F99CC2318714200A83621 /* MultiSimConfig.txt */; };
+		0D57CA85231DDDB500B1F0D1 /* greyFleet.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D57CA83231DDDB500B1F0D1 /* greyFleet.json */; };
+		0D57CA86231DDDB500B1F0D1 /* fleetgreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D57CA84231DDDB500B1F0D1 /* fleetgreen.json */; };
 		0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D65F2D022C1636F0044D89C /* Loading_Animation.json */; };
 		0D68364222CAC2210004FF59 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */; };
 		0D68364322CAC2210004FF59 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363222CAC2200004FF59 /* Montserrat-Black.ttf */; };
@@ -36,6 +42,9 @@
 		0DC79234230DF693001C865D /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC79233230DF693001C865D /* TermsVC.swift */; };
 		0DC79236230DF6A2001C865D /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC79235230DF6A2001C865D /* PrivacyVC.swift */; };
 		0DCB80F622C1A82800D14133 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCB80F522C1A82800D14133 /* Lottie.framework */; };
+		0DD660CE23217A1200B4736F /* DropOffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD660CD23217A1200B4736F /* DropOffVC.swift */; };
+		0DD660D023217B1B00B4736F /* DestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD660CF23217B1B00B4736F /* DestinationVC.swift */; };
+		0DD660D223217C9400B4736F /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD660D123217C9400B4736F /* MenuBar.swift */; };
 		0DEB100622E2206A004EFDF3 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEB100522E2206A004EFDF3 /* extensions.swift */; };
 		0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5922B83646008A5D6A /* AppDelegate.swift */; };
 		0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF16F5D22B83646008A5D6A /* Main.storyboard */; };
@@ -74,6 +83,13 @@
 		0D0C60B922FA6944008164F9 /* ConfirmationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationVC.swift; sourceTree = "<group>"; };
 		0D0C60BB22FA6F3D008164F9 /* AgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementVC.swift; sourceTree = "<group>"; };
 		0D1DB4C622E928A900B35993 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		0D3E656B231A058D00B7D34C /* darkblue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = darkblue.json; path = "../../../../JSON FILES/darkblue.json"; sourceTree = "<group>"; };
+		0D3E656C231A058D00B7D34C /* lightblue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lightblue.json; path = "../../../../JSON FILES/lightblue.json"; sourceTree = "<group>"; };
+		0D3F99C92318712800A83621 /* launch_multiple_simulators.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = launch_multiple_simulators.sh; sourceTree = "<group>"; };
+		0D3F99CC2318714200A83621 /* MultiSimConfig.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MultiSimConfig.txt; sourceTree = "<group>"; };
+		0D57CA82231DD53000B1F0D1 /* Mosk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mosk-Bold.ttf"; sourceTree = "<group>"; };
+		0D57CA83231DDDB500B1F0D1 /* greyFleet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = greyFleet.json; path = "../../../../JSON FILES/greyFleet.json"; sourceTree = "<group>"; };
+		0D57CA84231DDDB500B1F0D1 /* fleetgreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = fleetgreen.json; path = "../../../../JSON FILES/fleetgreen.json"; sourceTree = "<group>"; };
 		0D65F2D022C1636F0044D89C /* Loading_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading_Animation.json; sourceTree = "<group>"; };
 		0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "riderapp/Custom Fonts/Montserrat-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68363222CAC2200004FF59 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Black.ttf"; path = "riderapp/Custom Fonts/Montserrat-Black.ttf"; sourceTree = SOURCE_ROOT; };
@@ -87,7 +103,6 @@
 		0D6DD7BE22F8A511003B5E0D /* GuideViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuideViewController+extension.swift"; sourceTree = "<group>"; };
 		0D6DD7C022F8A57A003B5E0D /* GuideViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuideViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		0D752F81230B808B0022FB17 /* CountryCodeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CountryCodeListCell.xib; path = ../../../../../Projects/FirebasePhoneAuth/FirebasePhone/CountryList/CountryCodeListCell.xib; sourceTree = "<group>"; };
-		0D752F83230B80FD0022FB17 /* CarterOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = CarterOne.ttf; path = "../../../../../Ryde Brand Fonts/Carter_One/CarterOne.ttf"; sourceTree = "<group>"; };
 		0D9012C022DFB4FB007652E4 /* country-codes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "country-codes.json"; sourceTree = "<group>"; };
 		0D9012C222DFB5CF007652E4 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		0D9012C522DFB627007652E4 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
@@ -99,6 +114,9 @@
 		0DC79233230DF693001C865D /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		0DC79235230DF6A2001C865D /* PrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
 		0DCB80F522C1A82800D14133 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = "Pods/lottie-ios/Lottie.framework"; sourceTree = "<group>"; };
+		0DD660CD23217A1200B4736F /* DropOffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropOffVC.swift; sourceTree = "<group>"; };
+		0DD660CF23217B1B00B4736F /* DestinationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationVC.swift; sourceTree = "<group>"; };
+		0DD660D123217C9400B4736F /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		0DEB100522E2206A004EFDF3 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		0DF16F5622B83646008A5D6A /* riderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F5922B83646008A5D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,9 +186,17 @@
 			isa = PBXGroup;
 			children = (
 				0D1DB4C622E928A900B35993 /* HomeVC.swift */,
-				0D0C60BB22FA6F3D008164F9 /* AgreementVC.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		0D3E6566231A04F700B7D34C /* Customize Simulators */ = {
+			isa = PBXGroup;
+			children = (
+				0D3F99CC2318714200A83621 /* MultiSimConfig.txt */,
+				0D3F99C92318712800A83621 /* launch_multiple_simulators.sh */,
+			);
+			path = "Customize Simulators";
 			sourceTree = "<group>";
 		};
 		0D65F2CD22C1612C0044D89C /* Welcome Screen */ = {
@@ -193,18 +219,23 @@
 			path = "UI Storyboards";
 			sourceTree = "<group>";
 		};
-		0D65F2CF22C163650044D89C /* Resources */ = {
+		0D65F2CF22C163650044D89C /* Json Files */ = {
 			isa = PBXGroup;
 			children = (
+				0D57CA84231DDDB500B1F0D1 /* fleetgreen.json */,
+				0D57CA83231DDDB500B1F0D1 /* greyFleet.json */,
+				0D3E656B231A058D00B7D34C /* darkblue.json */,
+				0D3E656C231A058D00B7D34C /* lightblue.json */,
 				0D9012C022DFB4FB007652E4 /* country-codes.json */,
 				0D65F2D022C1636F0044D89C /* Loading_Animation.json */,
 			);
-			path = Resources;
+			path = "Json Files";
 			sourceTree = "<group>";
 		};
 		0D68362F22CAC1F60004FF59 /* Monsterrat-Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0D57CA82231DD53000B1F0D1 /* Mosk-Bold.ttf */,
 				0D68363F22CAC2210004FF59 /* Montserrat-Bold.ttf */,
 				0D68363222CAC2200004FF59 /* Montserrat-Black.ttf */,
 				0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */,
@@ -214,14 +245,6 @@
 				0D68363622CAC2200004FF59 /* Montserrat-SemiBoldItalic.ttf */,
 			);
 			path = "Monsterrat-Fonts";
-			sourceTree = "<group>";
-		};
-		0D6DD7C222F8B076003B5E0D /* Carter_One */ = {
-			isa = PBXGroup;
-			children = (
-				0D752F83230B80FD0022FB17 /* CarterOne.ttf */,
-			);
-			path = Carter_One;
 			sourceTree = "<group>";
 		};
 		0D9012C422DFB608007652E4 /* Helper */ = {
@@ -263,7 +286,6 @@
 		0DC7086922C3D23E00E0E710 /* Custom Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				0D6DD7C222F8B076003B5E0D /* Carter_One */,
 				0D68362F22CAC1F60004FF59 /* Monsterrat-Fonts */,
 			);
 			path = "Custom Fonts";
@@ -272,15 +294,26 @@
 		0DC79232230DF67D001C865D /* Terms and Policy */ = {
 			isa = PBXGroup;
 			children = (
+				0D0C60BB22FA6F3D008164F9 /* AgreementVC.swift */,
 				0DC79233230DF693001C865D /* TermsVC.swift */,
 				0DC79235230DF6A2001C865D /* PrivacyVC.swift */,
 			);
 			path = "Terms and Policy";
 			sourceTree = "<group>";
 		};
+		0DD660CC232179DC00B4736F /* Home Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0DD660CD23217A1200B4736F /* DropOffVC.swift */,
+				0DD660CF23217B1B00B4736F /* DestinationVC.swift */,
+			);
+			path = "Home Extension";
+			sourceTree = "<group>";
+		};
 		0DF16F4D22B83646008A5D6A = {
 			isa = PBXGroup;
 			children = (
+				0D3E6566231A04F700B7D34C /* Customize Simulators */,
 				0DF16F5822B83646008A5D6A /* riderapp */,
 				0DF16F7022B83647008A5D6A /* riderappTests */,
 				0DF16F7B22B83647008A5D6A /* riderappUITests */,
@@ -303,9 +336,8 @@
 		0DF16F5822B83646008A5D6A /* riderapp */ = {
 			isa = PBXGroup;
 			children = (
-				0DF16F5922B83646008A5D6A /* AppDelegate.swift */,
 				0DC7086622C3D1D200E0E710 /* Design Constrants */,
-				0D65F2CF22C163650044D89C /* Resources */,
+				0D65F2CF22C163650044D89C /* Json Files */,
 				0D65F2CE22C161430044D89C /* UI Storyboards */,
 				0DC7086922C3D23E00E0E710 /* Custom Fonts */,
 				0DFCEA4C22C54DBD00691D0A /* Models */,
@@ -314,8 +346,10 @@
 				0D9012C922DFB6DF007652E4 /* Sign In  */,
 				0D0C60B622FA684E008164F9 /* Support */,
 				0D9012CA22DFB712007652E4 /* Country List */,
-				0D1DB4C522E9286200B35993 /* Home */,
 				0DC79232230DF67D001C865D /* Terms and Policy */,
+				0D1DB4C522E9286200B35993 /* Home */,
+				0DD660CC232179DC00B4736F /* Home Extension */,
+				0DF16F5922B83646008A5D6A /* AppDelegate.swift */,
 				0DF16F6322B83647008A5D6A /* Assets.xcassets */,
 				0DF16F6822B83647008A5D6A /* Info.plist */,
 				0DF16F6022B83646008A5D6A /* riderapp.xcdatamodeld */,
@@ -348,6 +382,7 @@
 				0D9012C222DFB5CF007652E4 /* Countries.swift */,
 				0DA7C3AD22E60B6900E43B2E /* Country.swift */,
 				0DC708CD22C4510400E0E710 /* PageCell.swift */,
+				0DD660D123217C9400B4736F /* MenuBar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,6 +423,8 @@
 				0DF16F5322B83646008A5D6A /* Frameworks */,
 				0DF16F5422B83646008A5D6A /* Resources */,
 				8F3E2540A10C66FEAC40739E /* [CP] Embed Pods Frameworks */,
+				0D3F99C5231863C600A83621 /* ShellScript */,
+				284CB6AC4C4FD70ED3A44D42 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -489,14 +526,20 @@
 				0D68364C22CAC2210004FF59 /* Montserrat-Medium.ttf in Resources */,
 				0D752F82230B808B0022FB17 /* CountryCodeListCell.xib in Resources */,
 				0D68364322CAC2210004FF59 /* Montserrat-Black.ttf in Resources */,
+				0D57CA85231DDDB500B1F0D1 /* greyFleet.json in Resources */,
+				0D3E656E231A058D00B7D34C /* lightblue.json in Resources */,
+				0D3F99CD2318714200A83621 /* MultiSimConfig.txt in Resources */,
 				0DF16F6722B83647008A5D6A /* LaunchScreen.storyboard in Resources */,
 				0D68364522CAC2210004FF59 /* Montserrat-SemiBold.ttf in Resources */,
+				0D3F99CB2318712800A83621 /* launch_multiple_simulators.sh in Resources */,
 				0D68364722CAC2210004FF59 /* Montserrat-SemiBoldItalic.ttf in Resources */,
 				0D9012C122DFB4FB007652E4 /* country-codes.json in Resources */,
 				0DF16F6422B83647008A5D6A /* Assets.xcassets in Resources */,
 				0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */,
 				0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */,
 				0D68365022CAC2210004FF59 /* Montserrat-Bold.ttf in Resources */,
+				0D3E656D231A058D00B7D34C /* darkblue.json in Resources */,
+				0D57CA86231DDDB500B1F0D1 /* fleetgreen.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +560,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D3F99C5231863C600A83621 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "custom_sim=`xcrun simctl list | grep 'Custom Simulators' | awk -F'[()]' '{print $2}'`\nif [ ! -z \"${custom_sim}\" ] && [ \"${TARGET_DEVICE_IDENTIFIER}\" = \"${custom_sim}\" ]; then\n/bin/sh launch_multiple_simulators.sh\nfi\n";
+		};
+		284CB6AC4C4FD70ED3A44D42 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-riderapp/Pods-riderapp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-riderapp/Pods-riderapp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-riderapp/Pods-riderapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		76154E0CAC2612E6B435AA30 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -611,6 +688,9 @@
 				0DFCEA4B22C512F800691D0A /* Page.swift in Sources */,
 				0D6DD7BD22F87FAA003B5E0D /* GuideVC.swift in Sources */,
 				0D9012CE22DFBBCC007652E4 /* CountryCodeListController.swift in Sources */,
+				0DD660CE23217A1200B4736F /* DropOffVC.swift in Sources */,
+				0DD660D023217B1B00B4736F /* DestinationVC.swift in Sources */,
+				0DD660D223217C9400B4736F /* MenuBar.swift in Sources */,
 				0DC79234230DF693001C865D /* TermsVC.swift in Sources */,
 				0D9012CC22DFB789007652E4 /* CountryCodeListCell.swift in Sources */,
 				0D0C60BC22FA6F3D008164F9 /* AgreementVC.swift in Sources */,
@@ -735,7 +815,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -790,7 +870,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -812,11 +892,12 @@
 					"$(PROJECT_DIR)/Pods/lottie-ios",
 				);
 				INFOPLIST_FILE = riderapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ryde.riderapp;
+				PRODUCT_BUNDLE_IDENTIFIER = fleet.riderapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -835,11 +916,12 @@
 					"$(PROJECT_DIR)/Pods/lottie-ios",
 				);
 				INFOPLIST_FILE = riderapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ryde.riderapp;
+				PRODUCT_BUNDLE_IDENTIFIER = fleet.riderapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

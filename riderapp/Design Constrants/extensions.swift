@@ -79,6 +79,22 @@ extension UIView {
    
 }
 
+extension UIView {
+    
+    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, shadowRadius: CGFloat = 1, scale: Bool = true, cornerRadius: CGFloat) {
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        shadowLayer.fillColor = UIColor.white.cgColor
+        shadowLayer.shadowColor = color.cgColor
+        shadowLayer.shadowPath = shadowLayer.path
+        shadowLayer.shadowOffset = offSet
+        shadowLayer.shadowOpacity = opacity
+        shadowLayer.shadowRadius = shadowRadius
+        layer.insertSublayer(shadowLayer, at: 0)
+    }
+    
+}
+
 extension UIBarButtonItem {
     static func barButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
         let button = UIButton(type: .system)
@@ -161,7 +177,7 @@ class phoneNumberTextField: UITextField {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.textAlignment = .left
-        self.tintColor = Colors.primaryRed
+        self.tintColor = Colors.fleetGreen
         self.borderStyle = .none
         self.keyboardType = UIKeyboardType.numberPad
         self.autocapitalizationType = UITextAutocapitalizationType.none
@@ -181,7 +197,7 @@ class verifyTextField: UITextField {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.textAlignment = .center
-        self.tintColor = Colors.primaryRed
+        self.tintColor = Colors.fleetGreen
         self.font = UIFont(name: Fonts.montserratMedium, size: 20)
         self.borderStyle = .none
         self.keyboardType = UIKeyboardType.numberPad
@@ -208,13 +224,13 @@ class countryField: UITextField {
     }
 }
 
-class redButton: UIButton {
+class greenButton: UIButton {
     override init(frame: CGRect) {
     super.init(frame: frame)
     self.translatesAutoresizingMaskIntoConstraints = false
     self.layer.borderWidth = 1
-    self.layer.borderColor = Colors.primaryRed.cgColor
-    self.backgroundColor = Colors.primaryRed
+    self.layer.borderColor = Colors.fleetGreen.cgColor
+    self.backgroundColor = Colors.fleetGreen
     self.layer.masksToBounds = false
     self.layer.shadowColor = Colors.darkGreyColor.cgColor
     self.layer.shadowOpacity = 0.5
@@ -229,6 +245,29 @@ class redButton: UIButton {
     fatalError("init(coder:) has not been implemented")
    }
 }
+class customView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.borderWidth = 0
+      
+        self.backgroundColor = .white
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = Colors.darkGreyColor.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 2
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.layer.cornerRadius = 25
+       
+        
+        }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+
 
 class NextButton: UIButton {
     override init(frame: CGRect) {
@@ -238,11 +277,52 @@ class NextButton: UIButton {
         self.layer.shadowRadius = 1.0
         self.layer.shadowOpacity = 0.5
         self.layer.shadowColor = UIColor.black.cgColor
-        self.backgroundColor = Colors.primaryRed
+        self.backgroundColor = Colors.fleetGreen
         self.layer.cornerRadius = 32.5
         self.layer.shadowOffset = CGSize(width: 0, height: 1)
         self.width(constant: 65)
         self.height(constant: 65)
+        
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class whiteCircleButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 0.5
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 20
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.width(constant: 40)
+        self.height(constant: 40)
+        
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class grayCircleButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.masksToBounds = false
+       
+      //  self.layer.shadowRadius = 0.5
+      //  self.layer.shadowOpacity = 0.3
+      //  self.layer.shadowColor = UIColor.black.cgColor
+        self.backgroundColor = Colors.fleetGreen
+        self.layer.cornerRadius = 16
+   //     self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.width(constant: 32)
+        self.height(constant: 32)
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -258,7 +338,7 @@ class userInputField: UITextField  {
         self.borderStyle = .none
         self.textColor = UIColor.black
         self.textAlignment = .center
-        self.tintColor = Colors.primaryRed
+        self.tintColor = Colors.fleetGreen
         self.font = UIFont(name: Fonts.montserratMedium, size: 20)
         self.autocapitalizationType = UITextAutocapitalizationType.none
         self.autocorrectionType = .no

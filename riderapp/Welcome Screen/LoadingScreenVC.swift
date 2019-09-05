@@ -24,7 +24,7 @@ class LoadingViewController: UIViewController {
         view.addSubview(logoImageView)
         setupLayout()
         switchScreen()
-        view.backgroundColor = Colors.primaryRed
+        view.backgroundColor = Colors.fleetGreen
         
     }
     
@@ -39,7 +39,7 @@ class LoadingViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     private let logoImageView: UIImageView = {
-        let imageView = UIImageView(image:#imageLiteral(resourceName: "ryderiderlogo"))
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "fleettext"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -61,12 +61,12 @@ class LoadingViewController: UIViewController {
         
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        logoImageView.widthAnchor.constraint(equalToConstant:130).isActive = true
-        logoImageView.heightAnchor.constraint(equalToConstant:130).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant:150).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant:150).isActive = true
     }
     
     func switchScreen() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { // Delay the time to push to the next view controller by 7 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { // Delay the time to push to the next view controller by 7 seconds
             let layout = UICollectionViewFlowLayout()
                 layout.scrollDirection = .horizontal
             let nextViewController = GuideViewController(collectionViewLayout: layout)

@@ -7,7 +7,7 @@ target 'riderapp' do
   pod 'lottie-ios'
   pod 'ShimmerSwift'
   pod 'IQKeyboardManagerSwift'
-
+  pod 'GoogleMaps'
   
   # Pods for riderapp
 

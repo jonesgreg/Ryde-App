@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
        // Thread.sleep(forTimeInterval: 0.0)
+         GMSServices.provideAPIKey("AIzaSyC9hAdi6bSTzCwj2H_NaAQtmGrmoGg5tvw")
        
         // this is how we build out our app in code
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -31,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // window?.rootViewController = UINavigationController(rootViewController: GuideViewController(collectionViewLayout: layout))
        
        window?.rootViewController = UINavigationController(rootViewController: LoadingViewController())
+      
         let BarButtonItemAppearance = UIBarButtonItem.appearance()
         BarButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.clear], for: .normal)
         

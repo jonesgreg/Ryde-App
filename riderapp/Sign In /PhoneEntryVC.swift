@@ -25,7 +25,7 @@ class PhoneEntryViewController: UIViewController {
         configureUI()
         constraintsLayout()
         loadCountries()
-     
+        
     }
     
   
@@ -96,7 +96,7 @@ private func loadCountries() {
     private let backgroundView: UIView = {
         let view = UIView()
             view.layer.borderWidth = 0
-            view.backgroundColor = Colors.primaryRed
+            view.backgroundColor = Colors.fleetGreen
             view.translatesAutoresizingMaskIntoConstraints = false
         
        
@@ -131,7 +131,7 @@ private func loadCountries() {
     }()
    
     private let logoImageView: UIImageView = {
-        let imageView = UIImageView(image:#imageLiteral(resourceName: "ryderiderlogo"))
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "fleettext"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -163,7 +163,7 @@ private func loadCountries() {
     
   phoneText.anchor(top: backgroundView.bottomAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 35, left: 10, bottom: 0, right: 0))
    dropDownPicker.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: phoneText.leadingAnchor, trailing: nil, padding: .init(top: 132, left: 5, bottom: 0, right: 0), size: .init(width: 15, height:15))
-    forwardButton.anchor(top: backgroundView.bottomAnchor, bottom:nil, leading: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 130, left: 0, bottom:0, right: 15), size: .init(width: 25, height: 25))
+    forwardButton.anchor(top: backgroundView.bottomAnchor, bottom:nil, leading: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 130, left: 0, bottom:0, right: 30), size: .init(width: 25, height: 25))
     
     // Display Country Code, Change Country Code and Country Flag
   showCountryCode.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: countryCodeInput.leadingAnchor, trailing: nil, padding: .init(top: 125, left: 0, bottom: 0, right: 0))
@@ -172,7 +172,7 @@ private func loadCountries() {
     // Display background color of Phone View, display border line Phone View, and Phone view Input
   phoneNumberInput.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: view.leadingAnchor, trailing: forwardButton.leadingAnchor, padding: .init(top: 130, left: 85, bottom: 0, right: 10))
     
-    updateAcountButton.anchor(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: phoneText.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 15, right: 60))
+    updateAcountButton.anchor(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: phoneText.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 15, right: 0))
 
 }
     

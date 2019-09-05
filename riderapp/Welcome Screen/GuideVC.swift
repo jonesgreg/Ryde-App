@@ -11,19 +11,19 @@ import UIKit
 class GuideViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
     let pages = [
-        Page(imageName: "profile", headerText: "Login your account", bodyText: "Enter your phone number if you have account with ryde or login with Google."),
-        Page(imageName: "enterdestination", headerText: "Enter Destination", bodyText: "Open the app and enter where you are going in the where to search bar. Passengers are restricted to pick up and drop off locations."),
-        Page(imageName: "meetdriver", headerText: "Meet your driver", bodyText: "You can track their arrival on the map. When they're a few minutes away, wait for them at your pickup location."),
-        Page(imageName: "checkride", headerText: "Check ride", bodyText: "Please check for the right vehicle with the proper driver. Check for logos, numbers, and tags."),
-        Page(imageName: "payment", headerText: "Enjoy your trip", bodyText: "Your trip is free. There is no cash or credit card required for your trip."),
-        Page(imageName: "rateme", headerText: "Rate your trip", bodyText: "Let us know how your trip went. We take feedback critical, and we want you to enjoy using this service. ")
+        Page(imageName: "profile", headerText: "Login your account", bodyText: "Enter your phone number if you have account with Fleet or login with Google."),
+        Page(imageName: "enterdestination", headerText: "Enter Destination", bodyText: "Once logged in, and enter where you are going in the Where to? search bar; then confirm your pick up and destination. And, tap Request."),
+        Page(imageName: "meetyourdriver", headerText: "Meet your driver", bodyText: "You can track their arrival on the map. When they're a few minutes away, wait for them at your pickup location."),
+        Page(imageName: "checkride", headerText: "Check ride", bodyText: "Verify each other's name and destination. Also, check for the vehicle with any logos, numbers, and tags."),
+        Page(imageName: "payment", headerText: "Enjoy your trip", bodyText: "There is no payment required for this service."),
+        Page(imageName: "rateme", headerText: "Rate your trip", bodyText: "At the end of your trip, provide a rating and review about the Student Driver and trip. ")
     ]
    
   // MARK: - Private functions
 
     private let rideNowButton: UIButton = {
-        let button = redButton(type: .system)
-        button.setTitle("RYDE NOW", for: .normal)
+        let button = greenButton(type: .system)
+        button.setTitle("FLEET NOW", for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.montserratBold, size: 20)
         button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
         return button
@@ -41,7 +41,7 @@ class GuideViewController: UICollectionViewController, UICollectionViewDelegateF
         let pc = UIPageControl()
         pc.currentPage = 0
         pc.numberOfPages = pages.count
-        pc.currentPageIndicatorTintColor = Colors.primaryRed
+        pc.currentPageIndicatorTintColor = Colors.fleetGreen
         pc.pageIndicatorTintColor = UIColor.lightGray
         return pc
     }()

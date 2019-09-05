@@ -61,8 +61,8 @@ class PageCell: UICollectionViewCell {
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -150).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant:130).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant:130).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant:120).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant:120).isActive = true
         
         addSubview(descriptionTextView)
          descriptionTextView.anchor(top: profileImageView.bottomAnchor, bottom: bottomAnchor, leading: safeAreaLayoutGuide.leadingAnchor, trailing: safeAreaLayoutGuide.trailingAnchor, padding:.init(top: 15, left: 32, bottom: 0, right: 32))

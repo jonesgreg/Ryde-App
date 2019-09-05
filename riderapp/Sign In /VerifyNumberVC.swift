@@ -24,8 +24,7 @@ class VerifyNumberViewController: UIViewController {
         [titleTextView, nextButton,nextButtonImage,  VerifyNumberStackView, txtOTPStackView, resendCodeButton].forEach { view.addSubview($0) }
        setUpLayout()
        configureUI()
-     
-       
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +46,7 @@ class VerifyNumberViewController: UIViewController {
     private let titleTextView: UITextView =  {
         let textView = UITextView()
         let attributedText = NSMutableAttributedString(string: "What's the 6 digit code?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        attributedText.append(NSAttributedString(string: "\n\nEnter the code sent to your phone number", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 13.5) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        attributedText.append(NSAttributedString(string: "\n\nEnter the code sent to your phone number", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
             textView.attributedText = attributedText
             textView.translatesAutoresizingMaskIntoConstraints = false
             textView.textAlignment = .left
@@ -143,7 +142,7 @@ class VerifyNumberViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Resend Code", for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.montserratRegular, size: 14)
-        button.setTitleColor(Colors.primaryRed, for: .normal)
+        button.setTitleColor(Colors.fleetGreen, for: .normal)
         return button
     }()
     
@@ -151,7 +150,7 @@ class VerifyNumberViewController: UIViewController {
       private func setUpLayout() {
        titleTextView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 32, bottom: 0, right: 32))
        
-        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 145).isActive = true
+        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 135).isActive = true
         buttonConstraint = nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         buttonConstraint?.isActive = true
         

@@ -12,6 +12,9 @@ struct Colors {
     static let darkRedColor = UIColor(red: 161/255, green: 31/255, blue: 53/255, alpha: 1)
     static let whiteColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     static let lightGreyColor = UIColor(red: 213/255, green: 213/255, blue: 213/255, alpha: 1)
+    static let circleIconGrey = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1)
+    static let fleetGreyColor = UIColor(red: 219/255, green: 219/255, blue: 219/255, alpha: 1)
+   
     static let blueColor = UIColor(red:30/255, green: 144/255, blue: 255/255, alpha: 100)
     static let primarySlateColor = UIColor(red:27/255, green: 33/255, blue: 39/255, alpha: 1)
     static let primaryGreenColor = UIColor(red:54/255, green: 80/255, blue: 82/255, alpha: 1)
@@ -24,6 +27,7 @@ struct Colors {
     static let lightPurple = UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 0.1)
     static let primaryRed = UIColor(red: 244/255, green: 24/255, blue: 35/255, alpha: 1)
     static let primaryLightRed = UIColor(red: 244/255, green: 24/255, blue: 35/255, alpha: 0.1)
+    static let fleetGreen = UIColor(red: 50/255, green: 205/255, blue: 50/255, alpha: 1)
 }
 
 
@@ -35,8 +39,7 @@ struct Fonts {
     static let montserratBold="Montserrat-Bold"
     static let montserratSemiBold="Montserrat-SemiBold"
     static let montserratMedium="Montserrat-Medium"
-    static let carterOneRegular = "CarterOne"
-    
-}
+    static let moskBold="Mosk-Bold"
+    }
 
 

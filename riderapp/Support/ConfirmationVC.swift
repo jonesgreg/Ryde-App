@@ -19,6 +19,7 @@ class ConfirmationEmailViewController: UIViewController {
         [titleText,descText, nextButton].forEach { view.addSubview($0) }
         setUpLayout()
         configureUI()
+         navigationItem.largeTitleDisplayMode = .never
         
         
     }
@@ -46,7 +47,7 @@ class ConfirmationEmailViewController: UIViewController {
     }()
     
     private let nextButton: UIButton = {
-        let button = redButton(type: .system)
+        let button = greenButton(type: .system)
         button.setTitle("Resend Email", for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
         button.layer.cornerRadius = 22

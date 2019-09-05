@@ -19,6 +19,7 @@ class RecoverAcountViewController: UIViewController {
         [titleText,emailView, descText,nextButton, nextButtonImage, emailInput,].forEach { view.addSubview($0) }
         setUpLayout()
         configureUI()
+         navigationItem.largeTitleDisplayMode = .never
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +90,7 @@ class RecoverAcountViewController: UIViewController {
     
     private func setUpLayout() {
         titleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 50 , left: 32, bottom: 0, right: 32))
-        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 145).isActive = true
+        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 135).isActive = true
         buttonConstraint = nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         buttonConstraint?.isActive = true
         
@@ -99,8 +100,8 @@ class RecoverAcountViewController: UIViewController {
         
       descText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 220, left: 32, bottom: 0, right: 32))
         
-        emailView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 160, left: 32, bottom: 0, right: 32), size: .init(width: 0, height: 50))
-        emailInput.anchor(top: view.topAnchor, bottom: nil, leading: emailView.leadingAnchor, trailing: emailView.trailingAnchor, padding: .init(top: 173, left: 15, bottom: 0, right: 0))
+        emailView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 140, left: 32, bottom: 0, right: 32), size: .init(width: 0, height: 50))
+        emailInput.anchor(top: view.topAnchor, bottom: nil, leading: emailView.leadingAnchor, trailing: emailView.trailingAnchor, padding: .init(top: 153, left: 15, bottom: 0, right: 0))
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {

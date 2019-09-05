@@ -13,31 +13,16 @@ protocol countryPickerProtocol: class {
     func didPickCountry(model: Country)
 }
 
-class CountryCodeListController: UIViewController {
+class CountryCodeListController: UIViewController{
     
-   
-   
-    // MARK: - table view
     
- lazy var countryListTableView: UITableView = {
-        let tableView = UITableView(frame: view.frame)
-            tableView.delegate = self
-            tableView.dataSource = self
-            let nib:UINib = UINib(nibName: CountryCodeListCell.reuseIdentifier, bundle: nil) // might be an issue
-            tableView.register(nib, forCellReuseIdentifier: CountryCodeListCell.reuseIdentifier) // might be an issue
-            tableView.estimatedRowHeight = 70
-            tableView.rowHeight = UITableView.automaticDimension
-            tableView.keyboardDismissMode = .onDrag
-            tableView.separatorStyle = .none
-           return tableView
-    }()
-    
-   
+    //MARK: - Properties
     let countries: Countries
     public weak var delegate: countryPickerProtocol?
+
+   
     
-    
-    //MARK: - Overriden function
+   //MARK: - Overriden function
     
     init(countries: Countries) {
         self.countries = countries
@@ -51,8 +36,8 @@ class CountryCodeListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationController()
         view.addSubview(countryListTableView)
+        configureNavigationController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,13 +45,30 @@ class CountryCodeListController: UIViewController {
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    // MARK: - table view
     
-    private func configureNavigationController() {
-        navigationController?.navigationBar.barTintColor = .black
+   private lazy var countryListTableView: UITableView = {
+        let tableView = UITableView(frame: view.frame)
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib:UINib = UINib(nibName: CountryCodeListCell.reuseIdentifier, bundle: nil) // might be an issue
+        tableView.register(nib, forCellReuseIdentifier: CountryCodeListCell.reuseIdentifier) // might be an issue
+        tableView.estimatedRowHeight = 70
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.keyboardDismissMode = .onDrag
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+    
+    
+private func configureNavigationController() {
+        navigationController?.navigationBar.barTintColor = .black // background color
+        navigationController?.navigationBar.barStyle = .black // Handle
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Select a country"
         navigationController?.navigationBar.isTranslucent = false
-       let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
+       let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handlePreviousPage))
     }
@@ -84,23 +86,24 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     
         let key = countries.sections[section]
-        return countries.metaData[key]?.count ?? 0
-    }
+        return countries.metaData[key]?.count ?? 00
+        }
+    
    
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CountryCodeListCell = tableView.dequeueReusableCell(withIdentifier: CountryCodeListCell.reuseIdentifier, for: indexPath) as! CountryCodeListCell
-        let sectionKey = countries.sections[indexPath.section]
+       let sectionKey = countries.sections[indexPath.section]
         if let countries = countries.metaData[sectionKey] {
             let country: Country = countries[indexPath.row]
             cell.feedCountry(info: country)
-        }
-        return cell
-     }
-    
+    }
+    return cell
+}
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
      return UITableView.automaticDimension
-}
+   }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionKey = countries.sections[indexPath.section]
@@ -118,8 +121,10 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
         cell.backgroundColor = UIColor.clear
      }
   }
+   
 
 
-    
-    
+
+
+
 
