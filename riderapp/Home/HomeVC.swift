@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     var mapView: GMSMapView?
     var locationManager = CLLocationManager()
    
+    var whiteScreen: UIView!
+   
   
     // MARK: - Overriden function
     
@@ -276,6 +278,7 @@ private func constraintsLayout() {
         view.backgroundColor = .white
     }
     
+  
     // MARK: - Selector
     @objc private func handleDropOff() {
         let nextViewController = DropOffLocationViewController()

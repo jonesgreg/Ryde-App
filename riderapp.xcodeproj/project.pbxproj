@@ -44,7 +44,8 @@
 		0DCB80F622C1A82800D14133 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCB80F522C1A82800D14133 /* Lottie.framework */; };
 		0DD660CE23217A1200B4736F /* DropOffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD660CD23217A1200B4736F /* DropOffVC.swift */; };
 		0DD660D023217B1B00B4736F /* DestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD660CF23217B1B00B4736F /* DestinationVC.swift */; };
-		0DD660D223217C9400B4736F /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD660D123217C9400B4736F /* MenuBar.swift */; };
+		0DDB7E4F2322E95000B61A1A /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB7E4E2322E95000B61A1A /* MenuOption.swift */; };
+		0DDB7E532322EB5F00B61A1A /* MenuOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB7E522322EB5F00B61A1A /* MenuOptionCell.swift */; };
 		0DEB100622E2206A004EFDF3 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEB100522E2206A004EFDF3 /* extensions.swift */; };
 		0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5922B83646008A5D6A /* AppDelegate.swift */; };
 		0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF16F5D22B83646008A5D6A /* Main.storyboard */; };
@@ -116,7 +117,9 @@
 		0DCB80F522C1A82800D14133 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = "Pods/lottie-ios/Lottie.framework"; sourceTree = "<group>"; };
 		0DD660CD23217A1200B4736F /* DropOffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropOffVC.swift; sourceTree = "<group>"; };
 		0DD660CF23217B1B00B4736F /* DestinationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationVC.swift; sourceTree = "<group>"; };
-		0DD660D123217C9400B4736F /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		0DDB7E4E2322E95000B61A1A /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
+		0DDB7E512322EB4400B61A1A /* CountryCodeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCodeListCell.xib; sourceTree = "<group>"; };
+		0DDB7E522322EB5F00B61A1A /* MenuOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionCell.swift; sourceTree = "<group>"; };
 		0DEB100522E2206A004EFDF3 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		0DF16F5622B83646008A5D6A /* riderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F5922B83646008A5D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -268,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				0D752F81230B808B0022FB17 /* CountryCodeListCell.xib */,
-				0D9012CB22DFB789007652E4 /* CountryCodeListCell.swift */,
 				0D9012CD22DFBBCC007652E4 /* CountryCodeListController.swift */,
 			);
 			path = "Country List";
@@ -310,6 +312,17 @@
 			path = "Home Extension";
 			sourceTree = "<group>";
 		};
+		0DDB7E502322EB1B00B61A1A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DDB7E512322EB4400B61A1A /* CountryCodeListCell.xib */,
+				0DC708CD22C4510400E0E710 /* PageCell.swift */,
+				0DDB7E522322EB5F00B61A1A /* MenuOptionCell.swift */,
+				0D9012CB22DFB789007652E4 /* CountryCodeListCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0DF16F4D22B83646008A5D6A = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +354,7 @@
 				0D65F2CE22C161430044D89C /* UI Storyboards */,
 				0DC7086922C3D23E00E0E710 /* Custom Fonts */,
 				0DFCEA4C22C54DBD00691D0A /* Models */,
+				0DDB7E502322EB1B00B61A1A /* Views */,
 				0D9012C422DFB608007652E4 /* Helper */,
 				0D65F2CD22C1612C0044D89C /* Welcome Screen */,
 				0D9012C922DFB6DF007652E4 /* Sign In  */,
@@ -379,10 +393,9 @@
 			isa = PBXGroup;
 			children = (
 				0DFCEA4A22C512F800691D0A /* Page.swift */,
+				0DDB7E4E2322E95000B61A1A /* MenuOption.swift */,
 				0D9012C222DFB5CF007652E4 /* Countries.swift */,
 				0DA7C3AD22E60B6900E43B2E /* Country.swift */,
-				0DC708CD22C4510400E0E710 /* PageCell.swift */,
-				0DD660D123217C9400B4736F /* MenuBar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -690,7 +703,6 @@
 				0D9012CE22DFBBCC007652E4 /* CountryCodeListController.swift in Sources */,
 				0DD660CE23217A1200B4736F /* DropOffVC.swift in Sources */,
 				0DD660D023217B1B00B4736F /* DestinationVC.swift in Sources */,
-				0DD660D223217C9400B4736F /* MenuBar.swift in Sources */,
 				0DC79234230DF693001C865D /* TermsVC.swift in Sources */,
 				0D9012CC22DFB789007652E4 /* CountryCodeListCell.swift in Sources */,
 				0D0C60BC22FA6F3D008164F9 /* AgreementVC.swift in Sources */,
@@ -698,6 +710,7 @@
 				0DC708CE22C4510400E0E710 /* PageCell.swift in Sources */,
 				0D6DD7BF22F8A511003B5E0D /* GuideViewController+extension.swift in Sources */,
 				0D0C60B422FA32CF008164F9 /* LoadingScreenVC.swift in Sources */,
+				0DDB7E4F2322E95000B61A1A /* MenuOption.swift in Sources */,
 				0DFCEA5022C54E8500691D0A /* PhoneEntryVC.swift in Sources */,
 				0D9012C322DFB5CF007652E4 /* Countries.swift in Sources */,
 				0D6A666722C993A1007AA976 /* VerifyNumberVC.swift in Sources */,
@@ -706,6 +719,7 @@
 				0DA7C3AE22E60B6900E43B2E /* Country.swift in Sources */,
 				0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */,
 				0DF16F6222B83646008A5D6A /* riderapp.xcdatamodeld in Sources */,
+				0DDB7E532322EB5F00B61A1A /* MenuOptionCell.swift in Sources */,
 				0D0C60BA22FA6944008164F9 /* ConfirmationVC.swift in Sources */,
 				0D6DD7C122F8A57A003B5E0D /* GuideViewController+UICollectionView.swift in Sources */,
 				0D1DB4C722E928A900B35993 /* HomeVC.swift in Sources */,
