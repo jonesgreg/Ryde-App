@@ -17,7 +17,7 @@ class AgreementViewController: UIViewController {
     // MARK: - Overriden function
     override func viewDidLoad() {
         super.viewDidLoad()
-     [titleText, subTitleText,agreementImageView,yesButton].forEach { view.addSubview($0) }
+     [titleText,agreementImageView,yesButton].forEach { view.addSubview($0) }
        customizeTextViewLink()
        setupLayout()
        configureUI()
@@ -32,10 +32,20 @@ class AgreementViewController: UIViewController {
    
     private let titleText: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Do you agree to Fleet's", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        let attributedText = NSMutableAttributedString(string: "Do you agree to Fleet's", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        attributedText.append(NSAttributedString(string: "\nTerms of Service and Policy Privacy?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
             textView.attributedText = attributedText
+            textView.dataDetectorTypes = UIDataDetectorTypes.link
+            textView.isSelectable = true
             textView.textAlignment = .left
             textView.isEditable = false
+        
+        let linkAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor: Colors.fleetGreen,
+            NSAttributedString.Key.underlineColor: Colors.fleetGreen,
+        ]
+        textView.linkTextAttributes = linkAttributes
+        
         return textView
     }()
     
@@ -60,7 +70,7 @@ class AgreementViewController: UIViewController {
         return textView
     }()
     
-    private func customizeTextViewLink() {
+  /*  private func customizeTextViewLink() {
         let font = subTitleText.font
         let textAlignment = subTitleText.textAlignment
         let attributedText = subTitleText.attributedText.replace(placeholder: "Terms of Service", with: "Terms of Service", url: termsURL)
@@ -71,6 +81,19 @@ class AgreementViewController: UIViewController {
         subTitleText.textAlignment = textAlignment
         subTitleText.delegate = self
         subTitleText.dataDetectorTypes = UIDataDetectorTypes.link
+    } */
+    
+    private func customizeTextViewLink() {
+        let font = titleText.font
+        let textAlignment = titleText.textAlignment
+        let attributedText = titleText.attributedText.replace(placeholder: "Terms of Service", with: "Terms of Service", url: termsURL)
+            .replace(placeholder: "Policy Privacy", with: "Policy Privacy", url: policyURL)
+        
+       titleText.attributedText = attributedText
+       titleText.font = font
+        titleText.textAlignment = textAlignment
+        titleText.delegate = self
+        titleText.dataDetectorTypes = UIDataDetectorTypes.link
     }
    
   
@@ -97,7 +120,7 @@ private let yesButton: UIButton = {
         agreementImageView.widthAnchor.constraint(equalToConstant:300).isActive = true
         agreementImageView.heightAnchor.constraint(equalToConstant:300).isActive = true
         titleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 70 , left: 32, bottom: 0, right: 32))
-    subTitleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor,  padding: .init(top: 120, left: 32, bottom: 0, right: 32))
+ //   subTitleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor,  padding: .init(top: 120, left: 32, bottom: 0, right: 32))
         yesButton.anchor(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top:0, left: 60, bottom: 60, right: 80), size: .init(width: 0, height: 50))
     }
     

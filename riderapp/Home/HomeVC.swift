@@ -15,16 +15,20 @@ class HomeViewController: UIViewController {
     
     var mapView: GMSMapView?
     var locationManager = CLLocationManager()
-   
-    var whiteScreen: UIView!
-   
+    var menuBarView: MenuController!
+    var blackScreen: UIView!
+
   
-    // MARK: - Overriden function
+// MARK: - Overriden function
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        [mapContainerView,destinationView,greetingTitle,whereToView,searchIcon,whereToButton,previousSelectionStackView,campusSelectionStackView,mapTitleImage,menuButton,menuButtonImage,navigationIcon,navigationIconImage].forEach { view.addSubview($0) }
-   setupGoogleMaps()
+[mapContainerView,destinationView,greetingTitle, whereToView,searchIcon,whereToButton,previousSelectionStackView,campusSelectionStackView,mapTitleImage,menuButton ,navigationIcon,navigationIconImage].forEach { view.addSubview($0) }
+   
+  
+    MenuBarSetup()
+    BlackScreenSetup()
+    setupGoogleMaps()
     configureUI()
     constraintsLayout()
 }
@@ -32,17 +36,16 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-      
-        
+      self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    
     //MARK: Private functions
    
 private var mapContainerView: UIView = {
         let view = UIView()
             view.backgroundColor = Colors.fleetGreen
             view.translatesAutoresizingMaskIntoConstraints = false
-    
             return view
     }()
     
@@ -61,11 +64,9 @@ private var mapContainerView: UIView = {
     }()
     
   private let menuButton: UIButton = {
-        let button = whiteCircleButton(type: .system)
-    
-    
-            // button.addTarget(self, action: //#selector(handleNextPage), for: .touchUpInside)
-       return button
+        let button = whiteCircleButton(type: .custom)
+        button.addTarget(self, action: #selector(handleMenuAction), for: .touchUpInside)
+            return button
     }()
     
     private let menuButtonImage: UIImageView = {
@@ -89,7 +90,7 @@ private var mapContainerView: UIView = {
   
     private let navigationIcon: UIButton = {
         let button = whiteCircleButton(type: .system)
-            // button.addTarget(self, action: //#selector(handleNextPage), for: .touchUpInside)
+           //  button.addTarget(self, action: //#selector(handleNextPage), for: .touchUpInside)
             return button
     }()
     
@@ -104,15 +105,30 @@ private var mapContainerView: UIView = {
    
     private let greetingTitle: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Good Evening, Gregory", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-            attributedText.append(NSAttributedString(string: "\nWhere are you going tonight?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
-            textView.attributedText = attributedText
-            textView.translatesAutoresizingMaskIntoConstraints = false
+        let attributedText = NSMutableAttributedString(string: "Good evening, Greg", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+       attributedText.append(NSAttributedString(string: "\nWhere are you going?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        
+          textView.attributedText = attributedText
+            textView.translatesAutoresizingMaskIntoConstraints = true
             textView.textAlignment = .left
+        
             textView.isEditable = false
-            textView.isScrollEnabled = false
+           textView.isScrollEnabled = false
         return textView
     }()
+/*private let greetingSubTitle: UITextView = {
+          let textView = UITextView()
+        let attributedText = NSMutableAttributedString(string: "Where are you going?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textView.attributedText = attributedText
+        textView.translatesAutoresizingMaskIntoConstraints = true
+        textView.textAlignment = .left
+        textView.sizeToFit()
+        textView.isEditable = false
+         textView.isScrollEnabled = false
+        return textView
+    }() */
+    
+   
     
     private let whereToView: UIView = {
             let view = UIView()
@@ -133,35 +149,35 @@ private var mapContainerView: UIView = {
     private let whereToButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("Enter your destination", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 18)
-        button.setTitleColor(Colors.fleetGreen, for: .normal)
+        button.titleLabel?.font = UIFont(name: Fonts.montserratMedium, size: 14)
+        button.setTitleColor(Colors.darkGreyColor, for: .normal)
         button.contentHorizontalAlignment = .left
         button.addTarget(self, action: #selector(handleDropOff), for: .touchUpInside)
         return button
     }()
     
     private let searchIcon: UIImageView = {
-        let imageView = UIImageView(image:#imageLiteral(resourceName: "round_search_black_36pt_2x"))
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Search"))
         imageView.contentMode = .scaleAspectFit
-        imageView.width(constant: 24)
-        imageView.height(constant: 24)
+        imageView.width(constant: 20)
+        imageView.height(constant: 20)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
    
     private let previousLocationButton: UIButton = {
-            let button = grayCircleButton(type: .system)
+            let button = greenCircleButton(type: .system)
             let img = UIImage(named: "previouslocation")
             button.setImage(img?.withRenderingMode(.alwaysOriginal), for: .normal)
-            button.imageEdgeInsets = UIEdgeInsets(top: 26, left: 26, bottom: 26, right: 26)
+            button.imageEdgeInsets = UIEdgeInsets(top: 26.5, left: 26.5, bottom: 26.5, right: 26.5)
            return button
     }()
     
     private let previousTextButton: UIButton = {
         let button = UIButton(type: .custom)
         let attributedText = NSMutableAttributedString(string: "Villiger Hall", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        attributedText.append(NSAttributedString(string: "\n2401 Cardinal Ave Philadelphia, PA 19131", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 13) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        attributedText.append(NSAttributedString(string: "\nPhiladelphia, PA", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 12) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
         button.setAttributedTitle(attributedText, for: .normal)
         button.titleLabel?.numberOfLines = 2
         button.contentHorizontalAlignment = .left
@@ -172,22 +188,20 @@ private var mapContainerView: UIView = {
     }()
     
 private let campusButton: UIButton = {
-        let button = grayCircleButton(type: .system)
+        let button = greenCircleButton(type: .system)
         let img = UIImage(named: "campus")
             button.setImage(img?.withRenderingMode(.alwaysOriginal), for: .normal)
-            button.imageEdgeInsets = UIEdgeInsets(top: 26, left: 26, bottom: 26, right: 26)
+            button.imageEdgeInsets = UIEdgeInsets(top: 26.5, left: 26.5, bottom: 26.5, right: 26.5)
             return button
     }()
     
     private let campusTextButton: UIButton = {
         let button = UIButton(type: .custom)
-        let attributedText = NSMutableAttributedString(string: "Saint Joseph's University", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        attributedText.append(NSAttributedString(string: "\n5600 City Ave Philadelphia, PA 19131", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 13) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        let attributedText = NSMutableAttributedString(string: "Main Campus", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         button.setAttributedTitle(attributedText, for: .normal)
         button.titleLabel?.numberOfLines = 2
         button.contentHorizontalAlignment = .left
         button.addTarget(self, action: #selector(handleDestinationMap), for: .touchUpInside)
-        
         return button
         
     }()
@@ -212,9 +226,9 @@ private let campusButton: UIButton = {
         return stackView
     }()
     
-   
+
     
-    private func setupGoogleMaps() {
+private func setupGoogleMaps() {
     let camera = GMSCameraPosition.camera(withLatitude: 39.277444, longitude: -76.689768, zoom: 12)
       mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: view.frame.width/2, height: 500), camera: camera)
        
@@ -242,22 +256,24 @@ private let campusButton: UIButton = {
     
 private func constraintsLayout() {
     greetingTitle.anchor(top: destinationView.topAnchor, bottom: destinationView.bottomAnchor, leading: destinationView.leadingAnchor, trailing: destinationView.trailingAnchor, padding: .init(top: 10, left: 16, bottom: 0, right: 0))
-    whereToView.anchor(top: destinationView.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 70, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 60))
-  whereToButton.anchor(top: whereToView.topAnchor, bottom: nil, leading: whereToView.leadingAnchor, trailing: whereToView.trailingAnchor, padding: .init(top: 12, left: 50, bottom: 0, right: 0))
-    searchIcon.anchor(top: whereToView.topAnchor, bottom: nil, leading: whereToView.leadingAnchor, trailing: nil, padding: .init(top: 20, left: 16, bottom: 0, right: 0))
- previousSelectionStackView.topAnchor.constraint(equalTo: whereToView.bottomAnchor, constant: 15).isActive = true
+   
+   
+   whereToView.anchor(top: destinationView.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 76, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 50))
+  whereToButton.anchor(top: whereToView.topAnchor, bottom: nil, leading: whereToView.leadingAnchor, trailing: whereToView.trailingAnchor, padding: .init(top: 10, left: 50, bottom: 0, right: 0))
+    searchIcon.anchor(top: whereToView.topAnchor, bottom: nil, leading: whereToView.leadingAnchor, trailing: nil, padding: .init(top: 15, left: 16, bottom: 0, right: 0))
+ previousSelectionStackView.topAnchor.constraint(equalTo: whereToView.bottomAnchor, constant: 16).isActive = true
    previousSelectionStackView.leadingAnchor.constraint(equalTo: whereToView.leadingAnchor, constant: 16).isActive = true
     previousSelectionStackView.trailingAnchor.constraint(equalTo: whereToView.trailingAnchor).isActive = true
     
-    campusSelectionStackView.topAnchor.constraint(equalTo: previousSelectionStackView.bottomAnchor, constant: 15).isActive = true
+    campusSelectionStackView.topAnchor.constraint(equalTo: previousSelectionStackView.bottomAnchor, constant: 14).isActive = true
     campusSelectionStackView.leadingAnchor.constraint(equalTo: previousSelectionStackView.leadingAnchor).isActive = true
    campusSelectionStackView.trailingAnchor.constraint(equalTo: previousSelectionStackView.trailingAnchor).isActive = true
    mapTitleImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     mapTitleImage.centerYAnchor.constraint(equalTo: menuButton.centerYAnchor).isActive = true
-    menuButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
-    menuButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-    menuButtonImage.centerYAnchor.constraint(equalTo: menuButton.centerYAnchor).isActive = true
-    menuButtonImage.centerXAnchor.constraint(equalTo: menuButton.centerXAnchor).isActive = true
+     menuButton.topAnchor.constraint(equalTo: mapContainerView.topAnchor, constant: 30).isActive = true
+     menuButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12).isActive = true
+   menuButtonImage.centerYAnchor.constraint(equalTo: menuButton.centerYAnchor).isActive = true
+   menuButtonImage.centerXAnchor.constraint(equalTo: menuButton.centerXAnchor).isActive = true
     navigationIcon.bottomAnchor.constraint(equalTo: mapView!.bottomAnchor, constant: -20).isActive = true
     navigationIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     navigationIconImage.centerYAnchor.constraint(equalTo: navigationIcon.centerYAnchor).isActive = true
@@ -272,14 +288,57 @@ private func constraintsLayout() {
     destinationView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
     destinationView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.7).isActive = true
     
+  
    }
-    
     private func configureUI() {
         view.backgroundColor = .white
+       
+      }
+    
+    // MARK: - Handlers
+    
+    @objc func handleMenuAction() {
+        animateSlideMenu()
+        let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
+        generator.impactOccurred()
+        
     }
     
-  
-    // MARK: - Selector
+    func animateSlideMenu() {
+        blackScreen.isHidden = false
+        UIView.animate(withDuration: 0.6, animations:  {
+            self.menuBarView.frame = CGRect(x:0, y:0, width: 250, height: self.menuBarView.frame.height)
+            
+        }) {(complete) in
+            self.blackScreen.frame = CGRect(x: self.menuBarView.frame.width, y: 0, width:self.view.frame.width - self.menuBarView.frame.width, height: self.view.bounds.height + 100)
+        }
+    }
+    func MenuBarSetup() {
+        menuBarView = MenuController(frame: CGRect(x:0, y:0, width: 0, height: self.view.frame.height))
+        menuBarView.delegate = self
+        menuBarView.layer.zPosition = 100
+        self.view.isUserInteractionEnabled = true
+        self.navigationController?.view.addSubview(menuBarView)
+    }
+    
+    func BlackScreenSetup() {
+        blackScreen = UIView(frame: self.view.bounds)
+        blackScreen.backgroundColor=UIColor(white: 0, alpha: 0.5)
+        blackScreen.isHidden = true
+        self.navigationController?.view.addSubview(blackScreen)
+        blackScreen.layer.zPosition = 99
+        let tapGestRecognizer = UITapGestureRecognizer(target: self, action: #selector(blackScreenTapAction(sender:)))
+        blackScreen.addGestureRecognizer(tapGestRecognizer)
+    }
+    
+    @objc func blackScreenTapAction(sender: UITapGestureRecognizer) {
+        blackScreen.isHidden=true
+        blackScreen.frame=self.view.bounds
+        UIView.animate(withDuration: 0.3) {
+            self.menuBarView.frame=CGRect(x: 0, y: 0, width: 0, height: self.menuBarView.frame.height)
+        }
+    }
+    
     @objc private func handleDropOff() {
         let nextViewController = DropOffLocationViewController()
         self.navigationController?.pushViewController(nextViewController, animated: false)
@@ -313,3 +372,37 @@ extension HomeViewController: CLLocationManagerDelegate {
         
     }
 }
+
+extension HomeViewController: menuBarViewDelegate {
+    func handleMenuToggle(forMenuOption: MenuOption?) {
+        blackScreen.isHidden=true
+        blackScreen.frame=self.view.bounds
+        UIView.animate(withDuration: 0.3) {
+            self.menuBarView.frame=CGRect(x: 0, y: 0, width: 0, height: self.menuBarView.frame.height)
+            
+             switch forMenuOption {
+             case .GetARide?:
+             print("Get a ride")
+             case .RideHistory?:
+             print("Ride history")
+             case .Call?:
+             print("Call")
+             case .DriveAndEarn?:
+                print("Drive and earn")
+             case .Help?:
+             print("Help")
+             case .Settings?:
+             print("Settings")
+          
+              case .none:
+                break
+                
+            }
+        
+    }
+    
+    
+    
+    }
+}
+

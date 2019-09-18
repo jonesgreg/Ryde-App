@@ -9,6 +9,41 @@
 import UIKit
 
 extension UIView {
+    
+    func anchorPadding(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, paddingTop: CGFloat? = 0,
+                paddingLeft: CGFloat? = 0, paddingBottom: CGFloat? = 0, paddingRight: CGFloat? = 0, width: CGFloat? = nil, height: CGFloat? = nil) {
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        if let top = top {
+            topAnchor.constraint(equalTo: top, constant: paddingTop!).isActive = true
+        }
+        
+        if let left = left {
+            leftAnchor.constraint(equalTo: left, constant: paddingLeft!).isActive = true
+        }
+        
+        if let bottom = bottom {
+            if let paddingBottom = paddingBottom {
+                bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true
+            }
+        }
+        
+        if let right = right {
+            if let paddingRight = paddingRight {
+                rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
+            }
+        }
+        
+        if let width = width {
+            widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        
+        if let height = height {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+    }
+
    
     func anchor(top: NSLayoutYAxisAnchor?, bottom:NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
@@ -94,6 +129,7 @@ extension UIView {
     }
     
 }
+
 
 extension UIBarButtonItem {
     static func barButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
@@ -309,7 +345,9 @@ class whiteCircleButton: UIButton {
     }
 }
 
-class grayCircleButton: UIButton {
+
+
+class greenCircleButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -331,6 +369,8 @@ class grayCircleButton: UIButton {
 }
 
 
+
+
 class userInputField: UITextField  {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -350,6 +390,5 @@ class userInputField: UITextField  {
     }
     
 }
-
 
 

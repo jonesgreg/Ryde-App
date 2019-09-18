@@ -2,7 +2,7 @@
 //  MenuOption.swift
 //  riderapp
 //
-//  Created by Gregory Jones on 9/6/19.
+//  Created by Gregory Jones on 9/13/19.
 //  Copyright © 2019 Gregory Jones. All rights reserved.
 //
 
@@ -10,30 +10,37 @@ import UIKit
 
 enum MenuOption: Int, CustomStringConvertible {
     
-    case EditProfile
+    case GetARide
     case RideHistory
-    case BecomeADriver
+    case Call
+    case DriveAndEarn
     case Help
     case Settings
-    case Call
-    case TermsOfUse
-    case PrivacyPolicy
-    case SoftwareLicense
-    case LogOut
+   
     
     var description: String {
-        switch self  {
-        case .EditProfile: return "Edit Profile"
-        case .RideHistory: return "Ride History"
-        case .BecomeADriver: return "Become a driver"
+        switch self {
+        case .GetARide: return "Get a ride"
+        case .RideHistory: return "Ride history"
+        case .Call: return "Call"
+        case .DriveAndEarn: return "Drive and earn"
         case .Help: return "Help"
         case .Settings: return "Settings"
-        case .Call: return "Call"
-        case .TermsOfUse: return "Terms Of Use"
-        case .PrivacyPolicy: return "Privacy Policy"
-        case .SoftwareLicense: return "Software License"
-        case .LogOut: return "Log out"
-        }
+       
+      }
     }
+    
+    var image: UIImage {
+        switch self {
+        case .GetARide: return UIImage(named: "getaride") ?? UIImage()
+        case .RideHistory: return UIImage(named: "ridehistory") ?? UIImage()
+        case .Call: return UIImage(named: "call") ?? UIImage()
+        case .DriveAndEarn: return UIImage(named: "driveandearn") ?? UIImage()
+        case .Help: return UIImage(named: "help") ?? UIImage()
+        case .Settings: return UIImage(named: "settings") ?? UIImage()
+    }
+        
+    }
+    
     
 }

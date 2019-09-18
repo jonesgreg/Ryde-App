@@ -46,7 +46,7 @@ class VerifyNumberViewController: UIViewController {
     private let titleTextView: UITextView =  {
         let textView = UITextView()
         let attributedText = NSMutableAttributedString(string: "What's the 6 digit code?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        attributedText.append(NSAttributedString(string: "\n\nEnter the code sent to your phone number", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        attributedText.append(NSAttributedString(string: "\nEnter the code sent to your phone number.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
             textView.attributedText = attributedText
             textView.translatesAutoresizingMaskIntoConstraints = false
             textView.textAlignment = .left
