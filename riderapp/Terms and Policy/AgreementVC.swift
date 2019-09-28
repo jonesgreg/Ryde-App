@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class AgreementViewController: UIViewController {
     
@@ -24,11 +25,16 @@ class AgreementViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
      
     }
+    override func viewWillAppear(_ animated: Bool) {
+     //  self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     
    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-      
+    // Hide the navigation bar on the this view controller
+     self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
    
     private let titleText: UITextView = {
         let textView = UITextView()
@@ -173,20 +179,7 @@ extension AgreementViewController: UITextViewDelegate {
     }
         return true
     }
-    /*    if(textView.text.contains("Terms of Service")) {
-            let nextViewController = TermsViewController()
-            self.navigationController?.pushViewController(nextViewController, animated: false)
-            return false
-        } else  {
-            
-        }
-        if(textView.text.contains("Policy Privacy")) {
-            let nextViewController = PrivacyViewController()
-            self.navigationController?.pushViewController(nextViewController, animated: false)
-            return true
-        }
-        return false
-    } */
+
     
     
 }

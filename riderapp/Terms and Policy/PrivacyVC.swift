@@ -7,53 +7,66 @@
 //
 
 import UIKit
+import SafariServices
 import WebKit
 
-class PrivacyViewController: UIViewController,WKNavigationDelegate  {
-    
-    
-    //MARK: Properties
-    private var activityIndicatorContainer: UIView!
-    private var activityIndicator: UIActivityIndicatorView!
-    var webView: WKWebView!
-    var toolBar = UIToolbar()
-    
-    
-    //MARK: Override functions
-    override func loadView() {
-        webView = WKWebView()
-        webView.navigationDelegate = self // Delegation
-        view = webView
-    }
-    
-   
-    override func viewDidLoad() {
-        configureNavigationController()
-        view.backgroundColor = .white
-        let url = URL(string: "https://www.lyft.com/privacy")!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
-    }
-    
-  override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        willMove(toParent: AgreementViewController())
-    }
-   
-    private func configureNavigationController() {
-        navigationController?.navigationBar.barTintColor = .black // background color
-        navigationController?.navigationBar.barStyle = .black // Handle
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Privacy Policy"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.sizeToFit()
-        navigationController?.navigationBar.isTranslucent = false
-        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handlePreviousViewController))
-    }
+class PrivacyViewController: UIViewController, WKNavigationDelegate {
+        
+        //MARK: Properties
+        private var activityIndicatorContainer: UIView!
+        private var activityIndicator: UIActivityIndicatorView!
+        var webView: WKWebView!
+        var toolBar = UIToolbar()
+      
+      
+        //MARK: Override functions
+        override func loadView() {
+            webView = WKWebView()
+            webView.navigationDelegate = self // Delegation
+            view = webView
+              
+        }
+       
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            let url = URL(string: "https://www.lyft.com/terms")!
+            webView.load(URLRequest(url: url))
+            webView.allowsBackForwardNavigationGestures = true
+        }
+
+        
+        override func viewWillAppear(_ animated: Bool) {
+            configureNavigationController()
+        
+        }
+        
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+                willMove(toParent: AgreementViewController())
+             
+        }
   
+  
+  
+       
+    private func configureNavigationController() {
+           navigationItem.title = "Privacy Policy"
+                   navigationController?.navigationBar.isTranslucent = false
+                   navigationController?.navigationBar.barTintColor = Colors.lighterGrey // Background color
+                  let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray]
+                  navigationController?.navigationBar.titleTextAttributes = textAttributes
+
+              //Cancel Button
+             let cancelButton = UIButton(type: .custom)
+                  cancelButton.setImage(UIImage(named: "delete"), for: .normal)
+                  cancelButton.width(constant: 18)
+                  cancelButton.height(constant: 18)
+                  cancelButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+                  let navigationItem = UIBarButtonItem(customView: cancelButton)
+                  self.navigationItem.setLeftBarButton(navigationItem, animated:true)
+            }
+
     private func setActivityIndicator() {
         //configure the background containerview for the indicator original width: 80 and height 80
         activityIndicatorContainer = UIView(frame: CGRect(x:0, y:0, width: 200, height: 200))
@@ -79,21 +92,27 @@ class PrivacyViewController: UIViewController,WKNavigationDelegate  {
         activityIndicator.centerXAnchor.constraint(equalTo: activityIndicatorContainer.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: activityIndicatorContainer.centerYAnchor).isActive = true
     }
-    //MARK: - Selectors
-    
-    @objc private func handlePreviousViewController() {
+
+
+    // MARK: - Selectors
+        
+    @objc private func handlePreviousPage() {
         self.navigationController?.popViewController(animated: false)
         
     }
+    
     override func willMove(toParent parent: UIViewController?) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = .clear
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousViewController), imageName: "backarrow")
+       // navigationController?.navigationBar.backgroundColor = .clear
+        navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow")
     }
+
    
+
     private func showActivityIndicator(show: Bool)  {
         if show {
             activityIndicator.startAnimating()
@@ -102,27 +121,31 @@ class PrivacyViewController: UIViewController,WKNavigationDelegate  {
             activityIndicatorContainer.removeFromSuperview()
         }
     }
-    
+
     // WK Navigation Delegates Extended Methods
-    
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.showActivityIndicator(show: false)
     }
-    
+
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         self.setActivityIndicator()
         self.showActivityIndicator(show: true)
     }
-    
+
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         self.showActivityIndicator(show: false)
     }
+
+
+    }
+
+    extension PrivacyViewController: UINavigationBarDelegate {
+        
+        public func position(for bar: UIBarPositioning) -> UIBarPosition {
+            return .topAttached
+        }
 }
 
-extension PrivacyViewController: UINavigationBarDelegate {
-    public func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
 
 

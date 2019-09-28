@@ -43,17 +43,20 @@ class TermsViewController: UIViewController, WKNavigationDelegate {
     }
    
 private func configureNavigationController() {
-        navigationController?.navigationBar.barTintColor = .black // background color
-        navigationController?.navigationBar.barStyle = .black // Handle
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Terms & Conditions"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.sizeToFit()
-        navigationController?.navigationBar.isTranslucent = false
-        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handlePreviousViewController))
+       navigationItem.title = "Terms of Agreement"
+                      navigationController?.navigationBar.isTranslucent = false
+                      navigationController?.navigationBar.barTintColor = Colors.lighterGrey // Background color
+                     let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray]
+                     navigationController?.navigationBar.titleTextAttributes = textAttributes
+
+                 //Cancel Button
+                let cancelButton = UIButton(type: .custom)
+                     cancelButton.setImage(UIImage(named: "delete"), for: .normal)
+                     cancelButton.width(constant: 18)
+                     cancelButton.height(constant: 18)
+                     cancelButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+                     let navigationItem = UIBarButtonItem(customView: cancelButton)
+                     self.navigationItem.setLeftBarButton(navigationItem, animated:true)
     }
 
 private func setActivityIndicator() {
@@ -85,7 +88,7 @@ private func setActivityIndicator() {
 
 // MARK: - Selectors
     
-@objc private func handlePreviousViewController() {
+@objc private func handlePreviousPage() {
     self.navigationController?.popViewController(animated: false)
     
 }
@@ -93,9 +96,10 @@ override func willMove(toParent parent: UIViewController?) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = .clear
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousViewController), imageName: "backarrow") 
+       // navigationController?.navigationBar.backgroundColor = .clear
+        navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow") 
     }
 
 

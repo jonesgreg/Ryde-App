@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "A141CB52-E34C-4CFA-B542-F9DD4EDA7D28"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
+            uuid = "EF5824BD-F437-4FFB-8175-8B90CC927A26"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
@@ -21,6 +23,7 @@
             </Actions>
             <Locations>
                <Location
+                  uuid = "EF5824BD-F437-4FFB-8175-8B90CC927A26 - ba3ad5676a792f38"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"

@@ -24,7 +24,7 @@ class VerifyNumberViewController: UIViewController {
         [titleTextView, nextButton,nextButtonImage,  VerifyNumberStackView, txtOTPStackView, resendCodeButton].forEach { view.addSubview($0) }
        setUpLayout()
        configureUI()
-        navigationItem.largeTitleDisplayMode = .never
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -150,7 +150,7 @@ class VerifyNumberViewController: UIViewController {
       private func setUpLayout() {
        titleTextView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 32, bottom: 0, right: 32))
        
-        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 135).isActive = true
+        nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         buttonConstraint = nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         buttonConstraint?.isActive = true
         

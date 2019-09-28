@@ -62,15 +62,15 @@ class CountryCodeListController: UIViewController{
     
     
 private func configureNavigationController() {
-        navigationController?.navigationBar.barTintColor = .black // background color
-        navigationController?.navigationBar.barStyle = .black // Handle
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Select a country"
-        navigationController?.navigationBar.isTranslucent = false
-       let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handlePreviousPage))
+          navigationItem.title = "Select a country"
+          navigationController?.navigationBar.isTranslucent = false
+    let closeButton = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(handlePreviousPage))
+          closeButton.tintColor = .black
+          self.navigationItem.rightBarButtonItem = closeButton
+         let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.setHidesBackButton(true, animated:true)
+        
     }
     
     // MARK: - Selectors
@@ -91,6 +91,9 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
         return countries.metaData[key]?.count ?? 00
         }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return countries.sections[section]
+    }
    
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CountryCodeListCell = tableView.dequeueReusableCell(withIdentifier: CountryCodeListCell.reuseIdentifier, for: indexPath) as! CountryCodeListCell

@@ -33,7 +33,7 @@ class MenuOptionCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont(name: Fonts.montserratRegular, size: 14)
+        label.font = UIFont(name: Fonts.montserratMedium, size: 15)
         label.text = "Sample text"
         return label
     }()
@@ -42,20 +42,18 @@ class MenuOptionCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .white
-        selectionStyle = .none
+        selectionStyle = .default
         
-       
-        
-         addSubview(iconImageView)
+       addSubview(iconImageView)
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 3).isActive = true
           iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
-        iconImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        iconImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        iconImageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
         
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 3).isActive = true
         descriptionLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 12).isActive = true
     }
     

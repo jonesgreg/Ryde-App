@@ -16,7 +16,7 @@ class ConfirmationEmailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        [titleText,descText, nextButton].forEach { view.addSubview($0) }
+        [descText, nextButton].forEach { view.addSubview($0) }
         setUpLayout()
         configureUI()
          navigationItem.largeTitleDisplayMode = .never
@@ -37,14 +37,7 @@ class ConfirmationEmailViewController: UIViewController {
     
     // MARK: - Private functions
     
-    private let titleText: UITextView = {
-        let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Confirmation Email", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        textView.attributedText = attributedText
-        textView.textAlignment = .center
-        textView.isEditable = false
-        return textView
-    }()
+    
     
     private let nextButton: UIButton = {
         let button = greenButton(type: .system)
@@ -64,13 +57,13 @@ class ConfirmationEmailViewController: UIViewController {
     }()
     
     private func setUpLayout() {
-        titleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 32, bottom: 0, right: 32))
+       
         
         nextButton.anchor(top: nil, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top:0, left: 32, bottom: 0, right: 32), size: .init(width: 0, height: 50))
         buttonConstraint = nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         buttonConstraint?.isActive = true
         
-        descText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 200, left: 32, bottom: 0, right: 32))
+        descText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 32, bottom: 0, right: 32))
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -96,10 +89,11 @@ class ConfirmationEmailViewController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .white
+        navigationItem.title = "Confirmation Email"
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.backgroundColor = .clear
         navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow")
     }

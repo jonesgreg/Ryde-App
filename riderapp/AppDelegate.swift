@@ -34,8 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
        window?.rootViewController = UINavigationController(rootViewController: LoadingViewController())
       
-        let BarButtonItemAppearance = UIBarButtonItem.appearance()
-        BarButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.clear], for: .normal)
+     // let BarButtonItemAppearance = UIBarButtonItem.appearance()
+    // BarButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.clear], for: .normal)
+        
+    
         
        
         // window?.rootViewController = guideController
