@@ -36,7 +36,7 @@ class EditProfileViewController: UIViewController {
     private func configureNavigationBar() {
         navigationItem.title = "Profile"
         navigationController?.navigationBar.isTranslucent = false
-        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     
     }
@@ -77,8 +77,8 @@ class EditProfileViewController: UIViewController {
         
         
         let userLabel = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Greg Jones", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        attributedText.append(NSAttributedString(string: "\nSaint Joseph's University", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]))
+        let attributedText = NSMutableAttributedString(string: "Greg Jones", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        attributedText.append(NSAttributedString(string: "\nSaint Joseph's University", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]))
        
         userLabel.attributedText = attributedText
         view.addSubview(userLabel)
@@ -135,13 +135,13 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 60
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50))
                
                let accountInfoLabel = UILabel.init(frame: CGRect(x: 4, y: 4, width: headerView.frame.size.width-150, height: headerView.frame.size.height-10))
-               let attributedText = NSMutableAttributedString(string: "Account Info", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+               let attributedText = NSMutableAttributedString(string: "Account Info", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
                 accountInfoLabel.attributedText = attributedText
                
               headerView.addSubview(accountInfoLabel)

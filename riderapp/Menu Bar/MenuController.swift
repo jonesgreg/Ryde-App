@@ -20,22 +20,25 @@ private let reuseHeaderIdentifer = "HeaderViewCell"
     var tableView: UITableView!
     var delegate: menuBarViewDelegate?
     var headerDelegate: HeaderTableViewCellDelegate?
-   
     
-    override init(frame: CGRect) {
+    
+      override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
         configureTableView()
         tableViewConstraints()
         
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
+       
+     }
+
+   
+              
+required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func configureTableView() {
-        tableView = UITableView()
+     tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MenuOptionCell.self, forCellReuseIdentifier: reuseIdentifer)
@@ -43,15 +46,17 @@ private let reuseHeaderIdentifer = "HeaderViewCell"
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = true
         tableView.bounces = false
-        
+         tableView.delaysContentTouches = false
        // tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
        // tableView.backgroundColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
-       }
+        tableView.reloadData()
+    }
+   
     
-    func tableViewConstraints() {
+   func tableViewConstraints() {
         self.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
@@ -59,6 +64,8 @@ private let reuseHeaderIdentifer = "HeaderViewCell"
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
     }
+ 
+      
     
    
     
@@ -86,18 +93,36 @@ private let reuseHeaderIdentifer = "HeaderViewCell"
     }
     
 func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 165
+        return 80
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 500, height: 40))
         // Verison of the app
-        let appVerison = UILabel(frame: CGRect(x: 10, y: 50, width: footerView.frame.width, height: 30))
+        let appVerison = UILabel(frame: CGRect(x: 10, y: 0, width: footerView.frame.width, height: 30))
         appVerison.attributedText = NSMutableAttributedString(string: "Fleet v1.0.0", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:Colors.lightGreyColor])
         footerView.addSubview(appVerison)
+       
+        let signUpButton = UIButton(type: .custom)
+        signUpButton.setTitle("SIGN UP TO DRIVE", for: .normal)
+        signUpButton.titleLabel?.font = UIFont(name: Fonts.gilroySemiBold, size: 16)
+        signUpButton.setTitleColor(UIColor.white, for: .normal)
+        signUpButton.backgroundColor = Colors.fleetGreen
+         signUpButton.layer.borderColor = Colors.fleetGreen.cgColor
+         signUpButton.layer.masksToBounds = false
+           signUpButton.layer.shadowColor = Colors.darkGreyColor.cgColor
+          signUpButton.layer.shadowOpacity = 0.5
+          signUpButton.layer.shadowRadius = 2
+           signUpButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+          signUpButton.layer.cornerRadius = 25
+        signUpButton.frame = CGRect(x: 20, y: 100, width: 200, height: 50)
+        footerView.addSubview(signUpButton)
         
         return footerView
         
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 50
@@ -109,8 +134,19 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
         let menuOption = MenuOption(rawValue: indexPath.row)
         delegate?.handleMenuToggle(forMenuOption: menuOption)
         
+          
+        
       
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell: MenuOptionCell = self.tableView.cellForRow(at: indexPath) as! MenuOptionCell
+        cell.accessoryType = .none
+       
+    }
+         
+   
+   
     
     @objc func didSelectHeaderCell() {
         headerDelegate?.didSelectHeaderCell()

@@ -9,8 +9,17 @@
 import UIKit
 import GoogleMaps
 
-class HomeViewController: UIViewController{
+private let reuseIdentifer = "LocationCell"
 
+class HomeViewController: UIViewController{
+    
+    deinit {
+          print("OS Reclaiming memory for this class")
+      }
+      
+    let Dormlocations = [
+           Location(image: "green_home",title: "LaFarge Residence Center", desc: "Dorm Hall", coordinate:  CLLocationCoordinate2D(latitude: 39.998940, longitude: -75.238962), location: "2425 Cardinal Ave"),
+           Location(image:"green_home",title: "Sourin Residence Center", desc: "Dorm Hall",coordinate: CLLocationCoordinate2D(latitude: 39.993307, longitude: -75.240373), location: "2449 Cardinal Ave")]
     
     //MARK: - Properties
     
@@ -18,20 +27,20 @@ class HomeViewController: UIViewController{
     var locationManager = CLLocationManager()
     var menuBarView: MenuViewController!
     var blackScreen: UIView!
+    var tableView: UITableView!
     
- 
-    
-
   
-// MARK: - Overriden function
+ // MARK: - Overriden function
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    MenuBarSetup()
-    BlackScreenSetup()
-    setupGoogleMaps()
+        MenuBarSetup()
+   BlackScreenSetup()
+   setupGoogleMaps()
     configureUI()
    constraintsLayout()
+   configureTableView()
+   tableViewConstraints()
 }
     
   
@@ -40,6 +49,8 @@ class HomeViewController: UIViewController{
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
       self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.tableView.deselectSelectedRow(animated: false)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,8 +81,8 @@ class HomeViewController: UIViewController{
     private let menuButtonImage: UIImageView = {
             let imageView = UIImageView(image:#imageLiteral(resourceName: "menu"))
                 imageView.contentMode = .scaleAspectFit
-                imageView.width(constant: 22)
-                imageView.height(constant: 22)
+                imageView.width(constant: 20)
+                imageView.height(constant: 20)
                 imageView.translatesAutoresizingMaskIntoConstraints = false
                 return imageView
     }()
@@ -93,8 +104,8 @@ class HomeViewController: UIViewController{
    
     private let greetingTitle: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Good evening", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 14) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
-       attributedText.append(NSAttributedString(string: "\nWhere are you going?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        let attributedText = NSMutableAttributedString(string: "Nice to see you!", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyRegular, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        attributedText.append(NSAttributedString(string: "\nWhere are you going?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyBold, size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
             textView.attributedText = attributedText
             textView.translatesAutoresizingMaskIntoConstraints = true
             textView.textAlignment = .left
@@ -121,7 +132,7 @@ class HomeViewController: UIViewController{
     private let whereToButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("Search your destination", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.montserratMedium, size: 15)
+        button.titleLabel?.font = UIFont(name: Fonts.gilroyMedium, size: 15)
         button.setTitleColor(Colors.darkGreyColor, for: .normal)
         button.contentHorizontalAlignment = .left
         button.addTarget(self, action: #selector(handleDropOff), for: .touchUpInside)
@@ -148,8 +159,8 @@ class HomeViewController: UIViewController{
     
     private let previousTextButton: UIButton = {
         let button = UIButton(type: .custom)
-        let attributedText = NSMutableAttributedString(string: "Residence Hall", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        attributedText.append(NSAttributedString(string: "\n2599 Cardinal Ave #2401, Philadelphia, PA 19131", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 12) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        let attributedText = NSMutableAttributedString(string: "Residence Hall", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        attributedText.append(NSAttributedString(string: "\n2599 Cardinal Ave #2401, Philadelphia, PA 19131", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 12) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
         button.setAttributedTitle(attributedText, for: .normal)
         button.titleLabel?.numberOfLines = 2
         button.contentHorizontalAlignment = .left
@@ -166,75 +177,32 @@ private let campusButton: UIButton = {
             button.imageEdgeInsets = UIEdgeInsets(top: 26.5, left: 26.5, bottom: 26.5, right: 26.5)
             return button
     }()
-    
-    private let campusTextButton: UIButton = {
-        let button = UIButton(type: .custom)
-        let attributedText = NSMutableAttributedString(string: "Campus", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-         attributedText.append(NSAttributedString(string: "\n5600 City Ave, Philadelphia, PA 19131", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
-        button.setAttributedTitle(attributedText, for: .normal)
-        button.titleLabel?.numberOfLines = 2
-        button.contentHorizontalAlignment = .left
-        button.addTarget(self, action: #selector(handleDestinationMap), for: .touchUpInside)
-        return button
-        
-    }()
-   
-   private lazy var previousSelectionStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [previousLocationButton, previousTextButton])
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fill
-        stackView.alignment = .fill
-        stackView.spacing = 8.0
-        return stackView
-    }()
-    
-    private lazy var campusSelectionStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [campusButton, campusTextButton])
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fill
-        stackView.alignment = .fill
-        stackView.spacing = 8.0
-        return stackView
-    }()
-    
-
-    
-private func setupGoogleMaps() {
+    private func setupGoogleMaps() {
     let camera = GMSCameraPosition.camera(withLatitude: 39.277444, longitude: -76.689768, zoom: 12)
       mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: view.frame.width/2, height: 500), camera: camera)
      mapView?.center = self.view.center
      
     self.view.addSubview(mapView!)
-    mapView?.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
+   mapView?.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
     mapView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive=true
     mapView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive=true
     mapView?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -280).isActive=true
     mapView?.addSubview(menuButton)
     mapView?.addSubview(menuButtonImage)
-    mapView?.addSubview(navigationIcon)
-    mapView?.addSubview(navigationIconImage)
+   //  mapView?.addSubview(navigationIcon)
+   //  mapView?.addSubview(navigationIconImage)
     mapView?.translatesAutoresizingMaskIntoConstraints = false
     self.mapView?.isMyLocationEnabled = true
       self.locationManager.delegate = self // Fetch current location
       self.locationManager.startUpdatingLocation() //
-        do {
-            // Set the map style by passing the URL of the local file.
-            if let styleURL = Bundle.main.url(forResource: "fleetgreen", withExtension: "json") {
-                mapView?.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
-            } else {
-                NSLog("Unable to find style.json")
-            }
-        } catch {
-            NSLog("One or more of the map styles failed to load. \(error)")
-        }
+       
     }
     
 private func constraintsLayout() {
 
        view.addSubview(destinationView)
-      destinationView.topAnchor.constraint(equalTo: mapView!.bottomAnchor, constant: -5).isActive = true
+    
+     destinationView.topAnchor.constraint(equalTo: mapView!.bottomAnchor, constant: -5).isActive = true
       destinationView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
       destinationView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.65).isActive = true
       destinationView.translatesAutoresizingMaskIntoConstraints = false
@@ -251,37 +219,44 @@ private func constraintsLayout() {
     view.addSubview(searchIcon)
     searchIcon.anchor(top: whereToView.topAnchor, bottom: nil, leading: whereToView.leadingAnchor, trailing: nil, padding: .init(top: 15, left: 16, bottom: 0, right: 0))
     
-    view.addSubview(previousSelectionStackView)
-   previousSelectionStackView.topAnchor.constraint(equalTo: whereToView.bottomAnchor, constant: 16).isActive = true
-   previousSelectionStackView.leadingAnchor.constraint(equalTo: whereToView.leadingAnchor, constant: 16).isActive = true
-   previousSelectionStackView.trailingAnchor.constraint(equalTo: whereToView.trailingAnchor).isActive = true
-    
-    view.addSubview(campusSelectionStackView)
-    campusSelectionStackView.topAnchor.constraint(equalTo: previousSelectionStackView.bottomAnchor, constant: 14).isActive = true
-    campusSelectionStackView.leadingAnchor.constraint(equalTo: previousSelectionStackView.leadingAnchor).isActive = true
-   campusSelectionStackView.trailingAnchor.constraint(equalTo: previousSelectionStackView.trailingAnchor).isActive = true
- 
-    
+
     // MAP Buttons
      
-     menuButton.topAnchor.constraint(equalTo: mapView!.topAnchor, constant: 40).isActive = true
-     menuButton.leadingAnchor.constraint(equalTo: mapView!.leadingAnchor, constant: 12).isActive = true
+    menuButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
+    menuButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12).isActive = true
      menuButtonImage.centerYAnchor.constraint(equalTo: menuButton.centerYAnchor).isActive = true
-     menuButtonImage.centerXAnchor.constraint(equalTo: menuButton.centerXAnchor).isActive = true
+     menuButtonImage.centerXAnchor.constraint(equalTo: menuButton.centerXAnchor).isActive = true 
     
-    navigationIcon.bottomAnchor.constraint(equalTo: mapView!.bottomAnchor, constant: -20).isActive = true
-    navigationIcon.trailingAnchor.constraint(equalTo: mapView!.trailingAnchor, constant: -20).isActive = true
-    navigationIconImage.centerYAnchor.constraint(equalTo: navigationIcon.centerYAnchor).isActive = true
-    navigationIconImage.centerXAnchor.constraint(equalTo: navigationIcon.centerXAnchor).isActive = true
-   
- 
-   
-  
+  //  navigationIcon.bottomAnchor.constraint(equalTo: mapView!.bottomAnchor, constant: -20).isActive = true
+ //   navigationIcon.trailingAnchor.constraint(equalTo: mapView!.trailingAnchor, constant: -20).isActive = true
+  //  navigationIconImage.centerYAnchor.constraint(equalTo: navigationIcon.centerYAnchor).isActive = true
+ //   navigationIconImage.centerXAnchor.constraint(equalTo: navigationIcon.centerXAnchor).isActive = true
    }
     private func configureUI() {
     view.backgroundColor = .white
         
       }
+    
+    func configureTableView() {
+        tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(LocationCell.self, forCellReuseIdentifier: reuseIdentifer)
+        tableView.tableFooterView = UIView()
+        tableView.allowsSelection = true
+        tableView.bounces = false
+        tableView.separatorStyle = .singleLine
+        tableView.showsVerticalScrollIndicator = false
+       tableView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    func tableViewConstraints() {
+        view.addSubview(tableView)
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: whereToView.bottomAnchor, constant: 15).isActive = true
+       
+    }
     
     // MARK: - Handlers
     
@@ -295,18 +270,25 @@ private func constraintsLayout() {
     func animateSlideMenu() {
         blackScreen.isHidden = false
         UIView.animate(withDuration: 0.6, animations:  {
-            self.menuBarView.frame = CGRect(x:0, y:0, width: 220, height: self.menuBarView.frame.height)
+            self.menuBarView.frame = CGRect(x:0, y:0, width: 250, height: self.menuBarView.frame.height)
             
         }) {(complete) in
             self.blackScreen.frame = CGRect(x: self.menuBarView.frame.width, y: 0, width:self.view.frame.width - self.menuBarView.frame.width, height: self.view.bounds.height + 100)
         }
+        
+          
+           
     }
+  
+    
+
     func MenuBarSetup() {
         menuBarView = MenuViewController(frame: CGRect(x:0, y:0, width: 0, height: self.view.frame.height))
         menuBarView.delegate = self
         menuBarView.layer.zPosition = 100
         self.view.isUserInteractionEnabled = true
         self.navigationController?.view.addSubview(menuBarView)
+        
     }
     
     func BlackScreenSetup() {
@@ -315,12 +297,16 @@ private func constraintsLayout() {
         blackScreen.isHidden = true
         self.navigationController?.view.addSubview(blackScreen)
         blackScreen.layer.zPosition = 99
-        let tapGestRecognizer = UITapGestureRecognizer(target: self, action: #selector(blackScreenTapAction(sender:)))
-        blackScreen.addGestureRecognizer(tapGestRecognizer)
+    
     }
+     func clearOnAppearance() {
+       for indexPath in tableView.indexPathsForSelectedRows ?? [] {
+           tableView.deselectRow(at: indexPath, animated: false)
+        }
+       }
     
     @objc func blackScreenTapAction(sender: UITapGestureRecognizer) {
-        blackScreen.isHidden=true
+        blackScreen.isHidden = true
         blackScreen.frame=self.view.bounds
         UIView.animate(withDuration: 0.3) {
             self.menuBarView.frame=CGRect(x: 0, y: 0, width: 0, height: self.menuBarView.frame.height)
@@ -342,12 +328,32 @@ private func constraintsLayout() {
         generator.impactOccurred()
     }
     
-    
-    
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Dormlocations.count
+    }
    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifer, for: indexPath) as! LocationCell
+        
+        let location = Dormlocations[indexPath.item]
+        cell.hideSeparator()
+        cell.location = location
+        return cell
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
     
 }
+
+      
 
 extension HomeViewController: CLLocationManagerDelegate {
    
@@ -375,21 +381,20 @@ extension HomeViewController: menuBarViewDelegate {
              switch forMenuOption {
              case .GetARide?:
              let getRideController = HomeViewController()
-             self.navigationController?.pushViewController(getRideController, animated: true)
+             self.navigationController?.pushViewController(getRideController, animated: false)
              case .RideHistory?:
              let rideHistoryController = RideHistoryViewController()
              self.navigationController?.pushViewController(rideHistoryController, animated: false)
              case .Call?: // Alert with a number
-             print("Call")
-             case .DriveAndEarn?:
-             let driveAndEarnController = DriveAndEarnViewController ()
-             self.navigationController?.pushViewController(driveAndEarnController, animated: true)
+             //  let emergencyAlert = EmergencyAlert()
+              // self.present(emergencyAlert, animated: true)
+                EmergencyAlert.instance.showAlert(title: "EMERGENCY ALERT", message: "Contact University Security or Office of Public Safety", alert: .call)
              case .Help?:
              let helpController = HelpViewController ()
-             self.navigationController?.pushViewController(helpController, animated: true)
+             self.navigationController?.pushViewController(helpController, animated: false)
              case .Settings?:
              let settingsController = SettingsViewController ()
-             self.navigationController?.pushViewController(settingsController, animated: true)
+             self.navigationController?.pushViewController(settingsController, animated: false)
           
               case .none:
                 break
@@ -410,3 +415,6 @@ extension HomeViewController: HeaderTableViewCellDelegate {
     
     
 }
+
+
+  

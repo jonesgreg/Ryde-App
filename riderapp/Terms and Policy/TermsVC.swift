@@ -45,8 +45,8 @@ class TermsViewController: UIViewController, WKNavigationDelegate {
 private func configureNavigationController() {
        navigationItem.title = "Terms of Agreement"
                       navigationController?.navigationBar.isTranslucent = false
-                      navigationController?.navigationBar.barTintColor = Colors.lighterGrey // Background color
-                     let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray]
+                      navigationController?.navigationBar.barTintColor = Colors.whiteColor // Background color
+                     let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
                      navigationController?.navigationBar.titleTextAttributes = textAttributes
 
                  //Cancel Button
@@ -56,7 +56,7 @@ private func configureNavigationController() {
                      cancelButton.height(constant: 18)
                      cancelButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
                      let navigationItem = UIBarButtonItem(customView: cancelButton)
-                     self.navigationItem.setLeftBarButton(navigationItem, animated:true)
+                     self.navigationItem.setLeftBarButton(navigationItem, animated:false)
     }
 
 private func setActivityIndicator() {

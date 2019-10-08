@@ -16,15 +16,15 @@ class ProfileOptionCell: UITableViewCell {
          let iv = UIImageView()
              iv.contentMode = .scaleAspectFit
              iv.clipsToBounds = true
-             iv.width(constant: 16)
-             iv.height(constant: 16)
+             iv.width(constant: 22)
+             iv.height(constant: 22)
          return iv
      }()
      
      let descriptionLabel: UILabel = {
          let label = UILabel()
              label.textColor = .black
-             label.font = UIFont(name: Fonts.montserratMedium, size: 16)
+             label.font = UIFont(name: Fonts.gilroyMedium, size: 16)
              label.text = "Sample text"
              return label
      }()
@@ -41,14 +41,14 @@ class ProfileOptionCell: UITableViewCell {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
             backgroundColor = .white
-           
+           selectionStyle = .default
             
             addSubview(iconImageView)
             iconImageView.translatesAutoresizingMaskIntoConstraints = false
             iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 3).isActive = true
             iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
-            iconImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
-            iconImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
+            iconImageView.heightAnchor.constraint(equalToConstant: 22).isActive = true
+            iconImageView.widthAnchor.constraint(equalToConstant: 22).isActive = true
             
             addSubview(descriptionLabel)
             descriptionLabel.translatesAutoresizingMaskIntoConstraints = false

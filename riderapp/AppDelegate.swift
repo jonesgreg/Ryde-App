@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import IQKeyboardManagerSwift
 import GoogleMaps
 
 @UIApplicationMain
@@ -20,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
        // Thread.sleep(forTimeInterval: 0.0)
-         GMSServices.provideAPIKey("AIzaSyC9hAdi6bSTzCwj2H_NaAQtmGrmoGg5tvw")
+         GMSServices.provideAPIKey("AIzaSyD0hJ9dWUY-ubP12nQptdD9DhXWeul5nTc")
        
         // this is how we build out our app in code
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        IQKeyboardManager.shared.enable = true
+     
         
       //   let layout = UICollectionViewFlowLayout()
        //  layout.scrollDirection = .horizontal

@@ -45,8 +45,8 @@ class VerifyNumberViewController: UIViewController {
     
     private let titleTextView: UITextView =  {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "What's the 6 digit code?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        attributedText.append(NSAttributedString(string: "\nEnter the code sent to your phone number.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        let attributedText = NSMutableAttributedString(string: "What's the 6 digit code?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyBold, size:22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        attributedText.append(NSAttributedString(string: "\nEnter the code sent to your phone number.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
             textView.attributedText = attributedText
             textView.translatesAutoresizingMaskIntoConstraints = false
             textView.textAlignment = .left
@@ -57,7 +57,7 @@ class VerifyNumberViewController: UIViewController {
    
     private let descText: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Enter the 4-digit code sent to you at (310) 123-4567", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        let attributedText = NSMutableAttributedString(string: "Enter the 4-digit code sent to you at (310) 123-4567", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyRegular, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
             textView.attributedText = attributedText
             textView.textAlignment = .center
             textView.isEditable = false
@@ -84,40 +84,40 @@ class VerifyNumberViewController: UIViewController {
     
     private let txtOPT1: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "1", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "1", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
         
     }()
     
     private let txtOPT2: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "2", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "2", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
     }()
     
     private let txtOPT3: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "3", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "3", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
     }()
     
     private let txtOPT4: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "4", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "4", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
         
     }()
     
     private let txtOPT5: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "5", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "5", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
         
     }()
     
     private let txtOPT6: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "6", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "6", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
         
     }()
@@ -141,7 +141,7 @@ class VerifyNumberViewController: UIViewController {
     private let resendCodeButton: UIButton =  {
         let button = UIButton(type: .system)
         button.setTitle("Resend Code", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.montserratRegular, size: 14)
+        button.titleLabel?.font = UIFont(name: Fonts.gilroyRegular, size: 14)
         button.setTitleColor(Colors.fleetGreen, for: .normal)
         return button
     }()
@@ -194,7 +194,15 @@ class VerifyNumberViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
-       navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow")
+        
+        // Custom Back Button
+        let backButton = UIButton(type: .system)
+        backButton.setBackgroundImage(#imageLiteral(resourceName: "backarrow"), for:.normal)
+        backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+        backButton.width(constant: 17)
+        backButton.height(constant: 17)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+     
     }
     
     // MARK: - Selectors
@@ -202,8 +210,8 @@ class VerifyNumberViewController: UIViewController {
     @objc private func handleNextPage() {
         let nextViewController = AgreementViewController()
         self.navigationController?.pushViewController(nextViewController, animated: false)
-        let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
-        generator.impactOccurred()
+       let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
+              generator.impactOccurred()
     }
     
     @objc private func handlePreviousPage() {

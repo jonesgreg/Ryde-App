@@ -13,16 +13,6 @@ class MenuOptionCell: UITableViewCell {
     
     // MARK: - Properties
     
-    
-     let profileImageView: UIImageView = {
-        let iv = UIImageView()
-            iv.contentMode = .scaleAspectFit
-            iv.clipsToBounds = true
-            iv.layer.borderWidth = 2
-            iv.layer.borderColor = UIColor.black.cgColor
-            return iv
-    }()
-    
     let iconImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -33,7 +23,7 @@ class MenuOptionCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont(name: Fonts.montserratMedium, size: 15)
+        label.font = UIFont(name: Fonts.gilroyMedium, size: 18)
         label.text = "Sample text"
         return label
     }()
@@ -43,18 +33,19 @@ class MenuOptionCell: UITableViewCell {
         
         backgroundColor = .white
         selectionStyle = .default
+         self.clipsToBounds=true
         
        addSubview(iconImageView)
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 3).isActive = true
-          iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
-        iconImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        iconImageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 14).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        iconImageView.widthAnchor.constraint(equalToConstant: 22).isActive = true
         
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 3).isActive = true
-        descriptionLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 12).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

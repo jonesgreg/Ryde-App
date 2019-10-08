@@ -43,8 +43,9 @@ class CountryCodeListController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        //self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+ 
     // MARK: - table view
     
    private lazy var countryListTableView: UITableView = {
@@ -65,11 +66,15 @@ private func configureNavigationController() {
           navigationItem.title = "Select a country"
           navigationController?.navigationBar.isTranslucent = false
     let closeButton = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(handlePreviousPage))
+        closeButton.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: Fonts.gilroyMedium, size: 16)!,
+        NSAttributedString.Key.foregroundColor : UIColor.black,
+    ], for: .normal)
           closeButton.tintColor = .black
           self.navigationItem.rightBarButtonItem = closeButton
-         let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+         let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
          navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.setHidesBackButton(true, animated:true)
+    self.navigationItem.setHidesBackButton(true, animated:true)
         
     }
     
@@ -95,6 +100,7 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
         return countries.sections[section]
     }
    
+   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CountryCodeListCell = tableView.dequeueReusableCell(withIdentifier: CountryCodeListCell.reuseIdentifier, for: indexPath) as! CountryCodeListCell
        let sectionKey = countries.sections[indexPath.section]
@@ -116,12 +122,12 @@ extension CountryCodeListController: UITableViewDelegate, UITableViewDataSource 
         }
         
         DispatchQueue.main.async {[weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.navigationController?.popViewController(animated: false)
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor.white
      }
   }
    

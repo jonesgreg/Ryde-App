@@ -13,13 +13,14 @@ class EditNumberViewController: UIViewController {
     //MARK: - Properties
     
      var countries: Countries?
-      var localeCountry: Country?
+     var localeCountry: Country?
+     var buttonConstraint: NSLayoutConstraint?
     
    // MARK:  Override functions
        
        override func viewDidLoad() {
            super.viewDidLoad()
-         [phoneText,phoneView,dropDownPicker,countryCodeInput,countryFlagInput,showCountryCode,phoneInput, separatorLine].forEach { view.addSubview($0) }
+         [phoneText,phoneView,countryFlagInput,dropDownPicker,countryCodeInput,showCountryCode,phoneInput, separatorLine, nextButton, nextButtonImage].forEach { view.addSubview($0) }
       
            phoneInput.delegate = self
            configureNavigationBar()
@@ -32,12 +33,16 @@ class EditNumberViewController: UIViewController {
        override func viewWillAppear(_ animated: Bool) {
              super.viewWillAppear(animated)
             phoneInput.becomeFirstResponder()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+                  NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
        }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+         NotificationCenter.default.removeObserver(self)
     }
-       
+      
+          
        //MARK - Private functions
        
        
@@ -48,8 +53,15 @@ class EditNumberViewController: UIViewController {
     private func configureNavigationBar() {
            navigationItem.title = "Phone Number"
            navigationController?.navigationBar.isTranslucent = false
-        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
           navigationController?.navigationBar.titleTextAttributes = textAttributes
+        // Custom Back Button
+                     let backButton = UIButton(type: .system)
+                     backButton.setBackgroundImage(#imageLiteral(resourceName: "backarrow"), for:.normal)
+                     backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+                     backButton.width(constant: 20)
+                     backButton.height(constant: 20)
+                     self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
          
     }
        
@@ -96,7 +108,7 @@ class EditNumberViewController: UIViewController {
     
        private let phoneText: UITextView = {
            let textView = UITextView()
-           let attributedText = NSMutableAttributedString(string: "You can update your number and we'll send a verification code to this number.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+           let attributedText = NSMutableAttributedString(string: "You can update your number and we'll send a verification code to this number.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
                textView.attributedText = attributedText
                textView.textAlignment = .center
                textView.isEditable = false
@@ -107,18 +119,16 @@ class EditNumberViewController: UIViewController {
       private let dropDownPicker: UIImageView = {
                  let imageView = UIImageView(image:#imageLiteral(resourceName: "dropdown"))
                      imageView.translatesAutoresizingMaskIntoConstraints = false
-                     imageView.width(constant: 8)
-                     imageView.height(constant: 8)
+                    
         
                      return imageView
          }()
        
        private let phoneInput: UITextField = {
               let textfield = phoneNumberTextField()
-                     textfield.attributedPlaceholder = NSAttributedString(string: "456789", attributes:[NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
+                     textfield.attributedPlaceholder = NSAttributedString(string: "456-7890", attributes:[NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
                      textfield.textColor = UIColor.black
-                     textfield.keyboardAppearance = .dark
-                    return textfield
+                     return textfield
         
        }()
     
@@ -129,7 +139,7 @@ class EditNumberViewController: UIViewController {
        
        private let countryCodeInput: UITextField = {
            let textfield = countryField()
-               textfield.attributedPlaceholder = NSAttributedString(string: "+1", attributes:[NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+               textfield.attributedPlaceholder = NSAttributedString(string: "+1", attributes:[NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
                textfield.textColor = UIColor.black
                
            return textfield
@@ -142,6 +152,21 @@ class EditNumberViewController: UIViewController {
             
                return button
        }()
+    
+    private let nextButton: UIButton = {
+               let button = NextButton(type: .system)
+                   button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
+                   return button
+       }()
+     
+    private let nextButtonImage: UIImageView = {
+          let imageView = UIImageView(image:#imageLiteral(resourceName: "rightarrow"))
+              imageView.contentMode = .scaleAspectFit
+              imageView.width(constant: 22)
+              imageView.height(constant: 22)
+              imageView.translatesAutoresizingMaskIntoConstraints = false
+              return imageView
+      }()
        
        private func ConstraintsLayout() {
          phoneView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 60))
@@ -151,9 +176,10 @@ class EditNumberViewController: UIViewController {
         //Display Country Code, Change Country Code and Country Flag
        showCountryCode.anchor(top: phoneView.topAnchor, bottom: phoneView.bottomAnchor, leading: phoneView.leadingAnchor, trailing: nil, padding: .init(top: 2, left: 12, bottom: 0, right: 0))
        countryCodeInput.anchor(top: phoneView.topAnchor, bottom: phoneView.bottomAnchor, leading: separatorLine.leadingAnchor, trailing: phoneView.trailingAnchor, padding: .init(top: 2, left: 10, bottom: 0, right: 16))
-        countryFlagInput.anchor(top: phoneView.topAnchor, bottom: phoneView.bottomAnchor, leading: phoneView.leadingAnchor, trailing: phoneView.trailingAnchor, padding: .init(top: 2, left: 16, bottom: 0, right: 16))
+       countryFlagInput.anchor(top: phoneView.topAnchor, bottom: phoneView.bottomAnchor, leading: phoneView.leadingAnchor, trailing: phoneView.trailingAnchor, padding: .init(top: 2, left: 16, bottom: 0, right: 0))
      
-        dropDownPicker.anchor(top: phoneView.topAnchor, bottom: nil, leading: countryFlagInput.trailingAnchor, trailing: separatorLine.leadingAnchor, padding: .init(top: 26, left: 0, bottom: 0, right: 8))
+        dropDownPicker.anchor(top: phoneView.topAnchor, bottom: nil, leading: phoneView.leadingAnchor, trailing: nil, padding: .init(top: 24, left: 40, bottom: 0, right: 0), size: .init(width: 12, height: 12))
+        
        
         separatorLine.leadingAnchor.constraint(equalTo: phoneView.leadingAnchor, constant: 60).isActive = true
         separatorLine.topAnchor.constraint(equalTo: phoneView.topAnchor, constant: 0).isActive = true
@@ -161,12 +187,47 @@ class EditNumberViewController: UIViewController {
         separatorLine.heightAnchor.constraint(equalTo: phoneView.heightAnchor).isActive = true
        
     phoneInput.anchor(top: phoneView.topAnchor, bottom: phoneView.bottomAnchor, leading: phoneView.leadingAnchor, trailing: phoneView.trailingAnchor, padding: .init(top: 2, left: 110, bottom: 0, right: 16))
-           
+          
+        nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+               buttonConstraint = nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+               buttonConstraint?.isActive = true
+               
+               nextButtonImage.centerXAnchor.constraint(equalTo: nextButton.centerXAnchor).isActive = true
+               nextButtonImage.centerYAnchor.constraint(equalTo: nextButton.centerYAnchor).isActive = true
           
           
        }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+           let userInfo = notification.userInfo
+           let keyboardSize = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+           let keyboardHeight = keyboardSize.cgRectValue.height
+           buttonConstraint?.constant = -10 - keyboardHeight
+           
+           let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+           UIView.animate(withDuration: animationDuration) {
+               self.view.layoutIfNeeded()
+           }
+       }
+       
+       @objc func keyboardWillHide(_ notification: Notification) {
+           buttonConstraint?.constant = -10
+           let userInfo = notification.userInfo
+           let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+           UIView.animate(withDuration: animationDuration) {
+               self.view.layoutIfNeeded()
+           }
+       }
        
        // MARK: - Selectors
+    
+     @objc private func handleNextPage() {
+          let nextViewController = VerifyNumberViewController()
+          self.navigationController?.pushViewController(nextViewController, animated: false)
+          let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
+          generator.impactOccurred()
+      }
+      
        @objc private func handlePreviousPage() {
            self.navigationController?.popViewController(animated: false)
            

@@ -24,7 +24,7 @@ class GuideViewController: UICollectionViewController, UICollectionViewDelegateF
     private let rideNowButton: UIButton = {
         let button = greenButton(type: .system)
         button.setTitle("FLEET NOW", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.montserratBold, size: 20)
+        button.titleLabel?.font = UIFont(name: Fonts.gilroyBold, size: 20)
         button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
         return button
     }()
@@ -32,7 +32,7 @@ class GuideViewController: UICollectionViewController, UICollectionViewDelegateF
    private let GoogleLoginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login with Google", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.montserratMedium, size: 18)
+        button.titleLabel?.font = UIFont(name: Fonts.gilroyMedium, size: 18)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -85,9 +85,11 @@ class GuideViewController: UICollectionViewController, UICollectionViewDelegateF
       //  navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBottomControls()
+        
         collectionView?.backgroundColor = .white
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: PageCell.identifer)
     }

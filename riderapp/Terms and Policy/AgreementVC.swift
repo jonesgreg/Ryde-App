@@ -38,8 +38,8 @@ class AgreementViewController: UIViewController {
    
     private let titleText: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Do you agree to Fleet's", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-        attributedText.append(NSAttributedString(string: "\nTerms of Service and Policy Privacy?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+        let attributedText = NSMutableAttributedString(string: "Do you agree to Fleet's", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        attributedText.append(NSAttributedString(string: "\nTerms of Service and Policy Privacy?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
             textView.attributedText = attributedText
             textView.dataDetectorTypes = UIDataDetectorTypes.link
             textView.isSelectable = true
@@ -64,7 +64,7 @@ class AgreementViewController: UIViewController {
         textView.isScrollEnabled = false
         textView.isSelectable = true
         textView.delegate = self
-        textView.font = UIFont(name: Fonts.montserratMedium, size: 14)
+        textView.font = UIFont(name: Fonts.gilroyMedium, size: 14)
         textView.dataDetectorTypes = UIDataDetectorTypes.link
         textView.text = "Terms of Service and Policy Privacy?"
         let linkAttributes: [NSAttributedString.Key : Any] = [
@@ -114,7 +114,7 @@ private let agreementImageView: UIImageView = {
 private let yesButton: UIButton = {
         let button = greenButton(type: .system)
         button.setTitle("YES", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
+        button.titleLabel?.font = UIFont(name: Fonts.gilroySemiBold, size: 20)
         button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
         return button
     }()
@@ -137,7 +137,13 @@ private let yesButton: UIButton = {
          navigationController?.navigationBar.tintColor = .black
          navigationController?.navigationBar.isTranslucent = true
          navigationController?.navigationBar.backgroundColor = .clear
-         navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow")
+         // Custom back button
+         let backButton = UIButton(type: .system)
+             backButton.setBackgroundImage(#imageLiteral(resourceName: "backarrow"), for:.normal)
+             backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+             backButton.width(constant: 17)
+             backButton.height(constant: 17)
+             self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
    
     // MARK: - Selectors

@@ -17,15 +17,15 @@ class SettingOptionCell: UITableViewCell {
         let iv = UIImageView()
             iv.contentMode = .scaleAspectFit
             iv.clipsToBounds = true
-            iv.width(constant: 20)
-            iv.height(constant: 20)
+            iv.width(constant: 22)
+            iv.height(constant: 22)
         return iv
     }()
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
             label.textColor = .black
-            label.font = UIFont(name: Fonts.montserratRegular, size: 15)
+            label.font = UIFont(name: Fonts.gilroyMedium, size: 16)
             label.text = "Sample text"
             return label
     }()
@@ -49,8 +49,8 @@ override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 3).isActive = true
         iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
-        iconImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        iconImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        iconImageView.widthAnchor.constraint(equalToConstant: 22).isActive = true
         
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false

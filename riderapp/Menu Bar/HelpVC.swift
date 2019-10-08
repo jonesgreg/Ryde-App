@@ -16,86 +16,60 @@ class HelpViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var toolBar = UIToolbar()
     
-    //MARK: Override functions
+  //MARK: Override functions
+       override func loadView() {
+        webView = WKWebView()
+        webView.navigationDelegate = self // Delegation
+        view = webView
+                 
+           }
+          
     
     override func viewDidLoad() {
         configureUI()
         super.viewDidLoad()
-        let url = URL(string: "https://www.loyola.edu/department/public-safety/services/escort")!
+        let url = URL(string: "https://support.taxify.eu/hc/en-us")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
+     }
+   
+    override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
-        configureTabBar()
+    
     }
     
-    override func loadView() {
-        webView = WKWebView()
-        webView.navigationDelegate = self // Delegation
-        view = webView
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        addHeightConstraintsToTabBar()
-    }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           self.navigationController?.setNavigationBarHidden(false, animated: animated)
+       }
     
     func configureUI() {
         view.backgroundColor = .white
         
     }
-    
-    private func configureTabBar() {
-        
-        let backButton = UIButton(type: .system)
-        backButton.setImage(#imageLiteral(resourceName: "leftarrow"), for: .normal)
-        backButton.setTitle("PREVIOUS", for: .normal)
-        backButton.semanticContentAttribute = .forceLeftToRight
-        backButton.titleLabel?.font = UIFont(name: Fonts.montserratBold, size: 12)
-        backButton.tintColor = .black
-        backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
-        let leftBarButton = UIBarButtonItem.init(customView: backButton)
-        
-        let forwardButton = UIButton(type: .system)
-        forwardButton.setImage(#imageLiteral(resourceName: "black_rightarrow"), for: .normal)
-        forwardButton.setTitle("NEXT", for: .normal)
-        forwardButton.semanticContentAttribute = .forceRightToLeft
-        forwardButton.titleLabel?.font = UIFont(name: Fonts.montserratBold, size: 12)
-        forwardButton.tintColor = .black
-        forwardButton.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
-        let rightBarButton = UIBarButtonItem.init(customView: forwardButton)
-        
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        
-        toolBar.setShadowImage(UIImage(), forToolbarPosition: .any)
-        toolBar.barTintColor = .white
-        toolBar.translatesAutoresizingMaskIntoConstraints = false
-        toolBar.items = [leftBarButton, flexibleSpace,rightBarButton]
-        
-        webView.addSubview(toolBar)
-        NSLayoutConstraint.activate([toolBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                                     toolBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                                     toolBar.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            ])
-    }
-    
-    func addHeightConstraintsToTabBar() -> Void {
-        let heightConstant: CGFloat = self.view.safeAreaInsets.bottom + 40
-        toolBar.heightAnchor.constraint(equalToConstant: heightConstant).isActive = true
-        
-    }
-    
     private func configureNavigationController() {
-        navigationController?.navigationBar.barTintColor = Colors.lighterGrey
-        // navigationController?.navigationBar.tintColor =
-        
-        navigationItem.title = "Contact Support"
-        navigationController?.navigationBar.isTranslucent = false
-        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousViewController), imageName: "menuBack")
+              navigationItem.title = "How can we help?"
+              navigationItem.setHidesBackButton(true, animated: false)
+              navigationController?.navigationBar.isTranslucent = false
+             navigationController?.navigationBar.barTintColor = .white // Background color
+             let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+                     navigationController?.navigationBar.titleTextAttributes = textAttributes
+
+            //Cancel Button
+             let cancelButton = UIButton(type: .custom)
+                     cancelButton.setImage(UIImage(named: "delete"), for: .normal)
+                     cancelButton.width(constant: 18)
+                     cancelButton.height(constant: 18)
+                     cancelButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+                     let navigationItem = UIBarButtonItem(customView: cancelButton)
+                     self.navigationItem.setLeftBarButton(navigationItem, animated:false)
     }
     
+   
+    
+  
+    
+   
     private func setActivityIndicator() {
         //configure the background containerview for the indicator original width: 80 and height 80
         activityIndicatorContainer = UIView(frame: CGRect(x:0, y:0, width: 200, height: 200))
@@ -124,24 +98,13 @@ class HelpViewController: UIViewController, WKNavigationDelegate {
     
     
     // MARK: - Selectors
-    @objc private func handlePreviousViewController() {
-        self.navigationController?.popViewController(animated: false)
-    }
-    
     @objc private func handlePreviousPage() {
-        if webView.canGoBack {
-            webView.goBack()
-        } else  {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
+           self.navigationController?.popViewController(animated: false)
+           
+       }
+       
     
-    @objc private func handleNextPage() {
-        if webView.canGoForward {
-            webView.goForward()
-            
-        }
-    }
+    
     
     private func showActivityIndicator(show: Bool)  {
         if show {
@@ -168,5 +131,10 @@ class HelpViewController: UIViewController, WKNavigationDelegate {
     }
 }
 
+extension HelpViewController: UINavigationBarDelegate {
+    public func position(for bar: UIBarPositioning) -> UIBarPosition {
+               return .topAttached
+           }
     
+}
 

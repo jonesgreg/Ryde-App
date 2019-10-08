@@ -24,3 +24,5 @@ protocol SettingsDelegate: class {
 protocol ProfileDelegate: class {
     func handleProfilesToggle(forProfileOption: ProfileOption?)
 }
+
+

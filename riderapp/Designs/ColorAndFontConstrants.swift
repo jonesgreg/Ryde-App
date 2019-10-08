@@ -9,6 +9,7 @@
 import UIKit
 
 struct Colors {
+    static let textFieldBarColor = UIColor(red: 194/255, green: 194/255, blue: 194/255, alpha: 1)
     static let darkRedColor = UIColor(red: 161/255, green: 31/255, blue: 53/255, alpha: 1)
     static let whiteColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     static let lightGreyColor = UIColor(red: 213/255, green: 213/255, blue: 213/255, alpha: 1)
@@ -32,14 +33,16 @@ struct Colors {
 
 
 struct Fonts {
-    static let montserratAlternatesMedium = "MontserratAlternates-Medium"
-    static let montserratAlternatesSemiBold = "MontserratAlternates-SemiBold"
-    static let montserratAlternatesRegular = "MontserratAlternates-Regular"
     static let montserratRegular="Montserrat-Regular"
     static let montserratBold="Montserrat-Bold"
     static let montserratSemiBold="Montserrat-SemiBold"
     static let montserratMedium="Montserrat-Medium"
-    static let moskBold="Mosk-Bold"
+    static let gilroyExtraBold="Gilroy-ExtraBold"
+    static let gilroySemiBold="Gilroy-SemiBold"
+    static let gilroyMedium="Gilroy-Medium"
+    static let gilroyBold="Gilroy-Bold" 
+    static let gilroyRegular="Gilroy-Regular"
     }
+
 
 

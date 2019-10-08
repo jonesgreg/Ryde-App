@@ -33,6 +33,7 @@ enum SettingOptions: Int, CustomStringConvertible {
         
        
     }
+       
   }
     
     var image: UIImage {

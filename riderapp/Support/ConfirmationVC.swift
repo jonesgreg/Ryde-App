@@ -42,14 +42,14 @@ class ConfirmationEmailViewController: UIViewController {
     private let nextButton: UIButton = {
         let button = greenButton(type: .system)
         button.setTitle("Resend Email", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 20)
+        button.titleLabel?.font = UIFont(name: Fonts.gilroySemiBold, size: 20)
         button.layer.cornerRadius = 22
         return button
     }()
     
     private let descText: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "We just sent a confirmation email to the address below. Please confirm your account by tapping on the link in the email. ", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
+        let attributedText = NSMutableAttributedString(string: "We just sent a confirmation email to the address below. Please confirm your account by tapping on the link in the email. ", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
         textView.attributedText = attributedText
         textView.textAlignment = .center
         textView.isEditable = false
@@ -95,7 +95,15 @@ class ConfirmationEmailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.backgroundColor = .clear
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow")
+          let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+       // Custom back button
+        let backButton = UIButton(type: .system)
+            backButton.setBackgroundImage(#imageLiteral(resourceName: "backarrow"), for:.normal)
+            backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+            backButton.width(constant: 17)
+            backButton.height(constant: 17)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
     
     // MARK: - Selector

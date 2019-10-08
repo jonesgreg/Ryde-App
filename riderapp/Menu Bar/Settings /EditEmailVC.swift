@@ -16,6 +16,7 @@ class EditEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         [emailView, emailText, emailInput].forEach { view.addSubview($0) }
+        emailInput.delegate = self
         configureNavigationBar()
         configureUI()
         ConstraintsLayout()
@@ -39,9 +40,15 @@ class EditEmailViewController: UIViewController {
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: nil)
         saveButton.tintColor = .blue
         self.navigationItem.rightBarButtonItem = saveButton
-       let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+       let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
        navigationController?.navigationBar.titleTextAttributes = textAttributes
-       navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow")
+        // Custom back button
+        let backButton = UIButton(type: .system)
+            backButton.setBackgroundImage(#imageLiteral(resourceName: "backarrow"), for:.normal)
+            backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+            backButton.width(constant: 20)
+            backButton.height(constant: 20)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     
         
         
@@ -66,7 +73,7 @@ class EditEmailViewController: UIViewController {
        }()
     private let emailText: UILabel = {
         let emailLabel = UILabel()
-        let attributedText = NSMutableAttributedString(string: "Email", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+        let attributedText = NSMutableAttributedString(string: "Email", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
            emailLabel.attributedText = attributedText
             emailLabel.translatesAutoresizingMaskIntoConstraints = true
            emailLabel.textAlignment = .left
@@ -75,9 +82,8 @@ class EditEmailViewController: UIViewController {
     
     private let emailInput: UITextField = {
            let textField = userInputField()
-             textField.keyboardAppearance = .dark
-             textField.textColor = UIColor.black
-            textField.textAlignment = .left
+               textField.textColor = UIColor.black
+               textField.textAlignment = .left
             return textField
     
     }()
@@ -103,4 +109,16 @@ class EditEmailViewController: UIViewController {
        @objc private func saveToggle() {
         
        }
+}
+
+extension EditEmailViewController: UITextFieldDelegate {
+    // Stop Editing on Return Key Tap
+        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+            
+        }
+      private func textFieldShouldReturn(textField: UITextField!) -> Bool {
+          textField.resignFirstResponder()
+          return true
+      }
 }

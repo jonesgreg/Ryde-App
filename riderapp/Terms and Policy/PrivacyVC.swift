@@ -53,8 +53,8 @@ class PrivacyViewController: UIViewController, WKNavigationDelegate {
     private func configureNavigationController() {
            navigationItem.title = "Privacy Policy"
                    navigationController?.navigationBar.isTranslucent = false
-                   navigationController?.navigationBar.barTintColor = Colors.lighterGrey // Background color
-                  let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray]
+          navigationController?.navigationBar.barTintColor = .white // Background color
+                  let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
                   navigationController?.navigationBar.titleTextAttributes = textAttributes
 
               //Cancel Button
@@ -64,7 +64,7 @@ class PrivacyViewController: UIViewController, WKNavigationDelegate {
                   cancelButton.height(constant: 18)
                   cancelButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
                   let navigationItem = UIBarButtonItem(customView: cancelButton)
-                  self.navigationItem.setLeftBarButton(navigationItem, animated:true)
+                  self.navigationItem.setLeftBarButton(navigationItem, animated:false)
             }
 
     private func setActivityIndicator() {
@@ -102,13 +102,17 @@ class PrivacyViewController: UIViewController, WKNavigationDelegate {
     }
     
     override func willMove(toParent parent: UIViewController?) {
+         super.willMove(toParent: parent)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+         self.navigationController?.navigationBar.barTintColor = .white //previous color
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.isTranslucent = true
-       // navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.backgroundColor = .clear
         navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow")
+     
+       
     }
 
    

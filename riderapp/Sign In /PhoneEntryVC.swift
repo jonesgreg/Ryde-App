@@ -11,7 +11,7 @@ import Lottie
 
 
 class PhoneEntryViewController: UIViewController {
-    
+ 
     var countries: Countries?
     var localeCountry: Country?
     var buttonConstraint: NSLayoutConstraint?
@@ -20,11 +20,14 @@ class PhoneEntryViewController: UIViewController {
    // MARK: - Overriden function
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         [backgroundView, logoImageView,phoneText, dropDownPicker, countryCodeInput,updateAcountButton,showCountryCode,phoneNumberInput, forwardButton ].forEach { view.addSubview($0) }
         phoneNumberInput.delegate = self
         configureUI()
         constraintsLayout()
         loadCountries()
+       
+        
         
     }
     
@@ -34,13 +37,17 @@ class PhoneEntryViewController: UIViewController {
         // Hide the navigation bar on the this view controller
        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         phoneText.becomeFirstResponder()
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+  NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
+       NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+}
     
     
 private func loadCountries() {
@@ -62,7 +69,7 @@ private func loadCountries() {
     // MARK: - Private functions
     private let phoneText: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Enter your phone number (required)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        let attributedText = NSMutableAttributedString(string: "Enter your phone number (required)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
             textView.attributedText = attributedText
             textView.textAlignment = .left
             textView.isEditable = false
@@ -73,7 +80,7 @@ private func loadCountries() {
     private let updateAcountButton: UIButton = {
             let button = UIButton(type: .custom)
                 button.setTitle("Or have an account and need to update number?", for: .normal)
-                button.titleLabel?.font = UIFont(name: Fonts.montserratRegular, size: 12)
+                button.titleLabel?.font = UIFont(name: Fonts.gilroyMedium, size: 12)
                 button.setTitleColor(UIColor.blue, for: .normal)
                 button.addTarget(self, action: #selector(handleRecoverAccountPage), for: .touchUpInside)
         return button
@@ -105,9 +112,10 @@ private func loadCountries() {
     
     private let phoneNumberInput: UITextField = {
         let textfield = phoneNumberTextField()
-        textfield.attributedPlaceholder = NSAttributedString(string: "Phone Number", attributes:[NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
+        textfield.attributedPlaceholder = NSAttributedString(string: "Phone Number", attributes:[NSAttributedString.Key.font:UIFont(name: Fonts.gilroyRegular, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
         textfield.textColor = UIColor.black
-        textfield.keyboardAppearance = .dark
+       
+        
         return textfield
     }()
     
@@ -127,6 +135,7 @@ private func loadCountries() {
     private let showCountryCode: UIButton = {
         let button = UIButton(type: .system)
             button.addTarget(self, action: #selector(handleCountryPage), for: .touchUpInside)
+        
             return button
     }()
    
@@ -139,10 +148,10 @@ private func loadCountries() {
     private func configureNavigationBar() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-    navigationController?.navigationBar.tintColor = .white
-    navigationController?.navigationBar.isTranslucent = true
-    navigationController?.navigationBar.backgroundColor = .clear
-    navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "backarrow").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handlePreviousPage))
+             navigationController?.navigationBar.tintColor = .white
+             navigationController?.navigationBar.isTranslucent = true
+             navigationController?.navigationBar.backgroundColor = .clear
+             navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "backarrow").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handlePreviousPage))
     }
   
     private func constraintsLayout() {
@@ -162,19 +171,22 @@ private func loadCountries() {
       logoImageView.heightAnchor.constraint(equalToConstant:100).isActive = true
     
   phoneText.anchor(top: backgroundView.bottomAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 35, left: 10, bottom: 0, right: 0))
-   dropDownPicker.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: phoneText.leadingAnchor, trailing: nil, padding: .init(top: 132, left: 5, bottom: 0, right: 0), size: .init(width: 15, height:15))
-    forwardButton.anchor(top: backgroundView.bottomAnchor, bottom:nil, leading: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 130, left: 0, bottom:0, right: 30), size: .init(width: 25, height: 25))
+   dropDownPicker.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: phoneText.leadingAnchor, trailing: nil, padding: .init(top: 102, left: 5, bottom: 0, right: 0), size: .init(width: 15, height:15))
+    forwardButton.anchor(top: backgroundView.bottomAnchor, bottom:nil, leading: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 100, left: 0, bottom:0, right: 30), size: .init(width: 25, height: 25))
     
     // Display Country Code, Change Country Code and Country Flag
-  showCountryCode.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: countryCodeInput.leadingAnchor, trailing: nil, padding: .init(top: 125, left: 0, bottom: 0, right: 0))
-  countryCodeInput.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 130, left: 40, bottom: 0, right: 70))
+       showCountryCode.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: phoneText.leadingAnchor, trailing: nil, padding: .init(top: 95, left: 0, bottom: 0, right: 0))
+      
+  countryCodeInput.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 40, bottom: 0, right: 70))
    
     // Display background color of Phone View, display border line Phone View, and Phone view Input
-  phoneNumberInput.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: view.leadingAnchor, trailing: forwardButton.leadingAnchor, padding: .init(top: 130, left: 85, bottom: 0, right: 10))
+  phoneNumberInput.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: view.leadingAnchor, trailing: forwardButton.leadingAnchor, padding: .init(top: 100, left: 85, bottom: 0, right: 10))
+      
     
-    updateAcountButton.anchor(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: phoneText.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 15, right: 0))
-
-}
+    updateAcountButton.anchor(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: phoneText.leadingAnchor, trailing: nil, padding: .init(top: 0, left: 5, bottom: 25, right: 0))
+    }
+      
+   
     
     func configureUI() {
         view.backgroundColor = .white
@@ -182,6 +194,7 @@ private func loadCountries() {
    
     //MARK: - Selectors
     
+  
     @objc private func handleNextPage() {
         let nextViewController = VerifyNumberViewController()
         self.navigationController?.pushViewController(nextViewController, animated: false)
@@ -200,6 +213,7 @@ private func loadCountries() {
         self.navigationController?.popViewController(animated: false)
     }
     
+   
     @objc private func handleCountryPage() {
        if let countries = countries {
             let listScene = CountryCodeListController.init(countries: countries)
@@ -211,6 +225,23 @@ private func loadCountries() {
         }
         
     }
+   
+    @objc func keyboardWillShow(notification: NSNotification) {
+             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                 if self.view.frame.origin.y == 0 {
+                     self.view.frame.origin.y -= keyboardSize.height
+                 }
+             }
+         }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+             if self.view.frame.origin.y != 0 {
+                 self.view.frame.origin.y = 0
+             }
+         }
+    
+   
+   
    func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
         guard !phoneNumber.isEmpty else { return "" }
         guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)]", options: .caseInsensitive) else { return "" }
@@ -253,6 +284,10 @@ extension PhoneEntryViewController: UITextFieldDelegate {
         return false
     }
     
+  
+    
+  
+    
     
     // Stop Editing on Return Key Tap
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -260,8 +295,9 @@ extension PhoneEntryViewController: UITextFieldDelegate {
         
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         phoneNumberInput.resignFirstResponder()
+    
         return true
     }
     
@@ -277,6 +313,8 @@ extension PhoneEntryViewController: countryPickerProtocol {
 
 
 
+    
+  
 
 
 

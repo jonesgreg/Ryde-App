@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension UITableViewCell {
+    func hideSeparator() {
+           self.separatorInset = UIEdgeInsets(top: 0, left: self.bounds.size.width, bottom: 0, right: 0)
+       }
+       
+       func showSeparator() {
+           self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+       }
+}
+
 extension UIView {
     
     func anchorPadding(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, paddingTop: CGFloat? = 0,
@@ -130,6 +140,18 @@ extension UIView {
     
 }
 
+extension UIImage {
+    class func imageWithColor(color: UIColor) -> UIImage {
+           let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 0.5)
+           UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+           color.setFill()
+           UIRectFill(rect)
+           let image : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+           UIGraphicsEndImageContext()
+           return image
+       }
+}
+
 
 extension UIBarButtonItem {
     static func barButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
@@ -142,7 +164,6 @@ extension UIBarButtonItem {
         menuBarItem.customView?.contentMode = .scaleAspectFit
         menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 23).isActive = true
         menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 23).isActive = true
-        
         return menuBarItem
     }
 }
@@ -174,6 +195,19 @@ extension NSAttributedString {
     }
     
 }
+extension UITableView {
+
+func deselectSelectedRow(animated: Bool)
+{
+    if let indexPathForSelectedRow = self.indexPathForSelectedRow
+    {
+        self.deselectRow(at: indexPathForSelectedRow, animated: animated)
+    }
+}
+}
+
+   
+   
 
 class VerifyView: UIView {
     
@@ -199,7 +233,7 @@ class codeTextField: UITextField {
         self.autocorrectionType = .no
         self.textAlignment = .center
         self.returnKeyType = UIReturnKeyType.done
-        self.font = UIFont(name: Fonts.montserratSemiBold, size: 42)
+        self.font = UIFont(name: Fonts.gilroySemiBold, size: 42)
        
     }
     
@@ -227,6 +261,14 @@ class phoneNumberTextField: UITextField {
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Class Methods
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 class verifyTextField: UITextField {
     override init(frame: CGRect) {
@@ -234,7 +276,7 @@ class verifyTextField: UITextField {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.textAlignment = .center
         self.tintColor = Colors.fleetGreen
-        self.font = UIFont(name: Fonts.montserratMedium, size: 20)
+        self.font = UIFont(name: Fonts.gilroyMedium, size: 20)
         self.borderStyle = .none
         self.keyboardType = UIKeyboardType.numberPad
         self.autocapitalizationType = UITextAutocapitalizationType.none
@@ -352,13 +394,8 @@ class greenCircleButton: UIButton {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.masksToBounds = false
-       
-      //  self.layer.shadowRadius = 0.5
-      //  self.layer.shadowOpacity = 0.3
-      //  self.layer.shadowColor = UIColor.black.cgColor
-         self.backgroundColor = Colors.fleetGreen
+        self.backgroundColor = Colors.fleetGreen
         self.layer.cornerRadius = 16
-   //     self.layer.shadowOffset = CGSize(width: 0, height: 1)
         self.width(constant: 32)
         self.height(constant: 32)
         
@@ -368,10 +405,33 @@ class greenCircleButton: UIButton {
     }
 }
 
-
+class searchInputField: UITextField {
+    override init(frame: CGRect) {
+    super.init(frame: frame)
+    self.translatesAutoresizingMaskIntoConstraints = false
+    self.borderStyle = .none
+    self.textColor = UIColor.black
+    self.textAlignment = .center
+    self.tintColor = Colors.fleetGreen
+    self.font = UIFont(name: Fonts.gilroyMedium, size: 14)
+    self.autocapitalizationType = UITextAutocapitalizationType.none
+    self.autocorrectionType = .no
+    self.returnKeyType = UIReturnKeyType.done
+       
+    }
+    required init?(coder aDecoder: NSCoder) {
+               fatalError("init(coder:) has not been implemented")
+  }
+           
+    
+}
 
 
 class userInputField: UITextField  {
+    
+    fileprivate let cancelButtonLength: CGFloat = 15
+    fileprivate let padding: CGFloat = 8
+   
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -379,42 +439,207 @@ class userInputField: UITextField  {
         self.textColor = UIColor.black
         self.textAlignment = .center
         self.tintColor = Colors.fleetGreen
-        self.font = UIFont(name: Fonts.montserratMedium, size: 16)
+        self.font = UIFont(name: Fonts.gilroyMedium, size: 16)
         self.autocapitalizationType = UITextAutocapitalizationType.none
         self.autocorrectionType = .no
         self.returnKeyType = UIReturnKeyType.done
-      //  self.clearButtonMode = UITextField.ViewMode.whileEditing
-        
-        let clearButton = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 16, height: 16)))
-        clearButton.setImage(UIImage(named: "clearbutton")!, for: .normal)
-                                   
-self.rightView = clearButton
-        clearButton.addTarget(self, action: #selector(clearClicked(sender:)), for: .touchUpInside)
-        self.clearButtonMode = .never
-        self.rightViewMode = .whileEditing
-        
-   
-        
+       // self.clearButtonMode = .whileEditing
+       self.customLayout()
     }
-   @objc func clearClicked(sender: UIButton) {
-         text = ""
-       
-       }
-    override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
-      var rect = super.rightViewRect(forBounds: bounds)
-      rect.origin.x -= 15 // Assume your right margin is 30
-      return rect
-    }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+   
+    @objc func clearClicked(sender: UIButton) {
+            text = ""
+          
+          }
+    override func rightViewRect( forBounds bounds: CGRect ) -> CGRect
+      {
+          let x = bounds.size.width - self.cancelButtonLength - self.padding
+          let y = ( bounds.size.height - self.cancelButtonLength ) / 2
+          let rightBounds = CGRect( x: x, y: y, width: self.cancelButtonLength, height: self.cancelButtonLength )
+          return rightBounds
+      }
     
- 
-   /* override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
-        var rightViewRect = super.rightViewRect(forBounds: bounds)
-        rightViewRect.origin.x -= 10;
-        return rightViewRect
-    } */
+    fileprivate func customLayout() {
+               // Set custom clear button on right side
+               let clearButton = UIButton()
+               clearButton.setImage( UIImage( named: "clear_button" ), for: .normal )
+               clearButton.contentMode = .scaleAspectFit
+               clearButton.addTarget( self, action: #selector( self.clearClicked ), for: .touchUpInside )
+               self.rightView = clearButton
+              self.clearButtonMode = .whileEditing
+              self.rightViewMode = .whileEditing
+               
+           }
+}
+
+class searchLocation: UITextField {
+
+   
+    private let reuseIdentifer = "LocationCell"
+    
+   
+    
+    var resultsList: [Location] = [Location]()
+    var tableView: UITableView!
+    
+    // Connecting the new element to the parent view
+    open override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+        tableView?.removeFromSuperview()
+        
+    }
+    
+    override open func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        
+        self.addTarget(self, action: #selector(searchLocation.textFieldDidChange), for: .editingChanged)
+        self.addTarget(self, action: #selector(searchLocation.textFieldDidBeginEditing), for: .editingDidBegin)
+        self.addTarget(self, action: #selector(searchLocation.textFieldDidEndEditing), for: .editingDidEnd)
+        self.addTarget(self, action: #selector(searchLocation.textFieldDidEndEditingOnExit), for: .editingDidEndOnExit)
+    }
+    override open func layoutSubviews() {
+         super.layoutSubviews()
+            configureTableView()
+         
+     }
+    
+    //////////////////////////////////////////////////////////////////////////////
+      // Text Field related methods
+      //////////////////////////////////////////////////////////////////////////////
+      
+      @objc open func textFieldDidChange(){
+          print("Text changed ...")
+         // filter()
+          updateSearchTableView()
+      
+         // tableViewConstraints()
+          tableView?.isHidden = false
+      }
+      
+      @objc open func textFieldDidBeginEditing() {
+          print("Begin Editing")
+      }
+      
+      @objc open func textFieldDidEndEditing() {
+          print("End editing")
+
+      }
+      
+      @objc open func textFieldDidEndEditingOnExit() {
+          print("End on Exit")
+      }
+    
+    
+    override init(frame: CGRect) {
+      super.init(frame: frame)
+      self.translatesAutoresizingMaskIntoConstraints = false
+      self.borderStyle = .none
+      self.textColor = UIColor.black
+      self.textAlignment = .center
+      self.tintColor = Colors.fleetGreen
+      self.font = UIFont(name: Fonts.gilroyMedium, size: 14)
+      self.autocapitalizationType = UITextAutocapitalizationType.none
+      self.autocorrectionType = .no
+      self.returnKeyType = UIReturnKeyType.done
+         
+      }
+      required init?(coder aDecoder: NSCoder) {
+                 fatalError("init(coder:) has not been implemented")
+    }
+  
+      
+     
+}
+
+extension searchLocation: UITableViewDelegate, UITableViewDataSource {
+    
+    
+    // MARK: TableView creation and updating
+    
+    func configureTableView() {
+        if let tableView = tableView  {
+               tableView.register(LocationCell.self, forCellReuseIdentifier: reuseIdentifer)
+               tableView.delegate = self
+               tableView.dataSource = self
+              
+               tableView.translatesAutoresizingMaskIntoConstraints = false
+                self.window?.addSubview(tableView)
+        } else {
+            print("Table view is created")
+            tableView = UITableView(frame: CGRect.zero)
+            
+        }
+        
+        updateSearchTableView()
+    }
+       func tableViewConstraints() {
+           addSubview(tableView)
+           tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+           tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+           tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+           tableView.topAnchor.constraint(equalTo: topAnchor, constant: 120).isActive = true
+       }
+    
+    // Updating table view
+    func updateSearchTableView() {
+       if let tableView = tableView {
+                   superview?.bringSubviewToFront(tableView)
+                   var tableHeight: CGFloat = 0
+                   tableHeight = tableView.contentSize.height
+                   
+                   // Set a bottom margin of 10p
+                   if tableHeight < tableView.contentSize.height {
+                       tableHeight -= 10
+                   }
+                   
+                   // Set tableView frame
+                   var tableViewFrame = CGRect(x: 0, y: 0, width: frame.size.width - 4, height: tableHeight)
+                   tableViewFrame.origin = self.convert(tableViewFrame.origin, to: nil)
+                   tableViewFrame.origin.x += 2
+                   tableViewFrame.origin.y += frame.size.height + 2
+                   UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                       self?.tableView?.frame = tableViewFrame
+                   })
+                   
+                   //Setting tableView style
+                   tableView.layer.masksToBounds = true
+                   tableView.separatorInset = UIEdgeInsets.zero
+                   tableView.layer.cornerRadius = 5.0
+                   tableView.separatorColor = UIColor.lightGray
+                   tableView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+                   
+                   if self.isFirstResponder {
+                       superview?.bringSubviewToFront(self)
+                   }
+                   
+                   tableView.reloadData()
+               }
+    }
+    
+    // MARK: TableViewDataSourcce methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(resultsList.count)
+        return resultsList.count
+       }
+       
+    
+    // MARK: TableViewDelegate methods
+       
+    //Adding rows in the tableview with the data from location
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifer, for: indexPath) as! LocationCell
+        cell.backgroundColor = UIColor.white
+        cell.textLabel?.attributedText = resultsList[indexPath.row].getFormatedText()
+        return cell
+       }
 }
 

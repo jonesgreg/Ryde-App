@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+      
     }
    
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,19 +51,27 @@ class SettingsViewController: UIViewController {
         tableView.tableFooterView = UIView() // Remove extra cells
         tableView.reloadData()
        // tableView.allowsSelection = true
-        tableView.backgroundColor = Colors.lighterGrey
+        tableView.backgroundColor = Colors.whiteColor
         
         return tableView
     }()
     
     private func configureNavigationBar() {
          navigationItem.title = "Settings"
-             navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .white
-        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.montserratSemiBold, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+           self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+           self.navigationController?.navigationBar.shadowImage = UIImage()
+                     navigationController?.navigationBar.tintColor = .black
+                     navigationController?.navigationBar.isTranslucent = false
+                     navigationController?.navigationBar.backgroundColor = .white
+        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
       navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "menuBack")
+        // Custom Back Button
+              let backButton = UIButton(type: .system)
+                  backButton.setBackgroundImage(#imageLiteral(resourceName: "menuBack"), for:.normal)
+                 backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+                backButton.width(constant: 20)
+                backButton.height(constant: 20)
+               self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
        
     }
     // MARK: - Selectors
@@ -137,12 +145,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         button.frame = CGRect(x: 0, y: 50, width: tableView.frame.size.width, height: 60)
         button.setTitle("Log out", for: .normal)
         button.backgroundColor = .white
-        button.titleLabel?.font = UIFont(name: Fonts.montserratSemiBold, size: 15)
+        button.titleLabel?.font = UIFont(name: Fonts.gilroySemiBold, size: 16)
         button.setTitleColor(Colors.fleetGreen, for: .normal)
       
         let appVerison = UILabel(frame: CGRect(x: 0, y: 120, width: tableView.frame.size.width, height: 80))
         appVerison.attributedText = NSMutableAttributedString(string: "Fleet - Verison 1.0.0", attributes:
-            [NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+            [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyRegular, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         appVerison.textAlignment = .center
        view.addSubview(appVerison)
       view.addSubview(button)
@@ -155,12 +163,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return 10
     }
     
- /*   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    } */
-    
+ 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return UITableView.automaticDimension
+         return 60
     }
     
     
@@ -183,25 +188,25 @@ extension SettingsViewController: SettingsDelegate {
           switch forSettingOption {
         case .Profile?:
             let profileController = EditProfileViewController()
-            self.navigationController?.pushViewController(profileController, animated: true)
+            self.navigationController?.pushViewController(profileController, animated: false)
         case .Email?:
             let emailController = EditEmailViewController()
-            self.navigationController?.pushViewController(emailController, animated: true)
+            self.navigationController?.pushViewController(emailController, animated: false)
         case .phoneNumber?:
             let phoneController = EditNumberViewController()
-            self.navigationController?.pushViewController(phoneController, animated: true)
+            self.navigationController?.pushViewController(phoneController, animated: false)
         case .Home?:
             let homeController = EditHomeViewController()
-            self.navigationController?.pushViewController(homeController, animated: true)
+            self.navigationController?.pushViewController(homeController, animated: false)
         case .DriveAndEarn?:
             let driveEarnController = DriveAndEarnViewController()
-            self.navigationController?.pushViewController(driveEarnController, animated: true)
+            self.navigationController?.pushViewController(driveEarnController, animated: false)
         case .Privacy?:
             let privacyController = PrivacyViewController()
-            self.navigationController?.pushViewController(privacyController, animated: true)
+            self.navigationController?.pushViewController(privacyController, animated: false)
         case .TermsOfUse?:
             let termsController = TermsViewController()
-            self.navigationController?.pushViewController(termsController, animated: true)
+            self.navigationController?.pushViewController(termsController, animated: false)
             
         case .none:
             break

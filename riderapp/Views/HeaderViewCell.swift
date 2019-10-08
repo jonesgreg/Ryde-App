@@ -30,6 +30,28 @@ class HeaderViewCell: UITableViewCell {
     
     // Profile Button
     
+    
+      let profileIconImage: UIImageView = {
+        let iv = UIImageView(image: #imageLiteral(resourceName: "profile_icon"))
+            iv.width(constant: 50)
+            iv.height(constant: 50)
+            iv.contentMode = .scaleAspectFit
+            iv.clipsToBounds = true
+          return iv
+      }()
+    
+    let userAccountName: UITextView = {
+       let textView = UITextView()
+        let attributedText = NSMutableAttributedString(string: "Greg", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyBold, size:20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+           attributedText.append(NSAttributedString(string: "\nView Profile", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+            textView.attributedText = attributedText
+            textView.translatesAutoresizingMaskIntoConstraints = false
+            textView.textAlignment = .left
+            textView.isEditable = false
+            textView.isScrollEnabled = false
+            return textView
+}()
+    
     let profileButton: UIButton = {
         let button = UIButton()
             button.layer.masksToBounds = false
@@ -44,7 +66,7 @@ class HeaderViewCell: UITableViewCell {
     
     let userName: UILabel = {
         let label = UILabel()
-            label.attributedText = NSMutableAttributedString(string: "Gregory", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+            label.attributedText = NSMutableAttributedString(string: "Gregory", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return label
     }()
     
@@ -54,7 +76,7 @@ class HeaderViewCell: UITableViewCell {
          let button = UIButton()
              button.layer.masksToBounds = false
              button.setTitle("Edit profile", for: .normal)
-             button.titleLabel?.font = UIFont(name: Fonts.montserratMedium, size: 14)
+             button.titleLabel?.font = UIFont(name: Fonts.gilroyMedium, size: 14)
              button.setTitleColor(Colors.fleetGreen, for:
             .normal)
         
@@ -63,15 +85,22 @@ class HeaderViewCell: UITableViewCell {
     
     
     // Separator Line
-    let separator: UILabel = {
+  /*  let separator: UILabel = {
         let label = UILabel()
         label.backgroundColor = Colors.lightGreyColor
         label.width(constant: 500)
-        label.height(constant: 1)
+        label.height(constant: 0.4)
         return label
+    }() */
+    
+    let separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = Colors.lightGreyColor
+        view.height(constant: 0.8)
+        return view
     }()
     
-    lazy var profileStackView: UIStackView = {
+   /* lazy var profileStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [profileButton, userName,editProfile, separator])
             stackView.axis = .vertical
             stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,20 +108,34 @@ class HeaderViewCell: UITableViewCell {
             stackView.alignment = .center
             stackView.spacing = 5
         return stackView
-    }()
+    }() */
     
-  
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .white
-        selectionStyle = .none
+        selectionStyle = .default
    
+        addSubview(profileIconImage)
+        profileIconImage.translatesAutoresizingMaskIntoConstraints = false
+        profileIconImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14).isActive = true
+        profileIconImage.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -8).isActive = true
         
-        addSubview(profileStackView)
+        addSubview(separator)
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        separator.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        separator.topAnchor.constraint(equalTo: profileIconImage.bottomAnchor, constant: 20).isActive = true
+        
+        addSubview(userAccountName)
+        userAccountName.translatesAutoresizingMaskIntoConstraints = false
+        userAccountName.leadingAnchor.constraint(equalTo: profileIconImage.trailingAnchor, constant: 12).isActive = true
+        userAccountName.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -5).isActive = true
+        
+        
+      /*  addSubview(profileStackView)
         profileStackView.centerXAnchor.constraint(equalTo:centerXAnchor).isActive = true
-        profileStackView.centerYAnchor.constraint(equalTo:centerYAnchor).isActive = true
+        profileStackView.centerYAnchor.constraint(equalTo:centerYAnchor).isActive = true */
         
         
  

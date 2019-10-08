@@ -28,8 +28,8 @@ class PageCell: UICollectionViewCell {
         guard let unwrappedPage = page else {return} // I want to unwrapped the properties from the page struct and avoids the ! mark
             
             profileImageView.image = UIImage(named: unwrappedPage.imageName)
-            let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-                attributedText.append(NSAttributedString(string: "\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+            let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyBold, size:22) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+                attributedText.append(NSAttributedString(string: "\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
                 descriptionTextView.attributedText = attributedText
                 descriptionTextView.textAlignment = .center
             }
@@ -45,8 +45,8 @@ class PageCell: UICollectionViewCell {
     
    private let descriptionTextView: UITextView =  {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Create an account", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratBold, size:20) as Any, NSAttributedString.Key.foregroundColor:UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha:1)])
-            attributedText.append(NSAttributedString(string: "\nAll you need is a valid school email address and a valid phone number. You can request a ride by downloading the app, go to the App store.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratMedium, size: 12) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+        let attributedText = NSMutableAttributedString(string: "Create an account", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyBold, size:20) as Any, NSAttributedString.Key.foregroundColor:UIColor(red: 88/255, green: 88/255, blue: 88/255, alpha:1)])
+            attributedText.append(NSAttributedString(string: "\nAll you need is a valid school email address and a valid phone number. You can request a ride by downloading the app, go to the App store.", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
             textView.attributedText = attributedText
             textView.translatesAutoresizingMaskIntoConstraints = false
             textView.textAlignment = .center

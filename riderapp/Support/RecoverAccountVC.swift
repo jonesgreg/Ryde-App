@@ -17,10 +17,10 @@ class RecoverAcountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         [emailView,emailIcon,verifyLabel,nextButton, nextButtonImage, emailInput,].forEach { view.addSubview($0) }
-       
+        emailInput.delegate = self
         setUpLayout()
         configureUI()
-         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +40,7 @@ class RecoverAcountViewController: UIViewController {
     
     private let titleText: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Recover your account", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratSemiBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        let attributedText = NSMutableAttributedString(string: "Recover your account", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
        
                    textView.attributedText = attributedText
         textView.attributedText = attributedText
@@ -49,23 +49,12 @@ class RecoverAcountViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
-    
-   /* private let emailInput: UITextField = {
-        let textfield = UITextField()
-               textfield.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes:[NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 14) as Any, NSAttributedString.Key.foregroundColor:UIColor.lightGray])
-               textfield.textColor = UIColor.black
-               textfield.keyboardAppearance = .dark
-       textfield.textAlignment = .left
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        return textfield
-    }() */
-    
-    private let emailInput: UITextField = {
+private let emailInput: UITextField = {
         let textField = userInputField()
-        textField.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.montserratRegular, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.gilroyRegular, size: 15) as Any, NSAttributedString.Key.foregroundColor: UIColor.lightGray])
             textField.textColor = UIColor.black
-            textField.keyboardAppearance = .dark
             textField.textAlignment = .left
+    
         
             return textField
     }()
@@ -77,8 +66,8 @@ class RecoverAcountViewController: UIViewController {
             view.layer.shadowColor = UIColor.black.cgColor;
             view.layer.masksToBounds = false;
             view.layer.cornerRadius  =  10;
-            view.layer.borderWidth   = 0.8;
-            view.layer.borderColor = UIColor.lightGray.cgColor
+            view.layer.borderWidth   = 1.0;
+            view.layer.borderColor = Colors.textFieldBarColor.cgColor
             view.backgroundColor     =  .white
             view.translatesAutoresizingMaskIntoConstraints = false
      return view
@@ -95,7 +84,7 @@ class RecoverAcountViewController: UIViewController {
     }()
     private let verifyLabel: UILabel = {
         let emailLabel = UILabel()
-        let attributedText = NSMutableAttributedString(string: "We'll send you a verification email", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.montserratRegular, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
+        let attributedText = NSMutableAttributedString(string: "We'll send you a verification email", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyRegular, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.darkGray])
            emailLabel.attributedText = attributedText
             emailLabel.translatesAutoresizingMaskIntoConstraints = true
            emailLabel.textAlignment = .center
@@ -171,7 +160,15 @@ emailIcon.anchor(top: emailView.topAnchor, bottom: nil, leading: emailView.leadi
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.backgroundColor = .clear
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButton(self, action: #selector(handlePreviousPage), imageName: "backarrow")
+          let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        // Custom back button
+        let backButton = UIButton(type: .system)
+            backButton.setBackgroundImage(#imageLiteral(resourceName: "backarrow"), for:.normal)
+            backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+            backButton.width(constant: 17)
+            backButton.height(constant: 17)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
     
     // MARK: - Selectors
@@ -179,8 +176,8 @@ emailIcon.anchor(top: emailView.topAnchor, bottom: nil, leading: emailView.leadi
     @objc private func handleNextPage() {
         let nextViewController = ConfirmationEmailViewController()
         self.navigationController?.pushViewController(nextViewController, animated: false)
-        let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
-            generator.impactOccurred()
+       let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
+              generator.impactOccurred()
     }
     
     @objc private func handlePreviousPage() {
@@ -190,6 +187,19 @@ emailIcon.anchor(top: emailView.topAnchor, bottom: nil, leading: emailView.leadi
     
 }
 
+extension RecoverAcountViewController: UITextFieldDelegate {
+    
+    // Stop Editing on Return Key Tap
+      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+          self.view.endEditing(true)
+          
+      }
+    private func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
 
 
 
