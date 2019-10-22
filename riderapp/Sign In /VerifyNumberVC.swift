@@ -84,40 +84,40 @@ class VerifyNumberViewController: UIViewController {
     
     private let txtOPT1: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "1", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "1", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 32) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
         
     }()
     
     private let txtOPT2: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "2", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "2", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 32) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
     }()
     
     private let txtOPT3: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "3", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "3", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 32) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
     }()
     
     private let txtOPT4: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "4", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "4", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 32) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
         
     }()
     
     private let txtOPT5: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "5", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "5", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 32) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
         
     }()
     
     private let txtOPT6: UITextField = {
         let textField = codeTextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "6", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 40) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "6", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 32) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         return textField
         
     }()
@@ -148,7 +148,7 @@ class VerifyNumberViewController: UIViewController {
     
     
       private func setUpLayout() {
-       titleTextView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 32, bottom: 0, right: 32))
+        titleTextView.anchor(top: view.safeAreaLayoutGuide.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 32, bottom: 0, right: 32))
        
         nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         buttonConstraint = nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
@@ -157,11 +157,11 @@ class VerifyNumberViewController: UIViewController {
         nextButtonImage.centerXAnchor.constraint(equalTo: nextButton.centerXAnchor).isActive = true
         nextButtonImage.centerYAnchor.constraint(equalTo: nextButton.centerYAnchor).isActive = true
         
-        VerifyNumberStackView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 250, left: 40, bottom: 0, right: 40), size: .init(width: 0, height: 1.2))
+        VerifyNumberStackView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 200, left: 40, bottom: 0, right: 40), size: .init(width: 0, height: 1.2))
         
-        txtOTPStackView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 205, left: 40, bottom: 0, right: 40))
+        txtOTPStackView.anchor(top: view.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 155, left: 40, bottom: 0, right: 40))
        
-        resendCodeButton.anchor(top: view.topAnchor, bottom: nil, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 265, left: 32, bottom: 0, right: 32))
+        resendCodeButton.anchor(top: view.topAnchor, bottom: nil, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 218, left: 32, bottom: 0, right: 32))
     
       
     }

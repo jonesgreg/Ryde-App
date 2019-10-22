@@ -118,6 +118,10 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifer, for: indexPath) as! RideHistoryCell
        let tripInfo = tripDetails[indexPath.item]
             cell.trip = tripInfo
+        // Change selection style color
+           let backgroundView = UIView()
+               backgroundView.backgroundColor = Colors.mediumGreyColor
+              cell.selectedBackgroundView = backgroundView
             return cell
     }
     

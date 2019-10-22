@@ -29,6 +29,10 @@ class EditProfileViewController: UIViewController {
         
        
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         tableView.deselectSelectedRow(animated: false)
+    }
     
     private func configureUI() {
         view.backgroundColor = .white
@@ -38,6 +42,13 @@ class EditProfileViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        // Custom back button
+              let backButton = UIButton(type: .system)
+                  backButton.setBackgroundImage(#imageLiteral(resourceName: "backarrow"), for:.normal)
+                  backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+                  backButton.width(constant: 20)
+                  backButton.height(constant: 20)
+                  self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     
     }
     
@@ -49,7 +60,6 @@ class EditProfileViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = true
         tableView.bounces = false
-        
         tableView.separatorStyle = .singleLine
         tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -117,6 +127,12 @@ class EditProfileViewController: UIViewController {
         
     }
     
+    // MARK: - Selectors
+       @objc private func handlePreviousPage() {
+           self.navigationController?.popViewController(animated: false)
+           
+       }
+    
    
 }
 
@@ -140,7 +156,7 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50))
                
-               let accountInfoLabel = UILabel.init(frame: CGRect(x: 4, y: 4, width: headerView.frame.size.width-150, height: headerView.frame.size.height-10))
+               let accountInfoLabel = UILabel.init(frame: CGRect(x: 15, y: 4, width: headerView.frame.size.width-150, height: headerView.frame.size.height-10))
                let attributedText = NSMutableAttributedString(string: "Account Info", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
                 accountInfoLabel.attributedText = attributedText
                
@@ -158,6 +174,10 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource 
         let profileOption = ProfileOption(rawValue: indexPath.row)
         didSelectProfileOption(profileOption: profileOption!)
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+           
+       }
     
 
     

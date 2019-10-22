@@ -170,7 +170,7 @@ private func loadCountries() {
       logoImageView.widthAnchor.constraint(equalToConstant:100).isActive = true
       logoImageView.heightAnchor.constraint(equalToConstant:100).isActive = true
     
-  phoneText.anchor(top: backgroundView.bottomAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 35, left: 10, bottom: 0, right: 0))
+  phoneText.anchor(top: backgroundView.bottomAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 30, left: 10, bottom: 0, right: 0))
    dropDownPicker.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: phoneText.leadingAnchor, trailing: nil, padding: .init(top: 102, left: 5, bottom: 0, right: 0), size: .init(width: 15, height:15))
     forwardButton.anchor(top: backgroundView.bottomAnchor, bottom:nil, leading: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 100, left: 0, bottom:0, right: 30), size: .init(width: 25, height: 25))
     

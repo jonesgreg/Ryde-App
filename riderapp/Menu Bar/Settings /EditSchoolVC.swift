@@ -70,12 +70,12 @@ class EditSchoolViewController: UIViewController {
     private let schoolView: UIView = {
                let view = UIView()
                    view.layer.shadowColor = UIColor.black.cgColor;
-                                        view.layer.masksToBounds = false;
-                                        view.layer.cornerRadius  =  10;
-                                        view.layer.borderWidth   = 2.0;
-                                        view.layer.borderColor = UIColor.darkGray.cgColor
-                                        view.backgroundColor     =  .white
-                                        view.translatesAutoresizingMaskIntoConstraints = false
+                   view.layer.masksToBounds = false;
+                   view.layer.cornerRadius  =  10;
+                   view.layer.borderWidth   = 2.0;
+                   view.layer.borderColor = UIColor.darkGray.cgColor
+                   view.backgroundColor     =  .white
+                   view.translatesAutoresizingMaskIntoConstraints = false
             return view
            }()
     

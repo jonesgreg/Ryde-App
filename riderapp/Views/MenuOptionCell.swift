@@ -9,7 +9,7 @@
 import UIKit
 
 class MenuOptionCell: UITableViewCell {
-    
+
     
     // MARK: - Properties
     

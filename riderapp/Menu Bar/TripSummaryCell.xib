@@ -48,12 +48,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBW-Pe-y1R">
-                        <rect key="frame" x="11" y="0.0" width="123" height="20.5"/>
-                        <fontDescription key="fontDescription" name="Gilroy-SemiBold" family="Gilroy" pointSize="18"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="destination_points" translatesAutoresizingMaskIntoConstraints="NO" id="vC1-ia-kHd">
                         <rect key="frame" x="-5" y="48" width="47" height="72"/>
                         <constraints>
@@ -105,6 +99,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBW-Pe-y1R">
+                        <rect key="frame" x="14" y="0.0" width="157" height="21"/>
+                        <fontDescription key="fontDescription" name="Gilroy-SemiBold" family="Gilroy" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SsH-fR-BEx" firstAttribute="leading" secondItem="vC1-ia-kHd" secondAttribute="trailing" constant="11" id="0Xh-c0-0Pl"/>
@@ -118,7 +118,7 @@
                     <constraint firstItem="SsH-fR-BEx" firstAttribute="top" secondItem="oBW-Pe-y1R" secondAttribute="bottom" constant="17.5" id="GJv-OY-mQY"/>
                     <constraint firstItem="eJv-UY-4of" firstAttribute="top" secondItem="fOc-v5-Ii5" secondAttribute="bottom" constant="18" id="K16-sD-CHb"/>
                     <constraint firstAttribute="bottom" secondItem="9mG-7t-hhF" secondAttribute="bottom" constant="101" id="Kjo-rE-Ycb"/>
-                    <constraint firstAttribute="trailing" secondItem="oBW-Pe-y1R" secondAttribute="trailing" constant="280" id="Lx3-C9-xQn"/>
+                    <constraint firstAttribute="trailing" secondItem="oBW-Pe-y1R" secondAttribute="trailing" constant="243" id="Lx3-C9-xQn"/>
                     <constraint firstItem="fgM-6b-Rge" firstAttribute="leading" secondItem="vC1-ia-kHd" secondAttribute="trailing" constant="8" id="P3s-rF-GyY"/>
                     <constraint firstItem="YoL-fv-3JW" firstAttribute="top" secondItem="9mG-7t-hhF" secondAttribute="bottom" constant="1" id="Uuy-E9-uks"/>
                     <constraint firstAttribute="trailing" secondItem="Vaf-bP-UDM" secondAttribute="trailing" constant="18" id="WF1-jy-0Og"/>
@@ -126,7 +126,7 @@
                     <constraint firstAttribute="trailing" secondItem="GIC-bg-BrK" secondAttribute="trailing" constant="20" id="ehN-lB-DcL"/>
                     <constraint firstItem="eJv-UY-4of" firstAttribute="top" secondItem="fOc-v5-Ii5" secondAttribute="bottom" constant="18" id="esB-MJ-WJ6"/>
                     <constraint firstAttribute="trailing" secondItem="YoL-fv-3JW" secondAttribute="trailing" constant="18" id="h85-K8-RYR"/>
-                    <constraint firstItem="oBW-Pe-y1R" firstAttribute="leading" secondItem="lyk-kr-Sey" secondAttribute="leading" constant="11" id="j2H-qF-eQf"/>
+                    <constraint firstItem="oBW-Pe-y1R" firstAttribute="leading" secondItem="lyk-kr-Sey" secondAttribute="leading" constant="14" id="j2H-qF-eQf"/>
                     <constraint firstItem="eJv-UY-4of" firstAttribute="top" secondItem="SsH-fR-BEx" secondAttribute="bottom" constant="40" id="oY2-rO-par"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vC1-ia-kHd" secondAttribute="bottom" constant="83" id="obY-0B-WT0"/>
                     <constraint firstItem="fOc-v5-Ii5" firstAttribute="top" secondItem="oBW-Pe-y1R" secondAttribute="bottom" constant="43.5" id="tFP-0G-mQd"/>
@@ -144,7 +144,7 @@
                 <outlet property="pickup_CityLabel" destination="fOc-v5-Ii5" id="h44-Fo-JRN"/>
                 <outlet property="pickup_Time" destination="Vaf-bP-UDM" id="7Lc-y7-Axt"/>
             </connections>
-            <point key="canvasLocation" x="43.478260869565219" y="119.19642857142857"/>
+            <point key="canvasLocation" x="43.200000000000003" y="118.74062968515743"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -14,7 +14,7 @@ protocol menuBarViewDelegate: class {
 }
 
 protocol HeaderTableViewCellDelegate: class {
-    func didSelectHeaderCell() 
+   func didSelectHeaderViewCell(Selected: Bool, UserHeader: HeaderViewCell)
 }
 
 protocol SettingsDelegate: class {
@@ -25,4 +25,11 @@ protocol ProfileDelegate: class {
     func handleProfilesToggle(forProfileOption: ProfileOption?)
 }
 
+protocol SelectedVehicleDelegate: class {
+    func handleHomeDissmial(SelectedVehicle: Int)
+}
+
+protocol AnimateSelectVehicleDelegate: class {
+    func handleAnimationSelectVehicle(animateVehicle: Int)
+}
 

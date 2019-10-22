@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(settingListTableView)
         configureNavigationBar()
+        
        
         
     }
@@ -29,12 +30,13 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
+        settingListTableView.deselectSelectedRow(animated: false)
+        
       
     }
    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
@@ -50,10 +52,9 @@ class SettingsViewController: UIViewController {
         tableView.keyboardDismissMode = .onDrag
         tableView.tableFooterView = UIView() // Remove extra cells
         tableView.reloadData()
-       // tableView.allowsSelection = true
+        tableView.allowsSelection = true
         tableView.backgroundColor = Colors.whiteColor
-        
-        return tableView
+       return tableView
     }()
     
     private func configureNavigationBar() {
@@ -124,7 +125,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     let settingOption = SettingOptions(rawValue: indexPath.row)
         cell.descriptionLabel.text = settingOption?.description
         cell.iconImageView.image = settingOption?.image
-        
+     
+    // Change selection style color
+     let backgroundView = UIView()
+         backgroundView.backgroundColor = Colors.mediumGreyColor
+        cell.selectedBackgroundView = backgroundView
+    
         return cell
     
     }
@@ -168,14 +174,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
          return 60
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let settingOption = SettingOptions(rawValue: indexPath.row)
+       didSelectSettingOption(settingOption: settingOption!)
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
-       let settingOption = SettingOptions(rawValue: indexPath.row)
-       // delegate?.handleSettingsToggle(forSettingOption: settingOption)
-        didSelectSettingOption(settingOption: settingOption!)
-        
-       
     }
     
     

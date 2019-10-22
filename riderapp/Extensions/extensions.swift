@@ -124,6 +124,12 @@ extension UIView {
    
 }
 
+extension UIButton {
+    func setInset(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {
+        self.titleEdgeInsets =  UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
+       }
+}
+
 extension UIView {
     
     func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, shadowRadius: CGFloat = 1, scale: Bool = true, cornerRadius: CGFloat) {
@@ -376,15 +382,51 @@ class whiteCircleButton: UIButton {
         self.layer.shadowOpacity = 0.3
         self.layer.shadowColor = UIColor.black.cgColor
         self.backgroundColor = .white
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 22.5
         self.layer.shadowOffset = CGSize(width: 0, height: 1)
-        self.width(constant: 40)
-        self.height(constant: 40)
+        self.width(constant: 45)
+        self.height(constant: 45)
         
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+class profileButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.masksToBounds = false
+      
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 22.5
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.width(constant: 45)
+        self.height(constant: 45)
+        
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class HandlerAreaDesign: UIView {
+    override init(frame: CGRect) {
+          super.init(frame: frame)
+          self.translatesAutoresizingMaskIntoConstraints = false
+          self.backgroundColor = Colors.lightGreyColor
+          self.layer.masksToBounds = false
+          self.layer.cornerRadius = 2
+          self.height(constant: 4)
+        }
+      required init?(coder aDecoder: NSCoder) {
+          fatalError("init(coder:) has not been implemented")
+      }
+    
 }
 
 
@@ -476,13 +518,84 @@ class userInputField: UITextField  {
            }
 }
 
-class searchLocation: UITextField {
-
-   
+class currentLocationSearch: UITextField {
     private let reuseIdentifer = "LocationCell"
+       
+      
+       
+       var resultsList: [Location] = [Location]()
+       var tableView: UITableView!
+       
+       // Connecting the new element to the parent view
+       open override func willMove(toWindow newWindow: UIWindow?) {
+           super.willMove(toWindow: newWindow)
+           tableView?.removeFromSuperview()
+           
+       }
+       
+       override open func willMove(toSuperview newSuperview: UIView?) {
+           super.willMove(toSuperview: newSuperview)
+           
+           self.addTarget(self, action: #selector(searchLocation.textFieldDidChange), for: .editingChanged)
+           self.addTarget(self, action: #selector(searchLocation.textFieldDidBeginEditing), for: .editingDidBegin)
+           self.addTarget(self, action: #selector(searchLocation.textFieldDidEndEditing), for: .editingDidEnd)
+           self.addTarget(self, action: #selector(searchLocation.textFieldDidEndEditingOnExit), for: .editingDidEndOnExit)
+       }
+       override open func layoutSubviews() {
+            super.layoutSubviews()
+               configureTableView()
+            
+        }
+       
+       //////////////////////////////////////////////////////////////////////////////
+         // Text Field related methods
+         //////////////////////////////////////////////////////////////////////////////
+         
+         @objc open func textFieldDidChange(){
+             print("Text changed ...")
+            // filter()
+             updateSearchTableView()
+         
+            // tableViewConstraints()
+             tableView?.isHidden = false
+         }
+         
+         @objc open func textFieldDidBeginEditing() {
+             print("Begin Editing")
+         }
+         
+         @objc open func textFieldDidEndEditing() {
+             print("End editing")
+
+         }
+         
+         @objc open func textFieldDidEndEditingOnExit() {
+             print("End on Exit")
+         }
+       
+       
+       override init(frame: CGRect) {
+         super.init(frame: frame)
+         self.translatesAutoresizingMaskIntoConstraints = false
+         self.borderStyle = .none
+         self.textColor = UIColor.black
+         self.textAlignment = .center
+         self.tintColor = Colors.blueColor
+         self.font = UIFont(name: Fonts.gilroyMedium, size: 16)
+         self.autocapitalizationType = UITextAutocapitalizationType.none
+         self.autocorrectionType = .no
+         self.returnKeyType = UIReturnKeyType.done
+            
+         }
+         required init?(coder aDecoder: NSCoder) {
+                    fatalError("init(coder:) has not been implemented")
+       }
+     
     
-   
-    
+}
+
+class searchLocation: UITextField {
+ private let reuseIdentifer = "LocationCell"
     var resultsList: [Location] = [Location]()
     var tableView: UITableView!
     
@@ -541,7 +654,7 @@ class searchLocation: UITextField {
       self.textColor = UIColor.black
       self.textAlignment = .center
       self.tintColor = Colors.fleetGreen
-      self.font = UIFont(name: Fonts.gilroyMedium, size: 14)
+      self.font = UIFont(name: Fonts.gilroyMedium, size: 16)
       self.autocapitalizationType = UITextAutocapitalizationType.none
       self.autocorrectionType = .no
       self.returnKeyType = UIReturnKeyType.done
@@ -554,8 +667,113 @@ class searchLocation: UITextField {
       
      
 }
+extension UIView {
+    
+    func fadeTo(_ alpha: CGFloat, duration: TimeInterval = 0.3) {
+      DispatchQueue.main.async {
+        UIView.animate(withDuration: duration) {
+          self.alpha = alpha
+        }
+      }
+    }
+    
+    func fadeIn(_ duration: TimeInterval = 0.3) {
+       fadeTo(1.0, duration: duration)
+     }
 
+     func fadeOut(_ duration: TimeInterval = 0.3) {
+       fadeTo(0.0, duration: duration)
+     }
+}
 extension searchLocation: UITableViewDelegate, UITableViewDataSource {
+    
+    
+    // MARK: TableView creation and updating
+    
+    func configureTableView() {
+        if let tableView = tableView  {
+               tableView.register(LocationCell.self, forCellReuseIdentifier: reuseIdentifer)
+               tableView.delegate = self
+               tableView.dataSource = self
+              
+               tableView.translatesAutoresizingMaskIntoConstraints = false
+                self.window?.addSubview(tableView)
+        } else {
+            print("Table view is created")
+            tableView = UITableView(frame: CGRect.zero)
+            
+        }
+        
+        updateSearchTableView()
+    }
+       func tableViewConstraints() {
+           addSubview(tableView)
+           tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+           tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+           tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+           tableView.topAnchor.constraint(equalTo: topAnchor, constant: 120).isActive = true
+       }
+    
+    // Updating table view
+    func updateSearchTableView() {
+       if let tableView = tableView {
+                   superview?.bringSubviewToFront(tableView)
+                   var tableHeight: CGFloat = 0
+                   tableHeight = tableView.contentSize.height
+                   
+                   // Set a bottom margin of 10p
+                   if tableHeight < tableView.contentSize.height {
+                       tableHeight -= 10
+                   }
+                   
+                   // Set tableView frame
+                   var tableViewFrame = CGRect(x: 0, y: 0, width: frame.size.width - 4, height: tableHeight)
+                   tableViewFrame.origin = self.convert(tableViewFrame.origin, to: nil)
+                   tableViewFrame.origin.x += 2
+                   tableViewFrame.origin.y += frame.size.height + 2
+                   UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                       self?.tableView?.frame = tableViewFrame
+                   })
+                   
+                   //Setting tableView style
+                   tableView.layer.masksToBounds = true
+                   tableView.separatorInset = UIEdgeInsets.zero
+                   tableView.layer.cornerRadius = 5.0
+                   tableView.separatorColor = UIColor.lightGray
+                   tableView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+                   
+                   if self.isFirstResponder {
+                       superview?.bringSubviewToFront(self)
+                   }
+                   
+                   tableView.reloadData()
+               }
+    }
+    
+    // MARK: TableViewDataSourcce methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(resultsList.count)
+        return resultsList.count
+       }
+       
+    
+    // MARK: TableViewDelegate methods
+       
+    //Adding rows in the tableview with the data from location
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifer, for: indexPath) as! LocationCell
+        cell.backgroundColor = UIColor.white
+        cell.textLabel?.attributedText = resultsList[indexPath.row].getFormatedText()
+        return cell
+       }
+}
+
+extension currentLocationSearch: UITableViewDelegate, UITableViewDataSource {
     
     
     // MARK: TableView creation and updating

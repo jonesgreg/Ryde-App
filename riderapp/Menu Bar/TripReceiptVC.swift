@@ -40,6 +40,28 @@ class TripReceiptViewController: UIViewController {
           self.navigationController?.setNavigationBarHidden(false, animated: animated)
      }
     
+    override func willMove(toParent parent: UIViewController?) {
+        navigationItem.title = "Ride History"
+                   self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+                   self.navigationController?.navigationBar.shadowImage = UIImage()
+                             navigationController?.navigationBar.tintColor = .black
+                             navigationController?.navigationBar.isTranslucent = false
+                             navigationController?.navigationBar.backgroundColor = .white
+                let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroySemiBold, size: 18) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
+              navigationController?.navigationBar.titleTextAttributes = textAttributes
+               navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: .clear), for: .default)
+               // Sets Bar's Shadow Image (Color) //
+               navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .lightGray)
+               
+               // Custom Back Button
+               let backButton = UIButton(type: .system)
+                           backButton.setBackgroundImage(#imageLiteral(resourceName: "menuBack"), for:.normal)
+                           backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+                           backButton.width(constant: 20)
+                           backButton.height(constant: 20)
+                           self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+    
     //MARK: - Private functions
     
     private let driverPic: UIImageView = {
@@ -63,8 +85,8 @@ class TripReceiptViewController: UIViewController {
         iv.contentMode = .scaleAspectFit
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.clipsToBounds = true
-        iv.width(constant: 430)
-        iv.height(constant:430)
+        iv.width(constant: 420)
+        iv.height(constant:420)
         return iv
     }()
     
@@ -74,20 +96,21 @@ class TripReceiptViewController: UIViewController {
             stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .equalSpacing
             stackView.alignment = .center
-            stackView.spacing = 6
+            stackView.spacing = 0
         return stackView
     }()
     
     private func constraintsLayout() {
      
         view.addSubview(tripStackView)
-       tripStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        tripStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
-        tripStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+       tripStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 25).isActive = true
+       tripStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+       tripStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+      
      
-        view.addSubview(tripScreenShot)
-        tripScreenShot.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        tripScreenShot.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
+       view.addSubview(tripScreenShot)
+       tripScreenShot.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        tripScreenShot.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
      
        
@@ -139,7 +162,7 @@ class TripReceiptViewController: UIViewController {
       tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
       tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
       tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-      tableView.topAnchor.constraint(equalTo: tripScreenShot.bottomAnchor, constant: -65).isActive =
+      tableView.topAnchor.constraint(equalTo: tripScreenShot.bottomAnchor, constant: -45).isActive =
         true
       
     }

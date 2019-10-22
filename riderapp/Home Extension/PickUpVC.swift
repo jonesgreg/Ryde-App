@@ -1,16 +1,14 @@
 //
-//  DropOffLocationVC.swift
+//  PickUpVC.swift
 //  riderapp
 //
-//  Created by Gregory Jones on 9/5/19.
+//  Created by Gregory Jones on 10/10/19.
 //  Copyright © 2019 Gregory Jones. All rights reserved.
 //
 
 import UIKit
 
-class DropOffLocationViewController: UIViewController {
-    
-    var handlerArea = HandlerAreaDesign()
+class PickUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +22,8 @@ class DropOffLocationViewController: UIViewController {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        dropOffInput.becomeFirstResponder()
-        CurrentLocationInput.delegate = self
+        CurrentLocationInput.becomeFirstResponder()
+        dropOffInput.delegate = self
     }
     
     private let dropOffView: UIView = {
@@ -56,7 +54,6 @@ class DropOffLocationViewController: UIViewController {
            label.attributedText = attributedText
             label.translatesAutoresizingMaskIntoConstraints = true
            label.textAlignment = .left
-         
           return label
     }()
     
@@ -91,7 +88,7 @@ private let pickUpPoint: UIImageView = {
     
     private let CurrentLocationInput: UITextField = {
                    let textField = currentLocationSearch()
-        textField.attributedPlaceholder = NSAttributedString(string: "Current Location", attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.gilroyMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor: UIColor.black])
+        textField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.gilroyMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor: UIColor.black])
                        textField.textColor = UIColor.black
                        textField.textAlignment = .left
                    
@@ -99,7 +96,7 @@ private let pickUpPoint: UIImageView = {
                }()
     private let dropOffInput: UITextField = {
         let textField = searchLocation()
-        textField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.gilroyMedium, size: 14) as Any, NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.attributedPlaceholder = NSAttributedString(string: "Set Drop-off Location", attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.gilroyMedium, size: 16) as Any, NSAttributedString.Key.foregroundColor: UIColor.black])
             textField.textColor = UIColor.black
             textField.textAlignment = .left
             return textField
@@ -138,7 +135,7 @@ private let pickUpPoint: UIImageView = {
     
 
     private func configureNavigationBar() {
-        navigationItem.title = "Drop-off"
+        navigationItem.title = "Pickup"
         navigationController?.navigationBar.isTranslucent = false
        let textAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.gilroyBold, size: 20) as Any, NSAttributedString.Key.foregroundColor:UIColor.black]
        navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -149,13 +146,12 @@ private let pickUpPoint: UIImageView = {
             backButton.setTitleColor(.black, for: .normal)
             backButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-        
         // Custom Done Button
-        let doneButton = UIButton(type: .system)
-            doneButton.setTitle("Done", for: .normal)
-                  doneButton.setTitleColor(.black, for: .normal)
-                  doneButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
-                  self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneButton)
+               let doneButton = UIButton(type: .system)
+                   doneButton.setTitle("Done", for: .normal)
+                         doneButton.setTitleColor(.black, for: .normal)
+                         doneButton.addTarget(self, action: #selector(handlePreviousPage), for: .touchUpInside)
+                         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneButton)
     }
    
     private func configureUI() {
@@ -165,31 +161,31 @@ private let pickUpPoint: UIImageView = {
    
     // MARK: - Selectors
           @objc private func handlePreviousPage() {
-           let homeViewController = HomeViewController()
+            let homeViewController = HomeViewController()
               self.navigationController?.pushViewController(homeViewController, animated: false)
               
           }
+    
+   
 }
 
-extension DropOffLocationViewController: UITextFieldDelegate {
+extension PickUpViewController: UITextFieldDelegate {
     // Stop Editing on Return Key Tap
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
             
         }
       private func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        //  textField.resignFirstResponder()
+          textField.resignFirstResponder()
           return true
       }
-    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if(textField == CurrentLocationInput) {
-              let pickUpViewController = PickUpViewController()
-                                self.navigationController?.pushViewController(pickUpViewController, animated: false)
-           return false
-          }
-        return true
-      }
-    
+           if(textField == dropOffInput) {
+                 let dropOffViewController = DropOffLocationViewController()
+                                   self.navigationController?.pushViewController(dropOffViewController, animated: false)
+              return false
+             }
+           return true
+         }
 }
 

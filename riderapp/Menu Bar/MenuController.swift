@@ -12,24 +12,25 @@ import UIKit
 private let reuseIdentifer = "MenuOptionCell"
 private let reuseHeaderIdentifer = "HeaderViewCell"
 
-
-
- class MenuViewController: UIView, UITableViewDelegate, UITableViewDataSource, HeaderTableViewCellDelegate{
+class MenuViewController: UIView, UITableViewDelegate, UITableViewDataSource{
    
+    let headerDetails = [
+        Header(userProfileIcon: "profile_icon", userName: "Greg", viewProfile: "View Profile")
+    ]
+    
+    //MARK: -Properties
    
     var tableView: UITableView!
     var delegate: menuBarViewDelegate?
     var headerDelegate: HeaderTableViewCellDelegate?
+  
     
-    
-      override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
         configureTableView()
         tableViewConstraints()
-        
-       
-     }
+        }
 
    
               
@@ -46,13 +47,10 @@ required init?(coder aDecoder: NSCoder) {
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = true
         tableView.bounces = false
-         tableView.delaysContentTouches = false
-       // tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
-       // tableView.backgroundColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.reloadData()
+       
     }
    
     
@@ -65,12 +63,8 @@ required init?(coder aDecoder: NSCoder) {
         tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
     }
  
-      
-    
-   
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,14 +75,19 @@ required init?(coder aDecoder: NSCoder) {
             cell.iconImageView.image = menuOption?.image
         return cell
     }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return headerDetails.count
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseHeaderIdentifer) as! HeaderViewCell
-        cell.headerDelegate = self
+        let headerView = tableView.dequeueReusableCell(withIdentifier: reuseHeaderIdentifer) as! HeaderViewCell
+        headerView.headerDelegate = self
       
-       cell.profileButton.addTarget(self, action: #selector(didSelectHeaderCell), for: .touchUpInside)
-        return cell
-        
+        let header = headerDetails[section]
+        headerView.profileHeader = header
+      
+     
+        return headerView
         
     }
     
@@ -104,21 +103,20 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
         footerView.addSubview(appVerison)
        
         let signUpButton = UIButton(type: .custom)
-        signUpButton.setTitle("SIGN UP TO DRIVE", for: .normal)
-        signUpButton.titleLabel?.font = UIFont(name: Fonts.gilroySemiBold, size: 16)
-        signUpButton.setTitleColor(UIColor.white, for: .normal)
-        signUpButton.backgroundColor = Colors.fleetGreen
-         signUpButton.layer.borderColor = Colors.fleetGreen.cgColor
-         signUpButton.layer.masksToBounds = false
-           signUpButton.layer.shadowColor = Colors.darkGreyColor.cgColor
-          signUpButton.layer.shadowOpacity = 0.5
-          signUpButton.layer.shadowRadius = 2
-           signUpButton.layer.shadowOffset = CGSize(width: 0, height: 1)
-          signUpButton.layer.cornerRadius = 25
-        signUpButton.frame = CGRect(x: 20, y: 100, width: 200, height: 50)
-        footerView.addSubview(signUpButton)
-        
-        return footerView
+            signUpButton.setTitle("SIGN UP TO DRIVE", for: .normal)
+            signUpButton.titleLabel?.font = UIFont(name: Fonts.gilroySemiBold, size: 16)
+            signUpButton.setTitleColor(UIColor.white, for: .normal)
+            signUpButton.backgroundColor = Colors.fleetGreen
+            signUpButton.layer.borderColor = Colors.fleetGreen.cgColor
+            signUpButton.layer.masksToBounds = false
+            signUpButton.layer.shadowColor = Colors.darkGreyColor.cgColor
+            signUpButton.layer.shadowOpacity = 0.5
+            signUpButton.layer.shadowRadius = 2
+            signUpButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+            signUpButton.layer.cornerRadius = 25
+            signUpButton.frame = CGRect(x: 20, y: 100, width: 200, height: 50)
+            footerView.addSubview(signUpButton)
+            return footerView
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -128,31 +126,32 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
         return 50
     }
     
-    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    if let indexPathForSelectedRow = tableView.indexPathForSelectedRow,
+            indexPathForSelectedRow == indexPath {
+            tableView.deselectRow(at: indexPath, animated: false)
+            return nil
+        }
+        return indexPath
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuOption = MenuOption(rawValue: indexPath.row)
         delegate?.handleMenuToggle(forMenuOption: menuOption)
-        
-          
-        
-      
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell: MenuOptionCell = self.tableView.cellForRow(at: indexPath) as! MenuOptionCell
-        cell.accessoryType = .none
-       
+  /*  func selectedHeader(sender: AnyObject) {
+        headerDelegate?.didSelectHeaderViewCell(Selected: true, UserHeader: self)
+        print("PLEASE WORK NOW!'")
+        
+    } */
+}
+
+extension MenuViewController: HeaderTableViewCellDelegate {
+    @objc func didSelectHeaderViewCell(Selected: Bool, UserHeader: HeaderViewCell) {
+        print("Cell is selected")
     }
-         
-   
-   
     
-    @objc func didSelectHeaderCell() {
-        headerDelegate?.didSelectHeaderCell()
-        print("NOOW")
-     
-    }
     
 }
 

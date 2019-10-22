@@ -50,6 +50,7 @@ class LocationCell: UITableViewCell {
               textView.textAlignment = .left
               textView.isEditable = false
               textView.isScrollEnabled = false
+              textView.backgroundColor = .clear
               return textView
       }()
       
@@ -110,6 +111,7 @@ class LocationCell: UITableViewCell {
                 attributedText.append(NSAttributedString(string: "\n\(unwrappedLocation.location)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
           locationText.attributedText = attributedText
                         locationText.textAlignment = .left
+            locationText.backgroundColor = .clear
                         
            }
        }
