@@ -16,6 +16,7 @@ class SelectVehicleViewController: UIViewController {
     //MARK: - Properties
     var tableView: UITableView!
     let cardHeight: CGFloat = 300
+    weak var animateDriverPickView: AnimateDriverPickUpDelegate?
     
 
     
@@ -52,7 +53,7 @@ class SelectVehicleViewController: UIViewController {
         let button = greenButton(type: .system)
         button.setTitle("Select Fleet", for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.gilroyBold, size: 22)
-        button.addTarget(self, action: #selector(handleNextPage), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleAnimation), for: .touchUpInside)
         return button
     }()
     
@@ -153,7 +154,7 @@ class SelectVehicleViewController: UIViewController {
      func tableViewConstraints() {
         view.addSubview(tableView)
        tableView.bottomAnchor.constraint(equalTo: rideNowButton.topAnchor).isActive = true
-        tableView.width(constant: 370)
+        tableView.width(constant: 384)
    
          tableView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 18).isActive =
            true 
@@ -163,16 +164,11 @@ class SelectVehicleViewController: UIViewController {
 
     
     // MARK: - Selectors
-  /*  @objc func handleDismiss() {
-        returnDelegate?.handleReturnView()
-    } */
-   
-    @objc private func handleNextPage() {
-        let driverPickUpViewController = DriverPickUpViewController()
-         self.navigationController?.pushViewController(driverPickUpViewController, animated: false)
-        let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
-        generator.impactOccurred()
+   @objc func handleAnimation() {
+    animateDriverPickView?.handleAnimationDriverPick()
     }
+   
+    
 }
 
 

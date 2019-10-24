@@ -10,7 +10,7 @@ import UIKit
 
 class DriverPickUpCell: UITableViewCell {
     
-    @IBOutlet var driverPickUpStatus: UILabel!
+  //  @IBOutlet var driverPickUpStatus: UILabel!
     @IBOutlet var driverProfilePic: UIImageView!
     @IBOutlet var driverName: UILabel!
     @IBOutlet var School: UILabel!
@@ -25,7 +25,7 @@ class DriverPickUpCell: UITableViewCell {
        }
      
      func driverPickUp(pickUp: DriverPickUp) {
-        driverPickUpStatus.text = pickUp.PickUpStatus
+      
         driverProfilePic.image = pickUp.DriverProfilePic
         driverVehicle.text = pickUp.DriverVehicle
         driverName.text = pickUp.DriverName

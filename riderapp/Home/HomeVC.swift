@@ -25,10 +25,12 @@ class HomeViewController: UIViewController,UIGestureRecognizerDelegate {
     // Child classes inheriting properties from Home Class
     let destination = DestinationView()
     let selectVehicle = SelectVehicleViewController()
+    let driverPickUp = DriverPickUpViewController()
   
     
     // Custom Height size for the subviews
     let customHeight:CGFloat = 300
+    let driverPickUpCustomHeight: CGFloat = 300
     var cardHandleAreaHeight:CGFloat = 65
    
    
@@ -63,6 +65,8 @@ override func viewWillAppear(_ animated: Bool) {
      warningView.isHidden = true
      warningText.isHidden = true
     
+
+    
     
    }
 
@@ -84,6 +88,8 @@ override func viewWillAppear(_ animated: Bool) {
            destination.animateVehicleView = self
            view.addSubview(self.destination.view)
             destination.view.frame = CGRect(x: 0, y: self.view.frame.height - customHeight, width: self.view.bounds.width, height: customHeight)
+    let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 283, right: 0.0)
+        mapView?.padding = mapInsets
     }
     
     private let menuButton: UIButton = {
@@ -147,8 +153,8 @@ override func viewWillAppear(_ animated: Bool) {
    private func setupGoogleMaps() {
     let camera = GMSCameraPosition.camera(withLatitude: 39.277444, longitude: -76.689768, zoom: 15)
      mapView = GMSMapView.map(withFrame: .zero, camera: camera)
-        let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 283, right: 0.0)
-            mapView?.padding = mapInsets
+     //   let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 283, right: 0.0)
+         //   mapView?.padding = mapInsets
      self.view.addSubview(mapView!)
      self.mapView?.isMyLocationEnabled = true
      self.locationManager.delegate = self // Fetch current location
@@ -286,7 +292,7 @@ func MenuBarSetup() {
     }
     
     @objc func handleDismiss() {
-        print("test run")
+   
        // Hide the Selected Vehicle
         UIView.animate(withDuration: 0.5, delay: 0.0,
                               usingSpringWithDamping: 0.7, initialSpringVelocity: 3.0,
@@ -298,7 +304,8 @@ func MenuBarSetup() {
                            self.warningText.isHidden = true
                    }) { (isFinished) in
                         // Show Menu Bar
-                                       
+                        let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 283, right: 0.0)
+                        self.mapView?.padding = mapInsets
                        self.view.layoutIfNeeded()
                 }
              
@@ -377,6 +384,7 @@ extension HomeViewController: SelectedVehicleDelegate {
         backButton.isHidden = false
         warningText.isHidden = false
         warningView.isHidden = false
+ 
     }
 }
 
@@ -384,22 +392,78 @@ extension HomeViewController:AnimateSelectVehicleDelegate {
     func handleAnimationSelectVehicle(animateVehicle: Int) {
     addChild(self.selectVehicle)
               selectVehicle.didMove(toParent: self)
+               selectVehicle.animateDriverPickView = self
              
              view.addSubview(self.selectVehicle.view)
              selectVehicle.view.frame = CGRect(x: 0, y: self.view.frame.height - customHeight, width: self.view.bounds.width, height: self.customHeight)
-       
+          let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 255, right: 0.0)
+           self.mapView?.padding = mapInsets
         UIView.animate(withDuration: 0.5, delay: 0.0,
             usingSpringWithDamping: 0.7, initialSpringVelocity: 3.0,
             options: .allowAnimatedContent, animations: {
-                self.selectVehicle.view.frame = CGRect(x: self.selectVehicle.view.frame.origin.x, y: self.selectVehicle.view.frame.origin.y - 20, width: self.selectVehicle.view.frame.width, height: self.selectVehicle.view.frame.height)
+                self.selectVehicle.view.frame = CGRect(x: self.selectVehicle.view.frame.origin.x, y: self.selectVehicle.view.frame.origin.y + 20, width: self.selectVehicle.view.frame.width, height: self.selectVehicle.view.frame.height)
                
         }) { (isFinished) in
             self.view.layoutIfNeeded()
             
     
     }
+        // Hide the Destination View
+            UIView.animate(withDuration: 0.5, delay: 0.0,
+                                  usingSpringWithDamping: 0.7, initialSpringVelocity: 3.0,
+                           options: .allowAnimatedContent, animations: {
+                            self.destination.view.frame = CGRect(x: self.destination.view.frame.origin.x, y: self.destination.view.frame.origin.y + self.destination.view.frame.height, width: self.destination.view.frame.width, height: self.destination.view.frame.height)
+                             
+                       }) { (isFinished) in
+                            // Show Menu Bar
+                             
+                     
+                           self.view.layoutIfNeeded()
+                    }
+                 
     
     }
+}
+
+extension HomeViewController: AnimateDriverPickUpDelegate {
+    func handleAnimationDriverPick() {
+     addChild(self.driverPickUp)
+                   driverPickUp.didMove(toParent: self)
+        view.addSubview(self.driverPickUp.view)
+                  selectVehicle.view.frame = CGRect(x: 0, y: self.view.frame.height - customHeight, width: self.view.bounds.width, height: self.customHeight)
+       
+        let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 215, right: 0.0)
+                  self.mapView?.padding = mapInsets
+         
+        UIView.animate(withDuration: 0.5, delay: 0.0,
+                usingSpringWithDamping: 0.7, initialSpringVelocity: 3.0,
+                options: .allowAnimatedContent, animations: {
+                    self.driverPickUp.view.frame = CGRect(x: self.driverPickUp.view.frame.origin.x, y: self.driverPickUp.view.frame.origin.y + 20, width: self.driverPickUp.view.frame.width, height: self.driverPickUp.view.frame.height)
+                   
+            }) { (isFinished) in
+                self.view.layoutIfNeeded()
+                
+        
+        }
+       
+        // Hide the Selected Vehicle
+        UIView.animate(withDuration: 0.5, delay: 0.0,
+                              usingSpringWithDamping: 0.7, initialSpringVelocity: 3.0,
+                       options: .allowAnimatedContent, animations: {
+                        self.selectVehicle.view.frame = CGRect(x: self.selectVehicle.view.frame.origin.x, y: self.selectVehicle.view.frame.origin.y + self.selectVehicle.view.frame.height, width: self.selectVehicle.view.frame.width, height: self.selectVehicle.view.frame.height)
+                         
+                   }) { (isFinished) in
+                        // Show Menu Bar
+                    self.backButton.isHidden = true
+                    self.menuButton.isHidden = false
+                       self.view.layoutIfNeeded()
+                }
+    }
+    
+    
+              
+    
+    
 }
 
 

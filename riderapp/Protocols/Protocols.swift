@@ -33,3 +33,6 @@ protocol AnimateSelectVehicleDelegate: class {
     func handleAnimationSelectVehicle(animateVehicle: Int)
 }
 
+protocol AnimateDriverPickUpDelegate: class {
+   func handleAnimationDriverPick()
+}

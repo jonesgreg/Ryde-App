@@ -21,18 +21,12 @@ class DriverPickUpViewController: UIViewController {
     
     override func viewDidLoad() {
            super.viewDidLoad()
-           configureUI()
+         setupView()
           constraintsLayout()
            tableViewSetup()
-            tableViewConstraints()
+         //  tableViewConstraints()
        }
-    override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           // Hide the navigation bar on the this view controller
-           self.navigationController?.setNavigationBarHidden(true, animated: animated)
-           
-       }
-    
+ 
     //MARK: Private functions
       
      let destinationView: UIView = {
@@ -57,21 +51,61 @@ class DriverPickUpViewController: UIViewController {
                 return view
                }()
     
+  let topSeparator: UIView = {
+      let view = UIView()
+          view.height(constant: 1.0)
+          view.layer.borderColor = Colors.lightGreyColor.cgColor
+          view.layer.borderWidth = 3.0
+          view.translatesAutoresizingMaskIntoConstraints = false
+          return view
+    }()
+   
+    let bottomSeparator: UIView = {
+         let view = UIView()
+             view.height(constant: 1.0)
+             view.layer.borderColor = Colors.lightGreyColor.cgColor
+             view.layer.borderWidth = 3.0
+             view.translatesAutoresizingMaskIntoConstraints = false
+             return view
+       }()
     
+    func setupView() {
+        self.view.addSubview(destinationView)
+        self.view.addSubview(topSeparator)
+        self.view.addSubview(bottomSeparator)
+        self.view.addSubview(handler)
+        
+        
+    }
     private func constraintsLayout() {
      view.addSubview(destinationView)
-      destinationView.translatesAutoresizingMaskIntoConstraints = false
-           destinationView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 33).isActive = true
-           destinationView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
-           destinationView.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant: -8).isActive = true
-           destinationView.height(constant: 240)
+       destinationView.translatesAutoresizingMaskIntoConstraints = false
+            destinationView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 33).isActive = true
+            destinationView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12).isActive = true
+            destinationView.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant: -12).isActive = true
+            destinationView.height(constant: 250)
+            
+        destinationView.addSubview(topSeparator)
+                   topSeparator.leadingAnchor.constraint(equalTo: destinationView.leadingAnchor, constant: 28).isActive = true
+                    topSeparator.trailingAnchor.constraint(equalTo: destinationView.trailingAnchor, constant: -28).isActive = true
+                    topSeparator.topAnchor.constraint(equalTo: destinationView.topAnchor, constant: 52).isActive = true
         
+        destinationView.addSubview(bottomSeparator)
+                   bottomSeparator.leadingAnchor.constraint(equalTo: destinationView.leadingAnchor, constant: 28).isActive = true
+                    bottomSeparator.trailingAnchor.constraint(equalTo: destinationView.trailingAnchor, constant: -28).isActive = true
+                   // bottomSeparator.topAnchor.constraint(equalTo: destinationView.bottomAnchor, constant: -120).isActive = true
+        bottomSeparator.bottomAnchor.constraint(equalTo: destinationView.bottomAnchor, constant: -100).isActive = true
+              
+
+              
         
         view.addSubview(handler)
         handler.topAnchor.constraint(equalTo: destinationView.topAnchor, constant: 10).isActive = true
         handler.centerXAnchor.constraint(equalTo: destinationView.centerXAnchor).isActive = true
         handler.width(constant: 63)
         handler.height(constant: 4)
+        
+        
         }
     
     private func tableViewSetup() {
@@ -80,8 +114,13 @@ class DriverPickUpViewController: UIViewController {
              tableView.dataSource = self
               tableView.register(UINib(nibName: "DriverPickUpCell", bundle: nil), forCellReuseIdentifier: "DriverPickUpCell")
              tableView.tableFooterView = UIView()
-             tableView.allowsSelection = true
+            
              tableView.bounces = false
+
+        // Set resizable table bounds
+       tableView.frame = self.view.bounds
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
              tableView.separatorStyle = .singleLine
              tableView.showsVerticalScrollIndicator = false
              tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,9 +129,9 @@ class DriverPickUpViewController: UIViewController {
         
        private func tableViewConstraints() {
         view.addSubview(tableView)
-        tableView.bottomAnchor.constraint(equalTo: destinationView.bottomAnchor, constant: -5).isActive = true
-        tableView.width(constant: 379)
-        tableView.topAnchor.constraint(equalTo: destinationView.topAnchor, constant: 10).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: destinationView.bottomAnchor).isActive = true
+       // tableView.widthAnchor.constraint(equalToConstant: 353).isActive = true
+        tableView.topAnchor.constraint(equalTo: destinationView.topAnchor, constant: 60).isActive = true
           
           }
         
@@ -123,6 +162,6 @@ extension DriverPickUpViewController: UITableViewDelegate, UITableViewDataSource
            }
        
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           return 196
+           return 100
        }
 }
