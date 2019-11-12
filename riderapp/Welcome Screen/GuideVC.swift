@@ -92,6 +92,8 @@ class GuideViewController: UICollectionViewController, UICollectionViewDelegateF
         
         collectionView?.backgroundColor = .white
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: PageCell.identifer)
+       
+       
     }
     
     // MARK: - Selectors

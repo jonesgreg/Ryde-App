@@ -30,7 +30,9 @@ class MenuViewController: UIView, UITableViewDelegate, UITableViewDataSource{
         self.backgroundColor = .white
         configureTableView()
         tableViewConstraints()
+        
         }
+    
 
    
               

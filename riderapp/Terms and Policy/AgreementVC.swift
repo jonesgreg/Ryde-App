@@ -13,6 +13,7 @@ class AgreementViewController: UIViewController {
     
     let termsURL = "https://www.lyft.com/terms"
     let policyURL =  "https://urydeapp.wixsite.com/website/privacy-policy"
+   
     var string = "Terms of Service and Policy Privacy?"
    
     // MARK: - Overriden function
@@ -22,7 +23,8 @@ class AgreementViewController: UIViewController {
        customizeTextViewLink()
        setupLayout()
        configureUI()
-        navigationItem.largeTitleDisplayMode = .never
+       navigationItem.largeTitleDisplayMode = .never
+       
      
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -129,7 +131,7 @@ private let yesButton: UIButton = {
  //   subTitleText.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor,  padding: .init(top: 120, left: 32, bottom: 0, right: 32))
         yesButton.anchor(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top:0, left: 60, bottom: 60, right: 80), size: .init(width: 0, height: 50))
     }
-    
+   
     func configureUI() {
          view.backgroundColor = .white
          self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -151,6 +153,7 @@ private let yesButton: UIButton = {
     @objc private func handleNextPage() {
         let nextViewController = HomeViewController()
         self.navigationController?.pushViewController(nextViewController, animated: false)
+        
         let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
         generator.impactOccurred()
     }

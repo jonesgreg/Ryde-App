@@ -24,6 +24,7 @@ class VerifyNumberViewController: UIViewController {
         [titleTextView, nextButton,nextButtonImage,  VerifyNumberStackView, txtOTPStackView, resendCodeButton].forEach { view.addSubview($0) }
        setUpLayout()
        configureUI()
+        self.tabBarController?.tabBar.isHidden = true
       
     }
     

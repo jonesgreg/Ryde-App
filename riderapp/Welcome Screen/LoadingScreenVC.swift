@@ -20,7 +20,7 @@ class LoadingViewController: UIViewController {
     // MARK: - Overriden function
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(animationView)
+      
         view.addSubview(logoImageView)
         setupLayout()
         switchScreen()
@@ -39,7 +39,7 @@ class LoadingViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     private let logoImageView: UIImageView = {
-        let imageView = UIImageView(image:#imageLiteral(resourceName: "fleettext"))
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "fleet_text"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -54,15 +54,15 @@ class LoadingViewController: UIViewController {
     
     func setupLayout() {
          logoImageView.contentMode = .scaleAspectFit
-        animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+     /*   animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
         animationView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        animationView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        animationView.heightAnchor.constraint(equalToConstant: 500).isActive = true */
         
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        logoImageView.widthAnchor.constraint(equalToConstant:150).isActive = true
-        logoImageView.heightAnchor.constraint(equalToConstant:150).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant:50).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant:50).isActive = true
     }
     
     func switchScreen() {

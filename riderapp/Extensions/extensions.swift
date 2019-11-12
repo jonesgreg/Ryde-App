@@ -18,6 +18,15 @@ extension UITableViewCell {
        }
 }
 
+extension UITabBar {
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+        super.sizeThatFits(size)
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = 80
+        return sizeThatFits
+    }
+}
+
 extension UIView {
     
     func anchorPadding(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, paddingTop: CGFloat? = 0,
@@ -382,13 +391,34 @@ class whiteCircleButton: UIButton {
         self.layer.shadowOpacity = 0.3
         self.layer.shadowColor = UIColor.black.cgColor
         self.backgroundColor = .white
-        self.layer.cornerRadius = 22.5
+        self.layer.cornerRadius = 20
         self.layer.shadowOffset = CGSize(width: 0, height: 1)
-        self.width(constant: 45)
-        self.height(constant: 45)
+        self.width(constant: 40)
+        self.height(constant: 40)
         
     }
     required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class SafetyButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 0.5
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.backgroundColor = Colors.evernoteGreenColor
+        self.layer.cornerRadius = 20
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.width(constant: 40)
+        self.height(constant: 40)
+        
+    }
+    
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
@@ -398,15 +428,14 @@ class profileButton: UIButton {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.masksToBounds = false
-      
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 0.5
+        self.layer.shadowOpacity = 0.3
         self.layer.shadowColor = UIColor.black.cgColor
         self.backgroundColor = .white
-        self.layer.cornerRadius = 22.5
+        self.layer.cornerRadius = 25
         self.layer.shadowOffset = CGSize(width: 0, height: 1)
-        self.width(constant: 45)
-        self.height(constant: 45)
+        self.width(constant: 50)
+        self.height(constant: 50)
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -468,6 +497,128 @@ class searchInputField: UITextField {
     
 }
 
+
+class DriverPickBottomButtons: UIView {
+    weak var delegate: dismissDriverPickUpView?
+    var DriverContactNumber = "443-768-9947"
+    
+    var backButton: UIButton = {
+     let v = UIButton()
+    v.translatesAutoresizingMaskIntoConstraints = false
+    v.imageView?.contentMode = .scaleAspectFit
+    v.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+    return v
+    }()
+    
+    
+    var backButtonText: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont(name: Fonts.gilroyRegular, size: 12)
+        button.setTitleColor(.black, for: .normal)
+        
+        return button
+    }()
+    
+    var callButton: UIButton = {
+        let v = UIButton()
+       v.translatesAutoresizingMaskIntoConstraints = false
+       v.imageView?.contentMode = .scaleAspectFit
+        v.addTarget( self, action: #selector(callDriver), for: .touchUpInside)
+    
+       return v
+       }()
+       
+       
+       var callButtonText: UIButton = {
+          let button = UIButton()
+             button.translatesAutoresizingMaskIntoConstraints = false
+            button.titleLabel?.font = UIFont(name: Fonts.gilroyRegular, size: 12)
+            button.setTitleColor(.black, for: .normal)
+                  return button
+      
+       }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    convenience init(withImageName imageName: String, labelText: String) {
+
+        self.init()
+        self.commonInit()
+        backButton.setImage(UIImage(named: imageName), for: .normal)
+        callButton.setImage(UIImage(named: imageName), for: .normal)
+        backButtonText.setTitle(labelText, for: .normal)
+        callButtonText.setTitle(labelText, for: .normal)
+     
+       
+    }
+   
+    
+    
+    func commonInit() -> Void {
+    self.translatesAutoresizingMaskIntoConstraints = false
+
+    addSubview(backButton)
+    addSubview(backButtonText)
+    addSubview(callButton)
+    addSubview(callButtonText)
+        
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: topAnchor),
+            backButton.widthAnchor.constraint(equalToConstant: 20),
+            backButton.heightAnchor.constraint(equalToConstant: 20),
+        
+
+            callButton.topAnchor.constraint(equalTo: topAnchor),
+                  callButton.widthAnchor.constraint(equalToConstant: 20),
+           callButton.heightAnchor.constraint(equalToConstant: 20),
+       
+           callButtonText.centerXAnchor.constraint(equalTo: callButton.centerXAnchor),
+                       callButtonText.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+                      callButtonText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 45),
+                      
+          backButtonText.centerXAnchor.constraint(equalTo: backButton.centerXAnchor),
+           backButtonText.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+          backButtonText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 45),
+                           
+         
+                    
+          ])
+        
+    }
+    
+    // Handle Selectors
+   
+      
+      @objc func handleDismiss() {
+          delegate?.handleDismissDriverPickUp()
+      }
+   
+    @objc func callDriver() {
+        if let phoneCallURL = URL(string: "telprompt://\(DriverContactNumber)") {
+
+                             let application:UIApplication = UIApplication.shared
+                             if (application.canOpenURL(phoneCallURL)) {
+                                 if #available(iOS 10.0, *) {
+                                     application.open(phoneCallURL, options: [:], completionHandler: nil)
+                                 } else {
+                                     // Fallback on earlier versions
+                                      application.openURL(phoneCallURL as URL)
+
+                                 }
+                             }
+                         }
+                  }
+    
+}
 
 class userInputField: UITextField  {
     

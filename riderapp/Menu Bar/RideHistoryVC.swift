@@ -19,13 +19,12 @@ class RideHistoryViewController: UIViewController {
     //MARK: - Properties
     var tableView: UITableView!
     
-  
     override func viewDidLoad() {
         configureUI()
         configureTableView()
         tableViewConstraints()
         configureNavigationController()
-        
+       
         
             
         
@@ -47,6 +46,8 @@ class RideHistoryViewController: UIViewController {
           self.tableView.deselectSelectedRow(animated: true)
           self.navigationController?.setNavigationBarHidden(false, animated: animated)
      }
+    
+   
      
  func configureTableView() {
        tableView = UITableView()

@@ -13,6 +13,7 @@ protocol menuBarViewDelegate: class {
    
 }
 
+
 protocol HeaderTableViewCellDelegate: class {
    func didSelectHeaderViewCell(Selected: Bool, UserHeader: HeaderViewCell)
 }
@@ -35,4 +36,8 @@ protocol AnimateSelectVehicleDelegate: class {
 
 protocol AnimateDriverPickUpDelegate: class {
    func handleAnimationDriverPick()
+}
+
+protocol dismissDriverPickUpView: class {
+    func handleDismissDriverPickUp()
 }

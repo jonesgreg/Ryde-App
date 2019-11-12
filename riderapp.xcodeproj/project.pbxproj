@@ -13,6 +13,7 @@
 		0D0C60B822FA686A008164F9 /* RecoverAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C60B722FA686A008164F9 /* RecoverAccountVC.swift */; };
 		0D0C60BA22FA6944008164F9 /* ConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C60B922FA6944008164F9 /* ConfirmationVC.swift */; };
 		0D0C60BC22FA6F3D008164F9 /* AgreementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C60BB22FA6F3D008164F9 /* AgreementVC.swift */; };
+		0D0F10BD237250FA0042C172 /* OpenTransitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F10BC237250FA0042C172 /* OpenTransitApp.swift */; };
 		0D1DB4C722E928A900B35993 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1DB4C622E928A900B35993 /* HomeVC.swift */; };
 		0D1F05D52354FF310087C2AF /* CardStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F05D42354FF310087C2AF /* CardStateOptions.swift */; };
 		0D2115712334210B00B1D8BE /* RideHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2115702334210B00B1D8BE /* RideHistoryVC.swift */; };
@@ -38,7 +39,6 @@
 		0D4D7DB223356E0D000567C9 /* EditHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4D7DB123356E0D000567C9 /* EditHomeVC.swift */; };
 		0D5BF93823496B5E00E4345B /* TripSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D5BF93723496B5E00E4345B /* TripSummaryCell.xib */; };
 		0D65F2D122C163700044D89C /* Loading_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D65F2D022C1636F0044D89C /* Loading_Animation.json */; };
-		0D65FBE323576B7600B1C402 /* DriverPickUpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D65FBE223576B7600B1C402 /* DriverPickUpCell.xib */; };
 		0D68364222CAC2210004FF59 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */; };
 		0D68364322CAC2210004FF59 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363222CAC2200004FF59 /* Montserrat-Black.ttf */; };
 		0D68364522CAC2210004FF59 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D68363422CAC2200004FF59 /* Montserrat-SemiBold.ttf */; };
@@ -80,10 +80,9 @@
 		0DE05D83235116B3006F7EEF /* DriverPickUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE05D82235116B3006F7EEF /* DriverPickUp.swift */; };
 		0DE05D852351176A006F7EEF /* DriverPickUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE05D842351176A006F7EEF /* DriverPickUpCell.swift */; };
 		0DE05D87235119C7006F7EEF /* DriverPickUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE05D86235119C7006F7EEF /* DriverPickUpVC.swift */; };
-		0DE176AF235133ED000DC2F5 /* EmergencyAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DE176AE235133ED000DC2F5 /* EmergencyAlert.xib */; };
 		0DE176B123513415000DC2F5 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DE176B023513415000DC2F5 /* loading.json */; };
-		0DE176BB23514731000DC2F5 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DE176BA23514731000DC2F5 /* dummy.json */; };
 		0DEB100622E2206A004EFDF3 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEB100522E2206A004EFDF3 /* extensions.swift */; };
+		0DF073A7236B703F00BF9F0C /* BottomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF073A6236B703F00BF9F0C /* BottomTabBar.swift */; };
 		0DF16F5A22B83646008A5D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F5922B83646008A5D6A /* AppDelegate.swift */; };
 		0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF16F5D22B83646008A5D6A /* Main.storyboard */; };
 		0DF16F6222B83646008A5D6A /* riderapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DF16F6022B83646008A5D6A /* riderapp.xcdatamodeld */; };
@@ -125,6 +124,7 @@
 		0D0C60B722FA686A008164F9 /* RecoverAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverAccountVC.swift; sourceTree = "<group>"; };
 		0D0C60B922FA6944008164F9 /* ConfirmationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationVC.swift; sourceTree = "<group>"; };
 		0D0C60BB22FA6F3D008164F9 /* AgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementVC.swift; sourceTree = "<group>"; };
+		0D0F10BC237250FA0042C172 /* OpenTransitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTransitApp.swift; sourceTree = "<group>"; };
 		0D1DB4C622E928A900B35993 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0D1F05D42354FF310087C2AF /* CardStateOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStateOptions.swift; sourceTree = "<group>"; };
 		0D2115702334210B00B1D8BE /* RideHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideHistoryVC.swift; sourceTree = "<group>"; };
@@ -151,7 +151,6 @@
 		0D57CA82231DD53000B1F0D1 /* Mosk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mosk-Bold.ttf"; sourceTree = "<group>"; };
 		0D5BF93723496B5E00E4345B /* TripSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripSummaryCell.xib; sourceTree = "<group>"; };
 		0D65F2D022C1636F0044D89C /* Loading_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading_Animation.json; sourceTree = "<group>"; };
-		0D65FBE223576B7600B1C402 /* DriverPickUpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverPickUpCell.xib; sourceTree = "<group>"; };
 		0D68363122CAC2200004FF59 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "riderapp/Custom Fonts/Montserrat-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68363222CAC2200004FF59 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Black.ttf"; path = "riderapp/Custom Fonts/Montserrat-Black.ttf"; sourceTree = SOURCE_ROOT; };
 		0D68363422CAC2200004FF59 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "riderapp/Custom Fonts/Montserrat-SemiBold.ttf"; sourceTree = SOURCE_ROOT; };
@@ -194,10 +193,9 @@
 		0DE05D82235116B3006F7EEF /* DriverPickUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPickUp.swift; sourceTree = "<group>"; };
 		0DE05D842351176A006F7EEF /* DriverPickUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPickUpCell.swift; sourceTree = "<group>"; };
 		0DE05D86235119C7006F7EEF /* DriverPickUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPickUpVC.swift; sourceTree = "<group>"; };
-		0DE176AE235133ED000DC2F5 /* EmergencyAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmergencyAlert.xib; path = "../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/EmergencyAlert.xib"; sourceTree = "<group>"; };
 		0DE176B023513415000DC2F5 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = "../../../../fleet_services/JSON FILES/loading.json"; sourceTree = "<group>"; };
-		0DE176BA23514731000DC2F5 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dummy.json; path = ../../../../../../Desktop/dummy.json; sourceTree = "<group>"; };
 		0DEB100522E2206A004EFDF3 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		0DF073A6236B703F00BF9F0C /* BottomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabBar.swift; sourceTree = "<group>"; };
 		0DF16F5622B83646008A5D6A /* riderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF16F5922B83646008A5D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DF16F5E22B83646008A5D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 			children = (
 				0DCD80092343E3CF00FB13A1 /* fleetgreen.json */,
 				0DE176B023513415000DC2F5 /* loading.json */,
-				0DE176BA23514731000DC2F5 /* dummy.json */,
 				0D9012C022DFB4FB007652E4 /* country-codes.json */,
 				0D65F2D022C1636F0044D89C /* Loading_Animation.json */,
 			);
@@ -396,7 +393,6 @@
 		0DAC2AF02347AC6B0094E747 /* Emergency Alert */ = {
 			isa = PBXGroup;
 			children = (
-				0DE176AE235133ED000DC2F5 /* EmergencyAlert.xib */,
 				0D0B25F82346BBA6002474FA /* EmergencyAlert.swift */,
 			);
 			path = "Emergency Alert";
@@ -452,9 +448,10 @@
 				0D8965D8234F808F00A080FA /* PickUpVC.swift */,
 				0D688DDF235659A30090BDEF /* DestinationView.swift */,
 				0DB73D04234E669400D0995A /* VehicleCell.xib */,
-				0D65FBE223576B7600B1C402 /* DriverPickUpCell.xib */,
+				0DF073A6236B703F00BF9F0C /* BottomTabBar.swift */,
 				0DE05D86235119C7006F7EEF /* DriverPickUpVC.swift */,
 				0DD660CF23217B1B00B4736F /* SelectVehicleVC.swift */,
+				0D0F10BC237250FA0042C172 /* OpenTransitApp.swift */,
 			);
 			path = "Home Extension";
 			sourceTree = "<group>";
@@ -716,12 +713,9 @@
 				0D9012C122DFB4FB007652E4 /* country-codes.json in Resources */,
 				0D352B02234502AF00A054C0 /* Gilroy-Bold.otf in Resources */,
 				0DF16F6422B83647008A5D6A /* Assets.xcassets in Resources */,
-				0DE176AF235133ED000DC2F5 /* EmergencyAlert.xib in Resources */,
 				0DE176B123513415000DC2F5 /* loading.json in Resources */,
-				0D65FBE323576B7600B1C402 /* DriverPickUpCell.xib in Resources */,
 				0D352AFD234502AF00A054C0 /* Gilroy-Medium.otf in Resources */,
 				0D352B00234502AF00A054C0 /* Gilroy-Regular.otf in Resources */,
-				0DE176BB23514731000DC2F5 /* dummy.json in Resources */,
 				0DB73D05234E669400D0995A /* VehicleCell.xib in Resources */,
 				0DF16F5F22B83646008A5D6A /* Main.storyboard in Resources */,
 				0D5BF93823496B5E00E4345B /* TripSummaryCell.xib in Resources */,
@@ -875,6 +869,7 @@
 				0DBC270E2332E215003EA538 /* ProfileVC.swift in Sources */,
 				0D0C60B822FA686A008164F9 /* RecoverAccountVC.swift in Sources */,
 				0DFCEA4B22C512F800691D0A /* Page.swift in Sources */,
+				0D0F10BD237250FA0042C172 /* OpenTransitApp.swift in Sources */,
 				0D2115752334218300B1D8BE /* DriveAndEarnVC.swift in Sources */,
 				0D4D7DB223356E0D000567C9 /* EditHomeVC.swift in Sources */,
 				0D8965D9234F808F00A080FA /* PickUpVC.swift in Sources */,
@@ -885,6 +880,7 @@
 				0D9012CE22DFBBCC007652E4 /* CountryCodeListController.swift in Sources */,
 				0D8374692347B3120019C4AA /* TripReceiptVC.swift in Sources */,
 				0DD660CE23217A1200B4736F /* DropOffVC.swift in Sources */,
+				0DF073A7236B703F00BF9F0C /* BottomTabBar.swift in Sources */,
 				0D688DE0235659A30090BDEF /* DestinationView.swift in Sources */,
 				0D43E8F7232BF65D0068A419 /* MenuController.swift in Sources */,
 				0DD660D023217B1B00B4736F /* SelectVehicleVC.swift in Sources */,

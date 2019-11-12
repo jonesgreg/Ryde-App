@@ -26,7 +26,7 @@ class LocationCell: UITableViewCell {
     let locationLabel: UILabel = {
         let label = UILabel()
             label.textColor = .black
-            label.font = UIFont(name: Fonts.gilroyMedium, size: 15)
+            label.font = UIFont(name: Fonts.gilroySemiBold, size: 16)
             label.text = "Sample text"
             return label
     }()
@@ -34,7 +34,7 @@ class LocationCell: UITableViewCell {
     let locationSubLabel: UILabel = {
            let label = UILabel()
                label.textColor = .black
-               label.font = UIFont(name: Fonts.gilroyRegular, size: 13)
+               label.font = UIFont(name: Fonts.gilroyRegular, size: 14)
                label.text = "Sample text"
             return label
     }()

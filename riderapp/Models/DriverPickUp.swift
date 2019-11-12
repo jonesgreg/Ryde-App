@@ -9,20 +9,13 @@
 import UIKit
 
 struct DriverPickUp {
-    
-    let PickUpStatus: String
-    let DriverProfilePic: UIImage
+    let DriverProfilePic: String
     let DriverVehicle: String
     let DriverName: String
     let DriverSchool: String
     
-   
-
-    
-    
-    init(PickUpStatus: String, DriverProfilePic: UIImage, DriverVehicle: String, DriverName:String, DriverSchool: String) {
+   init(DriverProfilePic: String, DriverVehicle: String, DriverName:String, DriverSchool: String) {
         
-        self.PickUpStatus = PickUpStatus
         self.DriverProfilePic = DriverProfilePic
         self.DriverVehicle = DriverVehicle
         self.DriverName = DriverName

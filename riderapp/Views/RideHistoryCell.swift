@@ -19,23 +19,7 @@ class RideHistoryCell: UITableViewCell {
         return iv
     }()
     
-   /* let dateLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont(name: Fonts.gilroyBold, size: 14)
-        label.text = "Sample text"
-        return label
-        
-    }()
-    
-    let tripDistanceLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont(name: Fonts.gilroyRegular, size: 12)
-        label.text = "Sample text"
-        return label
-  
-   }() */
+ 
     
     let tripDetails: UITextView = {
         let textView = UITextView()

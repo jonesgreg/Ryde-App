@@ -18,29 +18,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       // Thread.sleep(forTimeInterval: 0.0)
+        Thread.sleep(forTimeInterval: 0.8)
+        
          GMSServices.provideAPIKey("AIzaSyD0hJ9dWUY-ubP12nQptdD9DhXWeul5nTc")
        
         // this is how we build out our app in code
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-     
-        
-      //   let layout = UICollectionViewFlowLayout()
-       //  layout.scrollDirection = .horizontal
-        
-       // window?.rootViewController = UINavigationController(rootViewController: GuideViewController(collectionViewLayout: layout))
-       
-       window?.rootViewController = UINavigationController(rootViewController: LoadingViewController())
-      
-     // let BarButtonItemAppearance = UIBarButtonItem.appearance()
-    // BarButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.clear], for: .normal)
-        
-    
+             
         
        
-        // window?.rootViewController = guideController
-       
+        // Guide View Controller will only show if the user is not logged in
+   /*     let layout = UICollectionViewFlowLayout()
+           layout.scrollDirection = .horizontal
+          window?.rootViewController = UINavigationController(rootViewController: GuideViewController(collectionViewLayout: layout)) */
+        
+      // When user is logged in - Home Controller shows with the UITABBARController()
+        // *** UITABBARCONTROLLER IS THE ROOT WHEN THE USER IS LOGGED, HOWEVER, WHEN THE user is logged out the Guide View Controller is the root
+        
+        window?.rootViewController = BottomTabBarController()
+        
+        
+
         return true
     }
 

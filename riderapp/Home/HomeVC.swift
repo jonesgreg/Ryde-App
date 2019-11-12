@@ -26,10 +26,13 @@ class HomeViewController: UIViewController,UIGestureRecognizerDelegate {
     let destination = DestinationView()
     let selectVehicle = SelectVehicleViewController()
     let driverPickUp = DriverPickUpViewController()
+   let tabBar = UITabBarController()
+    
   
     
     // Custom Height size for the subviews
     let customHeight:CGFloat = 300
+    let destinationHeight: CGFloat = 405
     let driverPickUpCustomHeight: CGFloat = 300
     var cardHandleAreaHeight:CGFloat = 65
    
@@ -42,33 +45,30 @@ class HomeViewController: UIViewController,UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         MenuBarSetup()
-        BlackScreenSetup()
-        setupGoogleMaps()
-       setupDestinationView()
-        configureUI()
-        constraintsLayout()
-      
-      
+       BlackScreenSetup()
+      setupGoogleMaps()
+      setupDestinationView()
+      configureUI()
+     constraintsLayout()
         
-    
+        
+         
+        
+        
        
-       
-      
-    }
+      }
 
 override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
-      self.navigationController?.setNavigationBarHidden(true, animated: animated)
-     navigationIcon.isHidden = true
-     backButton.isHidden = true
-     warningView.isHidden = true
-     warningText.isHidden = true
+         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+         navigationIcon.isHidden = true
+         backButton.isHidden = true
+         warningView.isHidden = true
+         warningText.isHidden = true
     
-
-    
-    
-   }
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -87,19 +87,48 @@ override func viewWillAppear(_ animated: Bool) {
            destination.delegate = self
            destination.animateVehicleView = self
            view.addSubview(self.destination.view)
-            destination.view.frame = CGRect(x: 0, y: self.view.frame.height - customHeight, width: self.view.bounds.width, height: customHeight)
-    let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 283, right: 0.0)
-        mapView?.padding = mapInsets
+            destination.view.frame = CGRect(x: 0, y: self.view.frame.height - destinationHeight, width: self.view.bounds.width, height: destinationHeight)
+  /* let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 283, right: 0.0)
+        mapView?.padding = mapInsets */
+    let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 315, right: 0.0)
+           mapView?.padding = mapInsets
+    
+  }
+    
+    func setupBottomBar() {
+        
+        
+        
+       let homeController = HomeViewController()
+        homeController.tabBarItem.image = UIImage(named: "tabbar_car@3x")
+        let navHome  = UINavigationController(rootViewController: homeController)
+        
+        let getPublicTransit = UIViewController()
+        getPublicTransit.view.backgroundColor = .green
+        getPublicTransit.tabBarItem.image = UIImage(named: "tabbar_train@3x")
+        let reportIssue = UIViewController()
+        reportIssue.view.backgroundColor = .blue
+        reportIssue.tabBarItem.image = UIImage(named: "tabbar_issue@3x")
+       tabBar.viewControllers = [navHome]
+      addChild(self.tabBar)
+      tabBar.didMove(toParent: self)
+      view.addSubview(self.tabBar.view)
     }
+    
+ 
+ 
     
     private let menuButton: UIButton = {
         let button = profileButton(type: .custom)
             button.addTarget(self, action: #selector(handleMenuAction), for: .touchUpInside)
-            button.setImage(#imageLiteral(resourceName: "greg"), for: .normal)
-            button.tintColor = .white
-            button.imageEdgeInsets = UIEdgeInsets(top: 42.0, left: 42.0, bottom: 42.0, right: 42.0)
+            button.setImage(#imageLiteral(resourceName: "gregprofile"), for: .normal)
+            button.tintColor = .black
+          // for the menu button:  button.imageEdgeInsets = UIEdgeInsets(top: 38.0, left: 38.0, bottom: 38.0, right: 38.0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 47.0, left: 47.0, bottom: 47.0, right: 47.0)
+            button.translatesAutoresizingMaskIntoConstraints = false
             return button
     }()
+    
     
      private let warningView: UIView = {
         let view = UIView()
@@ -117,7 +146,7 @@ override func viewWillAppear(_ animated: Bool) {
     
     private let warningText: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Verify name, destination, and vehicle before getting into the vehicle", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 12) as Any, NSAttributedString.Key.foregroundColor:Colors.fleetGreen])
+        let attributedText = NSMutableAttributedString(string: "Verify name, destination, and vehicle before getting into the vehicle", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size: 14) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
         textView.attributedText = attributedText
         textView.textAlignment = .center
         textView.isEditable = false
@@ -131,18 +160,30 @@ override func viewWillAppear(_ animated: Bool) {
     let button = whiteCircleButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(#imageLiteral(resourceName: "navigation"), for: .normal)
-        button.tintColor = .black
-        button.imageEdgeInsets = UIEdgeInsets(top: 34.0, left: 34.0, bottom: 34.0, right: 34.0)
+       button.tintColor = .black
+        button.imageEdgeInsets = UIEdgeInsets(top: 32.0, left: 32.0, bottom: 32.0, right: 32.0)
         button.addTarget(self, action: #selector(goToMyLocation), for: .touchUpInside)
       
         return button
     }()
     
+    private let safetyMessageButton: UIButton = {
+       let button = SafetyButton(type: .system)
+           button.translatesAutoresizingMaskIntoConstraints = false
+           button.setImage(#imageLiteral(resourceName: "warning"), for: .normal)
+        button.tintColor =  .white
+         button.imageEdgeInsets = UIEdgeInsets(top: 33.0, left: 33.0, bottom: 33.0, right: 33.0)
+        //   button.imageEdgeInsets = UIEdgeInsets(top: 55.0, left: 55.0, bottom: 55.0, right: 55.0)
+         //  button.addTarget(self, action: #selector(goToMyLocation), for: .touchUpInside)
+         
+           return button
+       }()
+    
    private let backButton: UIButton = {
          let backButton = whiteCircleButton(type: .system)
-           backButton.setImage(#imageLiteral(resourceName: "direction_backwards"), for: .normal)
-           backButton.tintColor = .black
-           backButton.imageEdgeInsets = UIEdgeInsets(top: 42.0, left: 42.0, bottom: 42.0, right: 42.0)
+             backButton.setImage(#imageLiteral(resourceName: "direction_backwards"), for: .normal)
+             backButton.tintColor = .black
+             backButton.imageEdgeInsets = UIEdgeInsets(top: 35.0, left: 35.0, bottom: 35.0, right: 35.0)
           backButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
             backButton.translatesAutoresizingMaskIntoConstraints = false
            return backButton
@@ -168,6 +209,8 @@ override func viewWillAppear(_ animated: Bool) {
     mapView?.addSubview(menuButton)
     mapView?.addSubview(backButton)
    
+   
+   mapView?.addSubview(safetyMessageButton)
     mapView?.addSubview(navigationIcon)
     mapView?.translatesAutoresizingMaskIntoConstraints = false
     mapView?.settings.consumesGesturesInView = true
@@ -176,9 +219,10 @@ override func viewWillAppear(_ animated: Bool) {
         pinch.delegate = self
        mapView?.isUserInteractionEnabled = true
        mapView?.addGestureRecognizer(pinch)
-       do {
+     
+      do {
              // Set the map style by passing the URL of the local file.
-             if let styleURL = Bundle.main.url(forResource: "dummy", withExtension: "json") {
+             if let styleURL = Bundle.main.url(forResource: "fleetgreen", withExtension: "json") {
                 mapView?.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
              } else {
                NSLog("Unable to find style.json")
@@ -189,24 +233,32 @@ override func viewWillAppear(_ animated: Bool) {
     
     }
 
+   
 
 
 private func constraintsLayout() {
-    view.addSubview(warningView)
+  /*  view.addSubview(warningView)
     warningView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 9).isActive = true
     warningView.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: 10).isActive = true
     warningView.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant: -40).isActive = true
     warningView.height(constant: 53)
     
-    view.addSubview(warningText)
-    warningText.anchor(top: warningView.topAnchor, bottom: warningView.bottomAnchor, leading: warningView.leadingAnchor, trailing: warningView.trailingAnchor, padding: .init(top: 3, left: 16, bottom: 0, right:16))
+  view.addSubview(warningText)
+    warningText.anchor(top: warningView.topAnchor, bottom: warningView.bottomAnchor, leading: warningView.leadingAnchor, trailing: warningView.trailingAnchor, padding: .init(top: 3.5, left: 16, bottom: 0, right:16)) */
+    
+    
    
     menuButton.safeAreaLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
     menuButton.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12).isActive = true
+    
     backButton.safeAreaLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
       backButton.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12).isActive = true
-   navigationIcon.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-    navigationIcon.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -283).isActive = true
+   navigationIcon.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12).isActive = true
+    navigationIcon.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -380).isActive = true
+    
+   safetyMessageButton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12).isActive = true
+     safetyMessageButton.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -320).isActive = true
+       
   
    }
     
@@ -233,6 +285,7 @@ private func constraintsLayout() {
         }) {(complete) in
             self.blackScreen.frame = CGRect(x: self.menuBarView.frame.width, y: 0, width:self.view.frame.width - self.menuBarView.frame.width, height: self.view.bounds.height + 100)
         }
+    
     }
 
 
@@ -242,6 +295,7 @@ func MenuBarSetup() {
         menuBarView.layer.zPosition = 100
         self.view.isUserInteractionEnabled = true
         self.navigationController?.view.addSubview(menuBarView)
+    
 
     }
 
@@ -291,6 +345,23 @@ func MenuBarSetup() {
          }
     }
     
+    
+
+    
+    @objc func cancelTrip() {
+        
+        // Hide Driver Pickup View
+        UIView.animate(withDuration: 0.5, delay: 0.0,
+                                     usingSpringWithDamping: 0.7, initialSpringVelocity: 3.0,
+                              options: .allowAnimatedContent, animations: {
+                               self.driverPickUp.view.frame = CGRect(x: self.driverPickUp.view.frame.origin.x, y: self.driverPickUp.view.frame.origin.y + self.driverPickUp.view.frame.height, width: self.driverPickUp.view.frame.width, height: self.driverPickUp.view.frame.height)
+                                
+                          }) { (isFinished) in
+                          
+                              self.view.layoutIfNeeded()
+                       }
+    }
+    
     @objc func handleDismiss() {
    
        // Hide the Selected Vehicle
@@ -304,9 +375,10 @@ func MenuBarSetup() {
                            self.warningText.isHidden = true
                    }) { (isFinished) in
                         // Show Menu Bar
+                    self.view.layoutIfNeeded()
                         let mapInsets = UIEdgeInsets(top: 0, left: 0.0, bottom: 283, right: 0.0)
                         self.mapView?.padding = mapInsets
-                       self.view.layoutIfNeeded()
+                       
                 }
              
         
@@ -321,7 +393,7 @@ extension HomeViewController: CLLocationManagerDelegate {
 
         let location = locations.last
 
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 13.0)
+        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 16.0)
 
         self.mapView?.animate(to: camera)
        
@@ -346,13 +418,7 @@ extension HomeViewController: menuBarViewDelegate {
              case .RideHistory?:
              let rideHistoryController = RideHistoryViewController()
              self.navigationController?.pushViewController(rideHistoryController, animated: false)
-
-
-             case .Call?: // Alert with a number
-             //  let emergencyAlert = EmergencyAlert()
-              // self.present(emergencyAlert, animated: true)
-                EmergencyAlert.instance.showAlert(title: "EMERGENCY ALERT", message: "Contact University Security or Office of Public Safety", alert: .call)
-             case .Help?:
+            case .Help?:
              let helpController = HelpViewController ()
              self.navigationController?.pushViewController(helpController, animated: false)
              case .Settings?:
@@ -427,6 +493,7 @@ extension HomeViewController:AnimateSelectVehicleDelegate {
 
 extension HomeViewController: AnimateDriverPickUpDelegate {
     func handleAnimationDriverPick() {
+        print("test")
      addChild(self.driverPickUp)
                    driverPickUp.didMove(toParent: self)
         view.addSubview(self.driverPickUp.view)
@@ -446,7 +513,7 @@ extension HomeViewController: AnimateDriverPickUpDelegate {
         
         }
        
-        // Hide the Selected Vehicle
+       // Hide the Selected Vehicle
         UIView.animate(withDuration: 0.5, delay: 0.0,
                               usingSpringWithDamping: 0.7, initialSpringVelocity: 3.0,
                        options: .allowAnimatedContent, animations: {
@@ -457,11 +524,14 @@ extension HomeViewController: AnimateDriverPickUpDelegate {
                     self.backButton.isHidden = true
                     self.menuButton.isHidden = false
                        self.view.layoutIfNeeded()
-                }
+                } 
     }
-    
-    
-              
+}
+
+extension HomeViewController: dismissDriverPickUpView {
+    func handleDismissDriverPickUp() {
+        print("Test")
+    }
     
     
 }

@@ -27,6 +27,7 @@ class PhoneEntryViewController: UIViewController {
         constraintsLayout()
         loadCountries()
        
+       
         
         
     }
@@ -140,7 +141,7 @@ private func loadCountries() {
     }()
    
     private let logoImageView: UIImageView = {
-        let imageView = UIImageView(image:#imageLiteral(resourceName: "fleettext"))
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "fl"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -167,8 +168,8 @@ private func loadCountries() {
    
       logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
       logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
-      logoImageView.widthAnchor.constraint(equalToConstant:100).isActive = true
-      logoImageView.heightAnchor.constraint(equalToConstant:100).isActive = true
+      logoImageView.widthAnchor.constraint(equalToConstant:50).isActive = true
+      logoImageView.heightAnchor.constraint(equalToConstant:50).isActive = true
     
   phoneText.anchor(top: backgroundView.bottomAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 30, left: 10, bottom: 0, right: 0))
    dropDownPicker.anchor(top: backgroundView.bottomAnchor, bottom: nil, leading: phoneText.leadingAnchor, trailing: nil, padding: .init(top: 102, left: 5, bottom: 0, right: 0), size: .init(width: 15, height:15))

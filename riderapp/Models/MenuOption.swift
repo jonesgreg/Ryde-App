@@ -12,7 +12,7 @@ enum MenuOption: Int, CustomStringConvertible {
     
     case GetARide
     case RideHistory
-    case Call
+   
     case Help
     case Settings
    
@@ -21,7 +21,6 @@ enum MenuOption: Int, CustomStringConvertible {
         switch self {
         case .GetARide: return "Get a ride"
         case .RideHistory: return "Ride history"
-        case .Call: return "Call"
         case .Help: return "Help"
         case .Settings: return "Settings"
        
@@ -32,7 +31,6 @@ enum MenuOption: Int, CustomStringConvertible {
         switch self {
         case .GetARide: return UIImage(named: "menu_car") ?? UIImage()
         case .RideHistory: return UIImage(named: "menu_history") ?? UIImage()
-        case .Call: return UIImage(named: "menu_call") ?? UIImage()
         case .Help: return UIImage(named: "menu_help") ?? UIImage()
         case .Settings: return UIImage(named: "menu_setting") ?? UIImage()
     }

@@ -6,6 +6,7 @@ target 'riderapp' do
   use_frameworks!
   pod 'lottie-ios'
   pod 'GoogleMaps'
+   pod "ESTabBarController-swift"
   
   # Pods for riderapp
 

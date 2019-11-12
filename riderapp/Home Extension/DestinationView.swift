@@ -18,6 +18,7 @@ class DestinationView: UIViewController {
        
        
         var tableView: UITableView!
+        
         weak var delegate: SelectedVehicleDelegate?
         weak var animateVehicleView: AnimateSelectVehicleDelegate?
         let cardHeight: CGFloat = 300
@@ -45,19 +46,31 @@ class DestinationView: UIViewController {
     // MARK: - Private functions
    
         
-            let destinationView: UIView = {
+      /*      let destinationView: UIView = {
             let view =  UIView()
                 view.layer.shadowColor = UIColor.black.cgColor;
                 view.layer.shadowOpacity = 0.5;
                 view.layer.shadowRadius  = 2.0;
                 view.layer.shadowOffset  = CGSize(width :0, height :1)
                 view.layer.masksToBounds = false;
-                view.layer.cornerRadius  =  17;
+                view.layer.cornerRadius  =  14;
                 view.backgroundColor     =  .white
                 view.translatesAutoresizingMaskIntoConstraints = false
                 return view
+    }() */
+    
+    let destinationView: UIView = {
+               let view =  UIView()
+                   view.layer.shadowColor = UIColor.black.cgColor;
+                   view.layer.shadowOpacity = 0.5;
+                   view.layer.shadowRadius  = 2.0;
+                   view.layer.shadowOffset  = CGSize(width :0, height :1)
+                   view.layer.masksToBounds = false;
+                 //  view.layer.cornerRadius  =  14;
+                   view.backgroundColor     =  .white
+                   view.translatesAutoresizingMaskIntoConstraints = false
+                   return view
     }()
-         
          let handler: UIView =  {
          let view = UIView()
              view.backgroundColor = Colors.lightGreyColor
@@ -81,7 +94,7 @@ class DestinationView: UIViewController {
               return imageView
           }()
     
-        let greetingTitle: UITextView = {
+   /*    let greetingTitle: UITextView = {
         let textView = UITextView()
         let attributedText = NSMutableAttributedString(string: "Nice to see you!", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyRegular, size: 13) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
             attributedText.append(NSAttributedString(string: "\nWhere are you going?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyBold, size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
@@ -92,9 +105,22 @@ class DestinationView: UIViewController {
        textView.isScrollEnabled = false
             textView.backgroundColor = .clear
       return textView
-    }()
+    }() */
+    
+    let greetingTitle: UITextView = {
+           let textView = UITextView()
+           let attributedText = NSMutableAttributedString(string: "Nice to see you!", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 15) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
+              attributedText.append(NSAttributedString(string: "\nWhere are you going?", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyBold, size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor.black]))
+           textView.attributedText = attributedText
+           textView.translatesAutoresizingMaskIntoConstraints = true
+           textView.textAlignment = .left
+          textView.isEditable = false
+          textView.isScrollEnabled = false
+               textView.backgroundColor = .clear
+         return textView
+       }()
    
-    let whereToView: UIView = {
+ /*   let whereToView: UIView = {
         let view = UIView()
         view.layer.shadowColor = UIColor.black.cgColor;
         view.layer.shadowOpacity = 0.3;
@@ -106,9 +132,23 @@ class DestinationView: UIViewController {
         view.backgroundColor     =  .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }() */
+    
+    let whereToView: UIView = {
+    let view = UIView()
+    view.layer.shadowColor = UIColor.black.cgColor;
+   // view.layer.shadowOpacity = 0.3;
+    view.layer.shadowRadius  = 2;
+    view.layer.shadowOffset  = CGSize(width :0, height :1)
+    view.layer.masksToBounds = false;
+   // view.layer.cornerRadius  =  12;
+    view.layer.borderWidth   = 0.0;
+    view.backgroundColor     =  Colors.lighterGrey
+    view.translatesAutoresizingMaskIntoConstraints = false
+    return view
     }()
     
-    let whereToButton: UIButton = {
+   /* let whereToButton: UIButton = {
            let button = UIButton(type: .custom)
            button.setTitle("Search your destination", for: .normal)
            button.titleLabel?.font = UIFont(name: Fonts.gilroyMedium, size: 15)
@@ -116,16 +156,36 @@ class DestinationView: UIViewController {
            button.contentHorizontalAlignment = .left
            button.addTarget(self, action: #selector(handleDropOff), for: .touchUpInside)
            return button
-       }()
+       }() */
     
-    let searchIcon: UIImageView = {
+    let whereToButton: UIButton = {
+    let button = UIButton(type: .custom)
+    button.setTitle("Search your location", for: .normal)
+    button.titleLabel?.font = UIFont(name: Fonts.gilroyMedium, size: 18)
+        button.setTitleColor(.black, for: .normal)
+    button.contentHorizontalAlignment = .left
+    button.addTarget(self, action: #selector(handleDropOff), for: .touchUpInside)
+    return button
+    }()
+   
+    
+   /* let searchIcon: UIImageView = {
            let imageView = UIImageView(image:#imageLiteral(resourceName: "seachicon"))
            imageView.contentMode = .scaleAspectFit
            imageView.width(constant: 20)
            imageView.height(constant: 20)
            imageView.translatesAutoresizingMaskIntoConstraints = false
            return imageView
-       }()
+       }() */
+    
+    let searchIcon: UIImageView = {
+              let imageView = UIImageView(image:#imageLiteral(resourceName: "Search"))
+              imageView.contentMode = .scaleAspectFit
+              imageView.width(constant: 22)
+              imageView.height(constant: 22)
+              imageView.translatesAutoresizingMaskIntoConstraints = false
+              return imageView
+          }()
    
     let campusButton: UIButton = {
         let button = greenCircleButton(type: .system)
@@ -156,30 +216,32 @@ class DestinationView: UIViewController {
         destinationView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 33).isActive = true
         destinationView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         destinationView.trailingAnchor.constraint(equalTo:view.trailingAnchor).isActive = true
-        destinationView.height(constant: 300)
+        destinationView.height(constant: 330)
         
      
         
     
     
-        view.addSubview(handler)
+   /*     view.addSubview(handler)
         handler.topAnchor.constraint(equalTo: destinationView.topAnchor, constant: 10).isActive = true
         handler.centerXAnchor.constraint(equalTo: destinationView.centerXAnchor).isActive = true
         handler.width(constant: 65)
-        handler.height(constant: 4)
+        handler.height(constant: 4) */
           
 
         view.addSubview(greetingTitle)
-       greetingTitle.anchor(top: destinationView.topAnchor, bottom: destinationView.bottomAnchor, leading: destinationView.leadingAnchor, trailing: nil, padding: .init(top: 15, left: 16, bottom: 0, right: 0))
+        greetingTitle.anchor(top: destinationView.topAnchor, bottom: destinationView.bottomAnchor, leading: destinationView.leadingAnchor, trailing: nil, padding: .init(top: 15, left: 16, bottom: 0, right: 0))
        
+    
         view.addSubview(whereToView)
-        whereToView.anchor(top: destinationView.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 76, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 50))
+        whereToView.anchor(top: destinationView.topAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 16, bottom: 50, right: 16), size: .init(width: 0, height: 50))
       
-        view.addSubview(whereToButton)
-       whereToButton.anchor(top: whereToView.topAnchor, bottom: nil, leading: whereToView.leadingAnchor, trailing: whereToView.trailingAnchor, padding: .init(top: 10, left: 50, bottom: 0, right: 0))
+      view.addSubview(whereToButton)
+       whereToButton.anchor(top: whereToView.topAnchor, bottom: nil, leading: whereToView.leadingAnchor, trailing: whereToView.trailingAnchor, padding: .init(top: 8, left: 50, bottom: 0, right: 0))
        
         view.addSubview(searchIcon)
        searchIcon.anchor(top: whereToView.topAnchor, bottom: nil, leading: whereToView.leadingAnchor, trailing: nil, padding: .init(top: 15, left: 16, bottom: 0, right: 0))
+      
        
     }
     
@@ -204,6 +266,8 @@ class DestinationView: UIViewController {
            tableView.topAnchor.constraint(equalTo: whereToView.bottomAnchor, constant: 5).isActive = true
           
        }
+    
+ 
    
     @objc private func handleDropOff() {
            let nextViewController = DropOffLocationViewController()
@@ -232,7 +296,7 @@ extension DestinationView: UITableViewDelegate, UITableViewDataSource {
        }
        
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           return 60
+           return 70
        }
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
@@ -245,4 +309,6 @@ extension DestinationView: UITableViewDelegate, UITableViewDataSource {
        
     
 }
+
+
 
