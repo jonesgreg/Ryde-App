@@ -32,7 +32,22 @@ class EditProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
          tableView.deselectSelectedRow(animated: false)
+        hideTabBarController()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+       
+    }
+    
+    func hideTabBarController() {
+              tabBarController?.tabBar.isHidden = true
+              edgesForExtendedLayout = UIRectEdge.bottom
+              extendedLayoutIncludesOpaqueBars = true
+          }
+       
+       
+     
     
     private func configureUI() {
         view.backgroundColor = .white

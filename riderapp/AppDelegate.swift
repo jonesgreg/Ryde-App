@@ -29,14 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
        
         // Guide View Controller will only show if the user is not logged in
-   /*     let layout = UICollectionViewFlowLayout()
+     /* let layout = UICollectionViewFlowLayout()
            layout.scrollDirection = .horizontal
           window?.rootViewController = UINavigationController(rootViewController: GuideViewController(collectionViewLayout: layout)) */
         
       // When user is logged in - Home Controller shows with the UITABBARController()
         // *** UITABBARCONTROLLER IS THE ROOT WHEN THE USER IS LOGGED, HOWEVER, WHEN THE user is logged out the Guide View Controller is the root
         
-        window?.rootViewController = BottomTabBarController()
+       window?.rootViewController = BottomTabBarController()
         
         
 

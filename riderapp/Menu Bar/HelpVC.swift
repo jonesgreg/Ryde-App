@@ -26,27 +26,28 @@ class HelpViewController: UIViewController, WKNavigationDelegate {
           
     
     override func viewDidLoad() {
-        configureUI()
-        super.viewDidLoad()
+       super.viewDidLoad()
         let url = URL(string: "https://support.taxify.eu/hc/en-us")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
+        
+       
      }
    
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
+        hideTabBarController()
+      
     
     }
     
     override func viewWillDisappear(_ animated: Bool) {
            super.viewWillDisappear(animated)
-           self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        showTabBarController()
+           
        }
     
-    func configureUI() {
-        view.backgroundColor = .white
-        
-    }
+  
     private func configureNavigationController() {
               navigationItem.title = "How can we help?"
               navigationItem.setHidesBackButton(true, animated: false)
@@ -65,9 +66,18 @@ class HelpViewController: UIViewController, WKNavigationDelegate {
                      self.navigationItem.setLeftBarButton(navigationItem, animated:false)
     }
     
-   
+   func hideTabBarController() {
+    tabBarController?.tabBar.isHidden = true
+    edgesForExtendedLayout = UIRectEdge.bottom
+    extendedLayoutIncludesOpaqueBars = true
+}
     
-  
+    func showTabBarController() {
+        tabBarController?.tabBar.isHidden = false
+        edgesForExtendedLayout = UIRectEdge.bottom
+        extendedLayoutIncludesOpaqueBars = false
+        
+    }
     
    
     private func setActivityIndicator() {
@@ -100,6 +110,7 @@ class HelpViewController: UIViewController, WKNavigationDelegate {
     // MARK: - Selectors
     @objc private func handlePreviousPage() {
            self.navigationController?.popViewController(animated: false)
+           self.dismiss(animated: true, completion: {})
            
        }
        

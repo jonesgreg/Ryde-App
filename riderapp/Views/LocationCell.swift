@@ -44,7 +44,7 @@ class LocationCell: UITableViewCell {
     private let locationText: UITextView =  {
           let textView = UITextView()
         let attributedText = NSMutableAttributedString(string: "LaFarge Residence Hall", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroySemiBold, size:15) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-              attributedText.append(NSAttributedString(string: "\n2425 Cardinal Ave", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 14) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+              attributedText.append(NSAttributedString(string: "\n2425 Cardinal Ave", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyRegular, size: 14) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
               textView.attributedText = attributedText
               textView.translatesAutoresizingMaskIntoConstraints = false
               textView.textAlignment = .left
@@ -71,6 +71,7 @@ class LocationCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .white
+       
         selectionStyle = .default
         
         addSubview(locationIcon)
@@ -108,7 +109,7 @@ class LocationCell: UITableViewCell {
                
                locationIcon.image = UIImage(named:unwrappedLocation.image)
                 let attributedText = NSMutableAttributedString(string: unwrappedLocation.title, attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size:16) as Any, NSAttributedString.Key.foregroundColor:UIColor.black])
-                attributedText.append(NSAttributedString(string: "\n\(unwrappedLocation.location)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyMedium, size: 13) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+                attributedText.append(NSAttributedString(string: "\n\(unwrappedLocation.location)", attributes: [NSAttributedString.Key.font:UIFont(name: Fonts.gilroyRegular, size: 14) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
           locationText.attributedText = attributedText
                         locationText.textAlignment = .left
             locationText.backgroundColor = .clear

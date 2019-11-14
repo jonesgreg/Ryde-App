@@ -25,30 +25,32 @@ class RideHistoryViewController: UIViewController {
         tableViewConstraints()
         configureNavigationController()
        
-        
-            
-        
-        
-    }
+     }
        override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          // Hide the navigation bar on the this view controller
         self.tableView.deselectSelectedRow(animated: false)
-        
-
-         
-           
-       
-     }
+         hideTabBarController()
+    }
     
      override func viewWillDisappear(_ animated: Bool) {
          super.viewWillDisappear(animated)
           self.tableView.deselectSelectedRow(animated: true)
           self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        showTabBarController()
      }
     
    
-     
+    func hideTabBarController() {
+        tabBarController?.tabBar.isHidden = true
+        edgesForExtendedLayout = UIRectEdge.bottom
+        extendedLayoutIncludesOpaqueBars = true
+    }
+    func showTabBarController() {
+           tabBarController?.tabBar.isHidden = false
+           edgesForExtendedLayout = UIRectEdge.bottom
+           extendedLayoutIncludesOpaqueBars = false
+       }
  func configureTableView() {
        tableView = UITableView()
        tableView.delegate = self

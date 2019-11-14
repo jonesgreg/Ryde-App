@@ -22,6 +22,7 @@ class SettingsViewController: UIViewController {
         view.addSubview(settingListTableView)
         configureNavigationBar()
         
+        
        
         
     }
@@ -31,6 +32,7 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
         settingListTableView.deselectSelectedRow(animated: false)
+         hideTabBarController()
         
       
     }
@@ -38,8 +40,19 @@ class SettingsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+       //showTabBarController()
     }
     
+    func hideTabBarController() {
+        tabBarController?.tabBar.isHidden = true
+                  edgesForExtendedLayout = UIRectEdge.bottom
+                  extendedLayoutIncludesOpaqueBars = true
+        }
+    func showTabBarController() {
+          tabBarController?.tabBar.isHidden = false
+         // edgesForExtendedLayout = UIRectEdge.bottom
+          extendedLayoutIncludesOpaqueBars = false
+          }
     private lazy var settingListTableView: UITableView = {
         let tableView = UITableView(frame: view.frame)
         tableView.delegate = self

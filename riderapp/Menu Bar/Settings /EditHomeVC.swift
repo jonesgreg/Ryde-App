@@ -26,8 +26,18 @@ class EditHomeViewController: UIViewController {
            override func viewWillAppear(_ animated: Bool) {
                  super.viewWillAppear(animated)
                 dormInput.becomeFirstResponder()
+               hideTabBarController()
                  
            }
+    
+    func hideTabBarController() {
+              tabBarController?.tabBar.isHidden = true
+              edgesForExtendedLayout = UIRectEdge.bottom
+              extendedLayoutIncludesOpaqueBars = true
+          }
+       
+      
+     
            
            //MARK - Private functions
 

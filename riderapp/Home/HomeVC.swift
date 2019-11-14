@@ -26,7 +26,8 @@ class HomeViewController: UIViewController,UIGestureRecognizerDelegate {
     let destination = DestinationView()
     let selectVehicle = SelectVehicleViewController()
     let driverPickUp = DriverPickUpViewController()
-   let tabBar = UITabBarController()
+   
+ 
     
   
     
@@ -46,10 +47,10 @@ class HomeViewController: UIViewController,UIGestureRecognizerDelegate {
         super.viewDidLoad()
         MenuBarSetup()
        BlackScreenSetup()
-      setupGoogleMaps()
-      setupDestinationView()
-      configureUI()
-     constraintsLayout()
+       setupGoogleMaps()
+       setupDestinationView()
+       configureUI()
+       constraintsLayout()
         
         
          
@@ -62,22 +63,21 @@ override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
          self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        
+         showTabBarController()
          navigationIcon.isHidden = true
          backButton.isHidden = true
          warningView.isHidden = true
          warningText.isHidden = true
+        
     
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+       
     }
-   
-    
-
-
+ 
     //MARK: Private functions
    func setupDestinationView() {
     
@@ -95,26 +95,8 @@ override func viewWillAppear(_ animated: Bool) {
     
   }
     
-    func setupBottomBar() {
-        
-        
-        
-       let homeController = HomeViewController()
-        homeController.tabBarItem.image = UIImage(named: "tabbar_car@3x")
-        let navHome  = UINavigationController(rootViewController: homeController)
-        
-        let getPublicTransit = UIViewController()
-        getPublicTransit.view.backgroundColor = .green
-        getPublicTransit.tabBarItem.image = UIImage(named: "tabbar_train@3x")
-        let reportIssue = UIViewController()
-        reportIssue.view.backgroundColor = .blue
-        reportIssue.tabBarItem.image = UIImage(named: "tabbar_issue@3x")
-       tabBar.viewControllers = [navHome]
-      addChild(self.tabBar)
-      tabBar.didMove(toParent: self)
-      view.addSubview(self.tabBar.view)
-    }
-    
+  
+
  
  
     
@@ -271,10 +253,27 @@ private func constraintsLayout() {
 
     @objc func handleMenuAction() {
         animateSlideMenu()
+         hideTabBarController()
         let generator = UIImpactFeedbackGenerator(style: .heavy) // Add the vibration tap to the button
         generator.impactOccurred()
+         
 
+    
     }
+    
+    func hideTabBarController() {
+           tabBarController?.tabBar.isHidden = true
+           edgesForExtendedLayout = UIRectEdge.bottom
+           extendedLayoutIncludesOpaqueBars = true
+           
+       }
+       
+       func showTabBarController() {
+           tabBarController?.tabBar.isHidden = false
+             edgesForExtendedLayout = UIRectEdge.bottom
+           extendedLayoutIncludesOpaqueBars = false
+           
+       }
     
    
     func animateSlideMenu() {
@@ -285,7 +284,7 @@ private func constraintsLayout() {
         }) {(complete) in
             self.blackScreen.frame = CGRect(x: self.menuBarView.frame.width, y: 0, width:self.view.frame.width - self.menuBarView.frame.width, height: self.view.bounds.height + 100)
         }
-    
+     
     }
 
 
@@ -307,7 +306,7 @@ func MenuBarSetup() {
         blackScreen.layer.zPosition = 99
         let tapGestRecognizer = UITapGestureRecognizer(target: self, action: #selector(blackScreenTapAction(sender:)))
               blackScreen.addGestureRecognizer(tapGestRecognizer)
-
+        
     }
    
   @objc func blackScreenTapAction(sender: UITapGestureRecognizer) {
@@ -315,8 +314,10 @@ func MenuBarSetup() {
         blackScreen.frame=self.view.bounds
         UIView.animate(withDuration: 0.3) {
             self.menuBarView.frame=CGRect(x: 0, y: 0, width: 0, height: self.menuBarView.frame.height)
+           
 
         }
+     showTabBarController()
     }
 
 

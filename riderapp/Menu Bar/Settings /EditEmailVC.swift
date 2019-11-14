@@ -26,7 +26,22 @@ class EditEmailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
           emailInput.becomeFirstResponder()
+          hideTabBarController()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
+    
+    
+    func hideTabBarController() {
+              tabBarController?.tabBar.isHidden = true
+              edgesForExtendedLayout = UIRectEdge.bottom
+              extendedLayoutIncludesOpaqueBars = true
+          }
+       
+       
     
     //MARK - Private functions
     

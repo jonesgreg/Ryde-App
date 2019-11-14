@@ -32,6 +32,26 @@ class SelectVehicleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
           tableView.deselectSelectedRow(animated: false)
+          hideTabBarController()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showTabBarController()
+    }
+    func hideTabBarController() {
+        tabBarController?.tabBar.isHidden = true
+        edgesForExtendedLayout = UIRectEdge.bottom
+        extendedLayoutIncludesOpaqueBars = true
+        
+    }
+    
+    func showTabBarController() {
+        tabBarController?.tabBar.isHidden = false
+        edgesForExtendedLayout = UIRectEdge.bottom
+        extendedLayoutIncludesOpaqueBars = false
+        
     }
 
     

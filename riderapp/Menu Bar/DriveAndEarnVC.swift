@@ -30,19 +30,23 @@ class DriveAndEarnViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         configureUI()
         super.viewDidLoad()
-        let url = URL(string: "https://partners.bolt.eu/driver-signup")!
+        let url = URL(string: "https://fleetapp.tech/general-1")!
          webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
+        
      }
    
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
+        hideTabBarController()
+    
     
     }
     
     override func viewWillDisappear(_ animated: Bool) {
            super.viewWillDisappear(animated)
            self.navigationController?.setNavigationBarHidden(false, animated: animated)
+           showTabBarController()
        }
     
     func configureUI() {
@@ -68,7 +72,17 @@ class DriveAndEarnViewController: UIViewController, WKNavigationDelegate {
     }
     
    
+    func hideTabBarController() {
+           tabBarController?.tabBar.isHidden = true
+           edgesForExtendedLayout = UIRectEdge.bottom
+           extendedLayoutIncludesOpaqueBars = true
+       }
     
+    func showTabBarController() {
+              tabBarController?.tabBar.isHidden = false
+              edgesForExtendedLayout = UIRectEdge.bottom
+              extendedLayoutIncludesOpaqueBars = false
+          }
   
     
    

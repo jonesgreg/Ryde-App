@@ -7,51 +7,52 @@
 //
 
 import UIKit
-import ESTabBarController_swift
+
 
 class BottomTabBarController: UITabBarController, UITabBarControllerDelegate {
-     
+    
+  let tabBarHeight = 80;
+    
   override func viewDidLoad() {
         super.viewDidLoad()
        setupBottomBar()
-     self.tabBarController?.delegate = self
-    
+       self.tabBarController?.delegate = self
+      // self.tabBarController?.view.removeFromSuperview()
+ 
+   
     }
-
+   
+ 
+      
+  
     
  func setupBottomBar() {
-          UITabBar.appearance().backgroundColor = .white
+          UITabBar.appearance().backgroundColor = .lightGray
           UITabBar.appearance().tintColor = .black
-       
-   
-           
-           let homeController = HomeViewController()
+          tabBar.isTranslucent = false
+        let homeController = HomeViewController()
            let navHome  = UINavigationController(rootViewController: homeController)
-           navHome.tabBarItem.image = UIImage(named: "tabbar_car@3x")
-           navHome.tabBarItem.selectedImage = UIImage(named: "tabbar_selectedcar@3x")
-           navHome.tabBarItem.imageInsets =  UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+           navHome.tabBarItem.image = UIImage(named: "tabbar_car@2x")
+           navHome.tabBarItem.selectedImage = UIImage(named: "tabbar_selectedcar@2x")
+           navHome.tabBarItem.imageInsets =  UIEdgeInsets(top: 6, left: 0, bottom: -6, right: -80)
            navHome.tabBarItem.tag = 1
            
            
-           let getPublicTransit = HomeViewController()
+           let getPublicTransit = OpenTransitApp()
            let navpublicTransit = UINavigationController(rootViewController: getPublicTransit)
-           navpublicTransit.tabBarItem.image = UIImage(named: "tabbar_train@3x")
-           navpublicTransit.tabBarItem.selectedImage = UIImage(named: "tabbar_selectedtrain@3x")
-           navpublicTransit.tabBarItem.imageInsets =  UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+           navpublicTransit.tabBarItem.image = UIImage(named: "tabbar_train@2x")
+           navpublicTransit.tabBarItem.selectedImage = UIImage(named: "tabbar_selectedtrain@2x")
+           navpublicTransit.tabBarItem.imageInsets =  UIEdgeInsets(top: 6, left: -80, bottom: -6, right: 0)
            navpublicTransit.tabBarItem.tag = 2
           
-           let reportIssue = HomeViewController()
-           let navReportIssue = UINavigationController(rootViewController: reportIssue)
-              navReportIssue.tabBarItem.image = UIImage(named: "tabbar_issue@3x")
-           navReportIssue.tabBarItem.selectedImage = UIImage(named: "tabbar_selectedissue@3x")
-           navReportIssue.tabBarItem.imageInsets =  UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
-          navReportIssue.tabBarItem.tag = 3
+         
              
-           viewControllers = [navHome, navpublicTransit,navReportIssue]
+           viewControllers = [navHome, navpublicTransit]
            
       
        }
  
+   
     
     private func createDummyNavControllerWithTitle(title: String, imageName: String) -> UINavigationController {
         let viewController = UIViewController()
@@ -61,35 +62,26 @@ class BottomTabBarController: UITabBarController, UITabBarControllerDelegate {
         return navController
     }
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+  /*  override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
 
         if(item.tag == 3) {
           let helpVC = HelpViewController()
-            helpVC.modalPresentationStyle = .popover
+           helpVC.modalPresentationStyle =  .popover
               self.navigationController?.pushViewController(helpVC, animated: true)
              present(helpVC, animated: true, completion: nil)
+           
+          
            }
+       
         if(item.tag == 2) {
             openTransitApp()
+             dismiss(animated: true, completion: nil)
+           
         }
-    }
+    } */
+    
   
- /*  func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-       if viewController.tabBarItem.tag == 1 {
-           let helpVC = HelpViewController()
-                      helpVC.modalPresentationStyle = .pageSheet
-                        self.navigationController?.pushViewController(helpVC, animated: true)
-                       present(helpVC, animated: true, completion: nil)
-      }
-   } */
-
-     
- 
-  
-   
-       
-   
-  func openTransitApp() {
+func openTransitApp() {
              let application = UIApplication.shared
              let transitAppPath = "transit://app"
              let appUrl = URL(string: transitAppPath)!

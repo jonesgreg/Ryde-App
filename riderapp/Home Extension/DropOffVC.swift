@@ -17,6 +17,7 @@ class DropOffLocationViewController: UIViewController {
         configureUI()
         configureNavigationBar()
         constraintsLayout()
+        hideTabBarController()
         
     }
     
@@ -27,6 +28,22 @@ class DropOffLocationViewController: UIViewController {
         dropOffInput.becomeFirstResponder()
         CurrentLocationInput.delegate = self
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+       showTabBarController()
+    }
+    func hideTabBarController() {
+                  tabBarController?.tabBar.isHidden = true
+                  edgesForExtendedLayout = UIRectEdge.bottom
+                  extendedLayoutIncludesOpaqueBars = true
+              }
+    
+    func showTabBarController() {
+                  tabBarController?.tabBar.isHidden = false
+                  edgesForExtendedLayout = UIRectEdge.bottom
+                  extendedLayoutIncludesOpaqueBars = false
+              }
     
     private let dropOffView: UIView = {
         let view = UIView()

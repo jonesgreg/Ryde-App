@@ -36,15 +36,26 @@ class EditSchoolViewController: UIViewController {
          // configureTableView()
         //  tableViewConstraints()
            ConstraintsLayout()
-    
-                
+      }
       
-       }
-       override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
              super.viewWillAppear(animated)
         schoolInput.becomeFirstResponder()
+        hideTabBarController()
              
        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+       
+    }
+    
+    func hideTabBarController() {
+              tabBarController?.tabBar.isHidden = true
+              edgesForExtendedLayout = UIRectEdge.bottom
+              extendedLayoutIncludesOpaqueBars = true
+          }
+ 
+     
        
        //MARK - Private functions
 

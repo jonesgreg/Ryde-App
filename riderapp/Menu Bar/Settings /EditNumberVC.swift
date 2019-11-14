@@ -35,12 +35,26 @@ class EditNumberViewController: UIViewController {
             phoneInput.becomeFirstResponder()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
                   NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+              hideTabBarController()
        }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
          NotificationCenter.default.removeObserver(self)
+        
     }
+    func hideTabBarController() {
+              tabBarController?.tabBar.isHidden = true
+              edgesForExtendedLayout = UIRectEdge.bottom
+              extendedLayoutIncludesOpaqueBars = true
+          }
+       
+       func showTabBarController() {
+                 tabBarController?.tabBar.isHidden = false
+                 edgesForExtendedLayout = UIRectEdge.bottom
+                 extendedLayoutIncludesOpaqueBars = false
+             }
+     
       
           
        //MARK - Private functions

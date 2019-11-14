@@ -27,11 +27,31 @@ class DriverPickUpViewController: UIViewController {
     override func viewDidLoad() {
            super.viewDidLoad()
            setupView()
-          constraintsLayout()
-          tableViewSetup()
-         tableViewConstraints()
+           constraintsLayout()
+           tableViewSetup()
+          tableViewConstraints()
        }
- 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideTabBarController()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        showTabBarController()
+    }
+    
+    func hideTabBarController() {
+        tabBarController?.tabBar.isHidden = true
+        edgesForExtendedLayout = UIRectEdge.bottom
+        extendedLayoutIncludesOpaqueBars = true
+        
+    }
+
+    func showTabBarController() {
+        tabBarController?.tabBar.isHidden = false
+        edgesForExtendedLayout = UIRectEdge.bottom
+        extendedLayoutIncludesOpaqueBars = false
+    }
     //MARK: Private functions
       
      let destinationView: UIView = {

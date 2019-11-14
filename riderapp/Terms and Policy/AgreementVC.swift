@@ -29,13 +29,22 @@ class AgreementViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
      //  self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        hideTabBarController()
     }
     
    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     // Hide the navigation bar on the this view controller
      self.navigationController?.setNavigationBarHidden(false, animated: animated)
+ 
     }
+    
+
+   func hideTabBarController() {
+       tabBarController?.tabBar.isHidden = true
+       edgesForExtendedLayout = UIRectEdge.bottom
+       extendedLayoutIncludesOpaqueBars = true
+   }
     
    
     private let titleText: UITextView = {

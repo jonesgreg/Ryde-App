@@ -25,12 +25,13 @@ class TripReceiptViewController: UIViewController {
         configureNavigationController()
         constraintsLayout()
         tableViewConstraints()
+       
       
     }
     
     override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
-          // Hide the navigation bar on the this view controller
+           hideTabBarController()
         
       }
      
@@ -61,6 +62,14 @@ class TripReceiptViewController: UIViewController {
                            backButton.height(constant: 20)
                            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
+    
+    func hideTabBarController() {
+           tabBarController?.tabBar.isHidden = true
+           edgesForExtendedLayout = UIRectEdge.bottom
+           extendedLayoutIncludesOpaqueBars = true
+       }
+    
+
     
     //MARK: - Private functions
     

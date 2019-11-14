@@ -24,8 +24,25 @@ class PickUpViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         CurrentLocationInput.becomeFirstResponder()
         dropOffInput.delegate = self
+        hideTabBarController()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showTabBarController()
+        
     }
     
+    func hideTabBarController() {
+                  tabBarController?.tabBar.isHidden = true
+                  edgesForExtendedLayout = UIRectEdge.bottom
+                  extendedLayoutIncludesOpaqueBars = true
+              }
+    
+   func showTabBarController() {
+        tabBarController?.tabBar.isHidden = false
+        edgesForExtendedLayout = UIRectEdge.bottom
+        extendedLayoutIncludesOpaqueBars = false
+    }
     private let dropOffView: UIView = {
         let view = UIView()
             view.layer.shadowColor = UIColor.black.cgColor;

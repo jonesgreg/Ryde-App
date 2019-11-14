@@ -54,7 +54,7 @@ required init?(coder aDecoder: NSCoder) {
         tableView.translatesAutoresizingMaskIntoConstraints = false
        
     }
-   
+  
     
    func tableViewConstraints() {
         self.addSubview(tableView)
