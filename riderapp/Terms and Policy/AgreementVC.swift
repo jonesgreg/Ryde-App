@@ -29,7 +29,7 @@ class AgreementViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
      //  self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        hideTabBarController()
+      
     }
     
    override func viewWillDisappear(_ animated: Bool) {
